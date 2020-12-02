@@ -499,6 +499,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             Debug.Log($"카메라 락온, 대상 오브젝트: {nearestEnemyTransform.gameObject} 거리: {Mathf.Sqrt(nearestSqrDistance)}");
 
             playerCameraManager.TargetTransform = nearestEnemyTransform;
+            LookAtByCamera(Vector2.up);
         }
         else if (!input.LockonInput && IsLockon)
         {
