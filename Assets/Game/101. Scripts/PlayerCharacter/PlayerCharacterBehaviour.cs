@@ -554,7 +554,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
 
         if (IsLockon)
         {
-            var evadeDirection = characterInput.MoveInput.Digitalized();
+            var evadeDirection = characterInput.MoveInput.Digitalize();
 
             Animator.SetFloat("xEvade", evadeDirection.x);
             Animator.SetFloat("yEvade", evadeDirection.y);
