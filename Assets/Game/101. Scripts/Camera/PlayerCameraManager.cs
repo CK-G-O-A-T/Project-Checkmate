@@ -10,7 +10,8 @@ public class PlayerCameraManager : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] float lockonCameraHeight = 0.35f;
 
-    Transform freeLookCameraTransform;
+    //Transform freeLookCameraTransform;
+    float playerAngleOrigin;
     float xspeedBackup;
     float yspeedBackup;
     public Transform TargetTransform
@@ -42,7 +43,8 @@ public class PlayerCameraManager : MonoBehaviour
     {
         xspeedBackup = freeLookCamera.m_XAxis.m_MaxSpeed;
         yspeedBackup = freeLookCamera.m_YAxis.m_MaxSpeed;
-        freeLookCameraTransform = freeLookCamera.transform;
+        //freeLookCameraTransform = freeLookCamera.transform;
+        playerAngleOrigin = playerTransform.eulerAngles.y;
     }
 
     private void Start()
@@ -59,9 +61,9 @@ public class PlayerCameraManager : MonoBehaviour
         }
         else if (targetTransform != null)
         {
-            var freeLookForward = freeLookCameraTransform.forward.ToXZ();
+           // var freeLookForward = freeLookCameraTransform.forward.ToXZ();
             var angle = Vector2.SignedAngle(Vector2.up, (targetTransform.position - playerTransform.position).ToXZ());
-            angle -= Vector2.Angle(Vector2.down, freeLookForward);
+            angle += playerAngleOrigin;
 
             freeLookCamera.m_XAxis.Value = -angle;
             freeLookCamera.m_YAxis.Value = lockonCameraHeight;

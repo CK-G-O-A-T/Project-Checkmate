@@ -16,7 +16,7 @@ public enum Vector2DigitalizeOption
 }
 public static class Vector2Extension
 {
-    public static Vector2 Digitalized(this Vector2 vector, Vector2DigitalizeOption option = Vector2DigitalizeOption.FourDirection)
+    public static Vector2 Digitalize(this Vector2 vector, Vector2DigitalizeOption option = Vector2DigitalizeOption.FourDirection)
     {
         if (option == Vector2DigitalizeOption.None)
             return vector;
@@ -37,25 +37,29 @@ public static class Vector2Extension
             case Vector2DigitalizeOption.FourDirection:
             case Vector2DigitalizeOption.EightDirection:
                 {
-                    var rawAngle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+                    var rawAngle = Mathf.Atan2(vector.x, vector.y) * Mathf.Rad2Deg;
 
                     if (option == Vector2DigitalizeOption.FourDirection)
                     {
-                        if (rawAngle > 135 || rawAngle < -135)
+                        if (vector.sqrMagnitude == 0)
                         {
-                            return Vector2.left;
+                            return Vector2.zero;
                         }
-                        else if (rawAngle > 45)
-                        {
-                            return Vector2.up;
-                        }
-                        else if (rawAngle < -45)
+                        else if (rawAngle >= 135 || rawAngle <= -135)
                         {
                             return Vector2.down;
                         }
-                        else
+                        else if (rawAngle > 45)
                         {
                             return Vector2.right;
+                        }
+                        else if (rawAngle < -45)
+                        {
+                            return Vector2.left;
+                        }
+                        else
+                        {
+                            return Vector2.up;
                         }
                     }
                     else
