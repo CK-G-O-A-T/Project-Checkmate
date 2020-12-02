@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 189d90cea0131da40ad0ed8fe3f2d644
+guid: 54e20cfc086495b4783b910bb006216c
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: 7743094586057676373
-    second: PC_Roll_Back
+      74: -6445051068794620715
+    second: run_left
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: PC_Roll_Back
-      takeName: PC_Roll_Back
+      name: run_left
+      takeName: run_left
       internalID: 0
-      firstFrame: 10
-      lastFrame: 64
+      firstFrame: 0
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1

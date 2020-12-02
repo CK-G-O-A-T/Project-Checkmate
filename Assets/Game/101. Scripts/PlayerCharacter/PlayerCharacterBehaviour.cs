@@ -152,6 +152,8 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         }
     }
 
+    public bool IsLockon => playerCameraManager.TargetTransform != null;
+
     public bool CanRotate
     {
         get
@@ -159,9 +161,21 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             var nextStateIsMove = Animator.GetNextAnimatorStateInfo(BaseLayerIndex).IsTag("Move");
             return !IsAttacking &&
                 !IsEvading &&
-                !IsImpact ||
+                !IsImpact &&
+                !IsLockon ||
                 nextStateIsMove &&
                 !IsEvading;
+        }
+    }
+
+    public bool CanEvade
+    {
+        get
+        {
+            var nextStateIsMove = Animator.GetNextAnimatorStateInfo(BaseLayerIndex).IsTag("Move");
+            return !IsAttacking &&
+                !IsImpact ||
+                nextStateIsMove;
         }
     }
 
@@ -345,16 +359,29 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         var moveVelocityRaw = isGround ? characterInput.MoveInput : Vector2.zero;
         moveVelocity = Vector2.SmoothDamp(moveVelocity, moveVelocityRaw, ref moveVelocitySmooth, moveVelocitySmoothTime);
 
-
         var moveMagnitude = moveVelocity.magnitude;
         var moveRawMagnitude = moveVelocityRaw.magnitude;
         if (moveRawMagnitude > 0.1f)
         {
-            if (CanRotate)
+            if (IsLockon)
             {
-                LookAtByCamera(moveVelocityRaw);
+                LookAtByCamera(Vector2.up);
+
+                // 회피중이면 방향을 고정.
+
+                thisAnimator.SetFloat("ySpeed", moveVelocity.y);
+                thisAnimator.SetFloat("xSpeed", moveVelocity.x);
             }
-            thisAnimator.SetFloat("ySpeed", moveMagnitude);
+            else
+            {
+                if (CanRotate)
+                {
+                    LookAtByCamera(moveVelocityRaw);
+                }
+
+                thisAnimator.SetFloat("ySpeed", moveMagnitude);
+                thisAnimator.SetFloat("xSpeed", 0);
+            }
             thisAnimator.SetBool("isMove", true);
         }
         else
@@ -362,7 +389,6 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             //animator.SetFloat("ySpeed", 0);
             thisAnimator.SetBool("isMove", false);
         }
-
         // 방향 업데이트
         characterWorldAngle = Mathf.SmoothDampAngle(characterWorldAngle, characterWorldAngleTarget, ref characterWorldAngleSmooth, characterWorldAngleSmoothTime);
 
@@ -392,22 +418,23 @@ public class PlayerCharacterBehaviour : MonoBehaviour
 
     void EvadeUpdate()
     {
-        if (!isEvadingChecked)
-        {
-            if (IsEvading)
-            {
-                isEvadingChecked = true;
-                //noDamageTime = characterEquipment.WeaponData.NoDamageTimeByEvasion;
-            }
-        }
-        else
-        {
-            if (!IsEvading)
-            {
-                //isEvadingChecked = false;
-            }
-        }
+        //if (!isEvadingChecked)
+        //{
+        //    if (IsEvading)
+        //    {
+        //        isEvadingChecked = true;
+        //        //noDamageTime = characterEquipment.WeaponData.NoDamageTimeByEvasion;
+        //    }
+        //}
+        //else
+        //{
+        //    if (!IsEvading)
+        //    {
+        //        //isEvadingChecked = false;
+        //    }
+        //}
 
+        Animator.SetBool("canEvade", CanEvade);
         Animator.SetBool("isEvade", IsEvade);
         Animator.SetBool("isImpact", IsImpact);
     }
@@ -451,7 +478,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     {
         var input = characterInput;
 
-        if (input.LockonInput && playerCameraManager.TargetTransform==null)
+        if (input.LockonInput && !IsLockon)
         {
             // 가장 가까운 적 캐릭터 찾기
             var enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
@@ -473,7 +500,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
 
             playerCameraManager.TargetTransform = nearestEnemyTransform;
         }
-        else if (!input.LockonInput && playerCameraManager.TargetTransform != null)
+        else if (!input.LockonInput && IsLockon)
         {
             Debug.Log($"카메라 락온 해제");
             playerCameraManager.TargetTransform = null;
@@ -523,6 +550,22 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     public void EvadeInputHandle()
     {
         //SendMessage("DamageTrigger_EndTrigger");
+
+        if (IsLockon)
+        {
+            var evadeDirection = characterInput.MoveInput.Digitalized();
+
+            Animator.SetFloat("xEvade", evadeDirection.x);
+            Animator.SetFloat("yEvade", evadeDirection.y);
+
+            Debug.Log("ㅁㄴㅇㄻㄴㅇㄻㄴㄷㅇㄻㄴㅇㄹ");
+        }
+        else
+        {
+            Animator.SetFloat("xEvade", 0);
+            Animator.SetFloat("yEvade", 1);
+        }
+
         animatorTriggerManager.SetTrigger("doEvading", doEvadeTime);
         animatorTriggerManager.SetTrigger("doBaseCancel", doEvadeTime);
         cancelAttack = true;
