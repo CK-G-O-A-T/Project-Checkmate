@@ -83,6 +83,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     public Animator Animator => thisAnimator;
     public PlayerCharacterInput CharacterInput => characterInput;
     public PlayerCharacterStatus Status => status;
+    public PlayerCharacterEquipment Equipment => characterEquipment;
 
     public bool IsAttacking
     {
@@ -99,7 +100,15 @@ public class PlayerCharacterBehaviour : MonoBehaviour
 
     public void DoAttack()
     {
-        animatorTriggerManager.SetTrigger("doAttacking", doAttackTime);
+        var staminaDecreaseByAttack = characterEquipment.WeaponData.StaminaDecreaseByAttack;
+
+        if (status.Stamina > staminaDecreaseByAttack)
+        {
+            animatorTriggerManager.SetTrigger("doAttacking", doAttackTime);
+
+            //status.Stamina -= staminaDecreaseByAttack;
+            //status.SetStaminaRecoveryDelay();
+        }
     }
 
     public bool IsEvading
@@ -540,6 +549,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         GUILayout.TextArea($"switch cooltime: {switchingCooltime}");
         GUILayout.TextArea($"IsAttacking: {IsAttacking}");
         GUILayout.TextArea($"doWeaponChange: {Animator.GetBool("doWeaponChange")}");
+        GUILayout.TextArea($"Stamina: {Status.Stamina}");
     }
 
     public void AttackInputHandle()
