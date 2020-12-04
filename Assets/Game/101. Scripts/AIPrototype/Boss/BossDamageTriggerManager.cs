@@ -7,6 +7,7 @@ public class BossDamageTriggerManager : MonoBehaviour
 {
     public BossWeaponDamageTrigger[] damageTriggers;
     public BossGrowlDamageTrigger growlTrigger;
+    public BossWeaponDamageTrigger wideAreaTrigger;
     public double setAttackDamage;
 
     public void DamageTrigger_StartTrigger()
@@ -35,5 +36,16 @@ public class BossDamageTriggerManager : MonoBehaviour
     public void GrowlTrigger_EndTrigger()
     {
         growlTrigger.EndTrigger();
+    }
+
+    public void WideAreaTrigger_StartTrigger()
+    {
+        wideAreaTrigger.damage = setAttackDamage;
+        wideAreaTrigger.StartTrigger();
+    }
+
+    public void WideAreaTrigger_EndTrigger()
+    {
+        wideAreaTrigger.EndTrigger();
     }
 }

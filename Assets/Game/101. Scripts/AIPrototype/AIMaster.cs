@@ -85,7 +85,7 @@ public class AIMaster : MonoBehaviour
         AttackDistance();
         //CustomLookAt(player.transform.position);
         AgentNextPostiion = agent.nextPosition;
-        Debug.Log(GetTargetAngle(player.transform.position) * Mathf.Rad2Deg);
+        //Debug.Log(GetTargetAngle(player.transform.position) * Mathf.Rad2Deg);
     }
 
     private void FixedUpdate()
