@@ -51,7 +51,7 @@ public class PlayerCharacterStatus : MonoBehaviour
             this.switchPoint = value;
         }
     }
-    
+
     /// <summary>
     /// Data.StaminaRecoveryDelay를 적용합니다.
     /// </summary>
@@ -104,7 +104,7 @@ public class PlayerCharacterStatus : MonoBehaviour
                 weaponSlot4 = value;
                 break;
         }
-        
+
         SortWeaponSlot();
     }
     /// <summary>
@@ -195,7 +195,8 @@ public class PlayerCharacterStatus : MonoBehaviour
 
     private void Start()
     {
-        uiPlayerHP.UpdateHpBar();
+        if (uiPlayerHP != null)
+            uiPlayerHP.UpdateHpBar();
         SortWeaponSlot();
     }
 
