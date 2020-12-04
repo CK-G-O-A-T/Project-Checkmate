@@ -182,8 +182,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         get
         {
             var nextStateIsMove = Animator.GetNextAnimatorStateInfo(BaseLayerIndex).IsTag("Move");
-            return !IsAttacking &&
-                !IsImpact ||
+            return !IsImpact ||
                 nextStateIsMove;
         }
     }
