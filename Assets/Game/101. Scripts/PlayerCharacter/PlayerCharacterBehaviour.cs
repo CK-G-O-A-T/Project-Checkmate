@@ -102,7 +102,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     {
         var staminaDecreaseByAttack = characterEquipment.WeaponData.StaminaDecreaseByAttack;
 
-        if (status.Stamina > staminaDecreaseByAttack)
+        if (status.Stamina > 0)
         {
             animatorTriggerManager.SetTrigger("doAttacking", doAttackTime);
 
@@ -561,25 +561,27 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     public void EvadeInputHandle()
     {
         //SendMessage("DamageTrigger_EndTrigger");
-
-        if (IsLockon)
+        if (Status.Stamina > 0)
         {
-            var evadeDirection = characterInput.MoveInput.Digitalize();
+            if (IsLockon)
+            {
+                var evadeDirection = characterInput.MoveInput.Digitalize();
 
-            Animator.SetFloat("xEvade", evadeDirection.x);
-            Animator.SetFloat("yEvade", evadeDirection.y);
+                Animator.SetFloat("xEvade", evadeDirection.x);
+                Animator.SetFloat("yEvade", evadeDirection.y);
 
-            Debug.Log("ㅁㄴㅇㄻㄴㅇㄻㄴㄷㅇㄻㄴㅇㄹ");
+                Debug.Log("ㅁㄴㅇㄻㄴㅇㄻㄴㄷㅇㄻㄴㅇㄹ");
+            }
+            else
+            {
+                Animator.SetFloat("xEvade", 0);
+                Animator.SetFloat("yEvade", 1);
+            }
+
+            animatorTriggerManager.SetTrigger("doEvading", doEvadeTime);
+            animatorTriggerManager.SetTrigger("doBaseCancel", doEvadeTime);
+            cancelAttack = true;
         }
-        else
-        {
-            Animator.SetFloat("xEvade", 0);
-            Animator.SetFloat("yEvade", 1);
-        }
-
-        animatorTriggerManager.SetTrigger("doEvading", doEvadeTime);
-        animatorTriggerManager.SetTrigger("doBaseCancel", doEvadeTime);
-        cancelAttack = true;
     }
 
     /// <summary>

@@ -39,7 +39,7 @@ public class PlayerCharacterData : ScriptableObject
     public double StaminaConsumptionBySprint = 10;
 
     [Tooltip("회피 행동력 소모량")]
-    public double StamianConsumptionByEvation = 25;
+    public double StamianDecreaseByEvasion = 25;
 
     [Tooltip("패링 스위칭 포인트 상승량")]
     public double SwitchingPointProductionByParrying = 30;
