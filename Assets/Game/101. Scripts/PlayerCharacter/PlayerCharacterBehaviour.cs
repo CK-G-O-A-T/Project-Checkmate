@@ -577,6 +577,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             }
             else
             {
+                LookAtByCamera(this.characterInput.MoveInput);
                 Animator.SetFloat("xEvade", 0);
                 Animator.SetFloat("yEvade", 1);
             }
