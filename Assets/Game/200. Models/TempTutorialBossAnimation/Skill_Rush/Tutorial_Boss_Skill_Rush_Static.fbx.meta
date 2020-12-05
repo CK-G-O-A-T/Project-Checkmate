@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: e33af7b29ca08574c9e6e6a6444fb192
+guid: bc7cc3a025f99b34fbaf89731ef0002a
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -6743678553702420607
-    second: "Boss_\uC5F0\uC18D\uACF5\uACA9"
-  - first:
-      74: 3378549492280188403
-    second: "Boss_\uC5F0\uC18D\uACF5\uACA9 (1)"
+      74: 5691740687302830314
+    second: "Boss_\uB3CC\uC9C4(\uC810\uD504)"
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -38,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: "Boss_\uC5F0\uC18D\uACF5\uACA9"
-      takeName: "Boss_\uC5F0\uC18D\uACF5\uACA9"
+      name: "Boss_\uB3CC\uC9C4(\uC810\uD504)"
+      takeName: "Boss_\uB3CC\uC9C4(\uC810\uD504)"
       internalID: 0
-      firstFrame: 27
-      lastFrame: 80
+      firstFrame: 36
+      lastFrame: 58
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -52,83 +49,12 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events:
-      - time: 0.06578947
-        functionName: DamageTrigger_StartTrigger
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.16228071
-        functionName: DamageTrigger_EndTrigger
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.30701756
-        functionName: DamageTrigger_StartTrigger
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.38157895
-        functionName: DamageTrigger_EndTrigger
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.50438595
-        functionName: DamageTrigger_StartTrigger
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.6008772
-        functionName: DamageTrigger_EndTrigger
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 27
-    - serializedVersion: 16
-      name: "Boss_\uC5F0\uC18D\uACF5\uACA9 (1)"
-      takeName: "Boss_\uC5F0\uC18D\uACF5\uACA9"
-      internalID: 0
-      firstFrame: 80
-      lastFrame: 100
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -136,7 +62,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 27
+      additiveReferencePoseFrame: 36
     isReadable: 0
   meshes:
     lODScreenPercentages: []

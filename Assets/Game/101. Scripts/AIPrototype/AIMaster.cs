@@ -85,6 +85,7 @@ public class AIMaster : MonoBehaviour
         AttackDistance();
         //CustomLookAt(player.transform.position);
         AgentNextPostiion = agent.nextPosition;
+        //Debug.Log(GetTargetAngle(player.transform.position) * Mathf.Rad2Deg);
     }
 
     private void FixedUpdate()
@@ -279,6 +280,37 @@ public class AIMaster : MonoBehaviour
     //    isDecreaseGroggy = false;
     //}
 
+    public Vector3 jumpTarget;
+    public float speed = 50f;
+    public bool checkArrive = false;
+    public void StartJumpToTarget()
+    {
+        jumpTarget = player.transform.position;
+        jumpTarget.y = 0f;
+        speed = 50f;
+        checkArrive = false;
+    }
+
+    public void UpdataJumpToTarget()
+    {
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        Vector3 pos = transform.position;
+        pos.y = 0f;
+        if (Vector3.Distance(pos, jumpTarget) <= 15f)
+        {
+            checkArrive = true;
+        }
+        if (checkArrive)
+        {
+            speed = Mathf.Lerp(speed, 0, Time.deltaTime * 3f);
+            if (speed <= 10f)
+            {
+                anim.SetTrigger("timerTrigger");
+            }
+        }
+    }
+
     #region Evade Function
     public void SetEvadePosition(out bool value)
     {
@@ -325,22 +357,30 @@ public class AIMaster : MonoBehaviour
     #endregion
 
     #region Utilities Function
+
+    /// <summary>
+    /// target과의 각도를 0~180도를 검사함
+    /// </summary>
+    /// <param name="target"></param>
+    /// <returns></returns>
     private float GetTargetAngle(Vector3 target)
     {
         Vector3 targetDirection = target - transform.position;
-        float angle = Mathf.Acos(Vector3.Dot(targetDirection, transform.forward));
+        float angle = Mathf.Acos(Vector3.Dot(targetDirection.normalized, transform.forward));
 
         return angle;
     }
 
-
+    [Range(1, 360)]
+    public float angle;
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
         if (DebugOn)
         {
             Handles.color = new Color(1, 0, 0, 0.3f);
-            Handles.DrawSolidDisc(transform.position, transform.up, closeRangeAttackDistance);
+            Handles.DrawSolidArc(transform.position, transform.up, transform.forward, angle / 2, closeRangeAttackDistance);
+            Handles.DrawSolidArc(transform.position, transform.up, transform.forward, -angle / 2, closeRangeAttackDistance);
 
             Handles.color = new Color(0, 0, 1, 0.2f);
             Handles.DrawSolidDisc(transform.position, transform.up, longRangeAttackDistance);
