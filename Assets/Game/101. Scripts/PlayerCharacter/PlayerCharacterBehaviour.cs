@@ -364,7 +364,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     #region Update 하위 메서드
     void MoveUpdate()
     {
-        var moveVelocityRaw = isGround ? characterInput.MoveInput : Vector2.zero;
+        var moveVelocityRaw = isGround ? characterInput.MoveInput * (IsLockon ? 0.5f : 1f) : Vector2.zero;
         moveVelocity = Vector2.SmoothDamp(moveVelocity, moveVelocityRaw, ref moveVelocitySmooth, moveVelocitySmoothTime);
 
         var moveMagnitude = moveVelocity.magnitude;
@@ -553,6 +553,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         GUILayout.TextArea($"doWeaponChange: {Animator.GetBool("doWeaponChange")}");
         GUILayout.TextArea($"Stamina: {Status.Stamina}");
         GUILayout.TextArea($"SwitchingPoint: {Status.SwitchPoint}");
+        GUILayout.TextArea($"ySpeed: {this.Animator.GetFloat("ySpeed")}");
     }
 
     public void AttackInputHandle()
