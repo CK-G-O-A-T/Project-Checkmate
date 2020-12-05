@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-class PlayerCharacterEquipment : MonoBehaviour
+public class PlayerCharacterEquipment : MonoBehaviour
 {
     [Header("오브젝트 설정")]
     [SerializeField] Transform weaponJoint;

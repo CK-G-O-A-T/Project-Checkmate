@@ -18,12 +18,11 @@ MonoBehaviour:
   WeaponName: "\uB354\uBBF8 \uBB34\uAE30"
   Type: 1
   AttackDamage: 30
-  PowerAttackDamage: 40
+  LastAttackDamage: 40
   LinkedAttackDamage: 30
-  LinkedPowerAttackDamage: 40
+  LinkedLastAttackDamage: 40
   AttackSpeed: 1
-  NoDamageTimeByEvasion: 1
-  EvasionDistance: 0
-  SwitchingPointIncreaseByHit: 0
-  GroggyPointIncreaseByHit: 0
-  StaminaDecreaseByAttack: 0
+  EvadeSpeed: 1
+  SwitchingPointIncreaseByHit: 10
+  GroggyPointIncreaseByHit: 5
+  StaminaDecreaseByAttack: 5

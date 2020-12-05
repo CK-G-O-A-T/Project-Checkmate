@@ -21,6 +21,8 @@ public class PlayerCharacterStatus : MonoBehaviour
     [SerializeField] PlayerCharacterData data;
     [SerializeField] UIPlayerHP uiPlayerHP;
 
+    float remainedStaminaRecoveryDelayTime = 0;
+
     public double Hp
     {
         get => this.hp;
@@ -28,7 +30,6 @@ public class PlayerCharacterStatus : MonoBehaviour
         {
             value = Mathx.Clamp(value, 0, data.MaxHp);
             this.hp = value;
-            //playerHud.HP = value;
             uiPlayerHP.UpdateHpBar();
         }
     }
@@ -39,7 +40,6 @@ public class PlayerCharacterStatus : MonoBehaviour
         {
             value = Mathx.Clamp(value, 0, data.MaxStamina);
             this.stamina = value;
-            //playerHud.Stamina = value;
         }
     }
     public double SwitchPoint
@@ -49,9 +49,17 @@ public class PlayerCharacterStatus : MonoBehaviour
         {
             value = Mathx.Clamp(value, 0, data.MaxSwitchingPoint);
             this.switchPoint = value;
-            //playerHud.SwitchPoint = value;
         }
     }
+
+    /// <summary>
+    /// Data.StaminaRecoveryDelay를 적용합니다.
+    /// </summary>
+    public void SetStaminaRecoveryDelay()
+    {
+        remainedStaminaRecoveryDelayTime = data.StaminaRecoveryDelay;
+    }
+
     public PlayerCharacterData Data
     {
         get => this.data;
@@ -96,7 +104,7 @@ public class PlayerCharacterStatus : MonoBehaviour
                 weaponSlot4 = value;
                 break;
         }
-        
+
         SortWeaponSlot();
     }
     /// <summary>
@@ -187,7 +195,24 @@ public class PlayerCharacterStatus : MonoBehaviour
 
     private void Start()
     {
-        uiPlayerHP.UpdateHpBar();
+        if (uiPlayerHP != null)
+            uiPlayerHP.UpdateHpBar();
         SortWeaponSlot();
+    }
+
+    private void LateUpdate()
+    {
+        StaminaUpdate();
+    }
+
+    private void StaminaUpdate()
+    {
+        var deltaTime = Time.deltaTime;
+        Mathx.TimeToZero(ref remainedStaminaRecoveryDelayTime, deltaTime);
+
+        if (remainedStaminaRecoveryDelayTime == 0)
+        {
+            Stamina += data.StaminaRecoveryPerSeconds * deltaTime;
+        }
     }
 }

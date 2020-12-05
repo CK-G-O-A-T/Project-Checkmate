@@ -83,6 +83,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     public Animator Animator => thisAnimator;
     public PlayerCharacterInput CharacterInput => characterInput;
     public PlayerCharacterStatus Status => status;
+    public PlayerCharacterEquipment Equipment => characterEquipment;
 
     public bool IsAttacking
     {
@@ -99,7 +100,15 @@ public class PlayerCharacterBehaviour : MonoBehaviour
 
     public void DoAttack()
     {
-        animatorTriggerManager.SetTrigger("doAttacking", doAttackTime);
+        var staminaDecreaseByAttack = characterEquipment.WeaponData.StaminaDecreaseByAttack;
+
+        if (status.Stamina > 0)
+        {
+            animatorTriggerManager.SetTrigger("doAttacking", doAttackTime);
+
+            //status.Stamina -= staminaDecreaseByAttack;
+            //status.SetStaminaRecoveryDelay();
+        }
     }
 
     public bool IsEvading
@@ -173,8 +182,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         get
         {
             var nextStateIsMove = Animator.GetNextAnimatorStateInfo(BaseLayerIndex).IsTag("Move");
-            return !IsAttacking &&
-                !IsImpact ||
+            return !IsImpact ||
                 nextStateIsMove;
         }
     }
@@ -356,7 +364,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     #region Update 하위 메서드
     void MoveUpdate()
     {
-        var moveVelocityRaw = isGround ? characterInput.MoveInput : Vector2.zero;
+        var moveVelocityRaw = isGround ? characterInput.MoveInput * (IsLockon ? 0.5f : 1f) : Vector2.zero;
         moveVelocity = Vector2.SmoothDamp(moveVelocity, moveVelocityRaw, ref moveVelocitySmooth, moveVelocitySmoothTime);
 
         var moveMagnitude = moveVelocity.magnitude;
@@ -459,13 +467,16 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             if (reservedWeaponIndex != currentWeaponSwitchInput)
             {
                 reservedWeaponIndex = currentWeaponSwitchInput;
-                // 애니메이션 이벤트가 나와야 최종적으로 무기 교체가능.
-                //Animator.SetTrigger("doWeaponChange");
-                animatorTriggerManager.SetTrigger("doWeaponChange", doWeaponChangeTime, () =>
+                if (Status.Data.SwitchingPointsMinRequirements <= Status.SwitchPoint)
                 {
-                    // 트리거 취소로 인한 롤백
-                    input.WeaponSwitchInput = reservedWeaponIndex = Status.CurrentWeaponSlotIndex;
-                });
+                    // 애니메이션 이벤트가 나와야 최종적으로 무기 교체가능.
+                    animatorTriggerManager.SetTrigger("doWeaponChange", doWeaponChangeTime, WeaponSwitchInputRollback);
+                }
+                else
+                {
+                    // 입력 롤백
+                    WeaponSwitchInputRollback();
+                }
             }
         }
         else
@@ -540,6 +551,9 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         GUILayout.TextArea($"switch cooltime: {switchingCooltime}");
         GUILayout.TextArea($"IsAttacking: {IsAttacking}");
         GUILayout.TextArea($"doWeaponChange: {Animator.GetBool("doWeaponChange")}");
+        GUILayout.TextArea($"Stamina: {Status.Stamina}");
+        GUILayout.TextArea($"SwitchingPoint: {Status.SwitchPoint}");
+        GUILayout.TextArea($"ySpeed: {this.Animator.GetFloat("ySpeed")}");
     }
 
     public void AttackInputHandle()
@@ -551,25 +565,28 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     public void EvadeInputHandle()
     {
         //SendMessage("DamageTrigger_EndTrigger");
-
-        if (IsLockon)
+        if (Status.Stamina > 0)
         {
-            var evadeDirection = characterInput.MoveInput.Digitalize();
+            if (IsLockon)
+            {
+                var evadeDirection = characterInput.MoveInput.Digitalize();
 
-            Animator.SetFloat("xEvade", evadeDirection.x);
-            Animator.SetFloat("yEvade", evadeDirection.y);
+                Animator.SetFloat("xEvade", evadeDirection.x);
+                Animator.SetFloat("yEvade", evadeDirection.y);
 
-            Debug.Log("ㅁㄴㅇㄻㄴㅇㄻㄴㄷㅇㄻㄴㅇㄹ");
+                Debug.Log("ㅁㄴㅇㄻㄴㅇㄻㄴㄷㅇㄻㄴㅇㄹ");
+            }
+            else
+            {
+                LookAtByCamera(this.characterInput.MoveInput);
+                Animator.SetFloat("xEvade", 0);
+                Animator.SetFloat("yEvade", 1);
+            }
+
+            animatorTriggerManager.SetTrigger("doEvading", doEvadeTime);
+            animatorTriggerManager.SetTrigger("doBaseCancel", doEvadeTime);
+            cancelAttack = true;
         }
-        else
-        {
-            Animator.SetFloat("xEvade", 0);
-            Animator.SetFloat("yEvade", 1);
-        }
-
-        animatorTriggerManager.SetTrigger("doEvading", doEvadeTime);
-        animatorTriggerManager.SetTrigger("doBaseCancel", doEvadeTime);
-        cancelAttack = true;
     }
 
     /// <summary>
@@ -577,6 +594,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     /// </summary>
     void WeaponChange()
     {
+        status.SwitchPoint = 0;
         status.CurrentWeaponSlotIndex = reservedWeaponIndex;
 
         var weapon = status.GetWeaponSlot(status.CurrentWeaponSlotIndex);
@@ -589,6 +607,13 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             // 쿨타임 적용
             switchingCooltime = Status.Data.SwitchingCoolTime;
         }
+    }
+
+    void WeaponSwitchInputRollback()
+    {
+        var input = characterInput;
+
+        input.WeaponSwitchInput = reservedWeaponIndex = Status.CurrentWeaponSlotIndex;
     }
 
     /// <summary>
