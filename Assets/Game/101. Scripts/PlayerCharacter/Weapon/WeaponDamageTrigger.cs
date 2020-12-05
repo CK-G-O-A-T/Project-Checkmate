@@ -25,6 +25,9 @@ public class WeaponDamageTrigger : DamageTrigger
         if (hitAudio != null)
             hitAudio.Play();
         Debug.Log($"무기 '{weaponData.WeaponName}' 공격");
+
+        PlayerCharacterBehaviour.Status.SwitchPoint += WeaponData.SwitchingPointIncreaseByHit;
+
         base.DealingDamage(damageHandler);
     }
 
@@ -60,7 +63,7 @@ public class WeaponDamageTrigger : DamageTrigger
                 damage = WeaponData.AttackDamage;
             }
         }
-        //PlayerCharacterBehaviour.CurrentAttackIsLast || PlayerCharacterBehaviour.CurrentAttackIsLast ? WeaponData.LastAttackDamage: WeaponData.AttackDamage
+
         DamageData damageData = new DamageData()
         {
             Trigger = this,

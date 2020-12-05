@@ -23,6 +23,6 @@ MonoBehaviour:
   LinkedLastAttackDamage: 40
   AttackSpeed: 1
   EvadeSpeed: 1
-  SwitchingPointIncreaseByHit: 0
-  GroggyPointIncreaseByHit: 0
+  SwitchingPointIncreaseByHit: 10
+  GroggyPointIncreaseByHit: 10
   StaminaDecreaseByAttack: 10

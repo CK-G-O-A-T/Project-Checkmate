@@ -467,13 +467,16 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             if (reservedWeaponIndex != currentWeaponSwitchInput)
             {
                 reservedWeaponIndex = currentWeaponSwitchInput;
-                // 애니메이션 이벤트가 나와야 최종적으로 무기 교체가능.
-                //Animator.SetTrigger("doWeaponChange");
-                animatorTriggerManager.SetTrigger("doWeaponChange", doWeaponChangeTime, () =>
+                if (Status.Data.SwitchingPointsMinRequirements <= Status.SwitchPoint)
                 {
-                    // 트리거 취소로 인한 롤백
-                    input.WeaponSwitchInput = reservedWeaponIndex = Status.CurrentWeaponSlotIndex;
-                });
+                    // 애니메이션 이벤트가 나와야 최종적으로 무기 교체가능.
+                    animatorTriggerManager.SetTrigger("doWeaponChange", doWeaponChangeTime, WeaponSwitchInputRollback);
+                }
+                else
+                {
+                    // 입력 롤백
+                    WeaponSwitchInputRollback();
+                }
             }
         }
         else
@@ -549,6 +552,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         GUILayout.TextArea($"IsAttacking: {IsAttacking}");
         GUILayout.TextArea($"doWeaponChange: {Animator.GetBool("doWeaponChange")}");
         GUILayout.TextArea($"Stamina: {Status.Stamina}");
+        GUILayout.TextArea($"SwitchingPoint: {Status.SwitchPoint}");
     }
 
     public void AttackInputHandle()
@@ -588,6 +592,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     /// </summary>
     void WeaponChange()
     {
+        status.SwitchPoint = 0;
         status.CurrentWeaponSlotIndex = reservedWeaponIndex;
 
         var weapon = status.GetWeaponSlot(status.CurrentWeaponSlotIndex);
@@ -600,6 +605,13 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             // 쿨타임 적용
             switchingCooltime = Status.Data.SwitchingCoolTime;
         }
+    }
+
+    void WeaponSwitchInputRollback()
+    {
+        var input = characterInput;
+
+        input.WeaponSwitchInput = reservedWeaponIndex = Status.CurrentWeaponSlotIndex;
     }
 
     /// <summary>
