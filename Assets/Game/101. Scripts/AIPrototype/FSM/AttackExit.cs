@@ -10,6 +10,7 @@ public class AttackExit : StateMachineBehaviour
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         aiMaster = animator.GetComponent<AIMaster>();
+        aiMaster.SetDestinationToPlayer();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
