@@ -364,8 +364,19 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     #region Update 하위 메서드
     void MoveUpdate()
     {
-        var moveVelocityRaw = isGround ? characterInput.MoveInput * (IsLockon ? 0.5f : 1f) : Vector2.zero;
-        moveVelocity = Vector2.SmoothDamp(moveVelocity, moveVelocityRaw, ref moveVelocitySmooth, moveVelocitySmoothTime);
+        float moveSpeedMultiplier = 1;
+
+        if (IsLockon)
+        {
+            moveSpeedMultiplier = 0.5f;
+        }
+        else if (characterInput.SprintInput && Status.Stamina > 0)
+        {
+            moveSpeedMultiplier = 2;
+        }
+
+        var moveVelocityRaw = isGround ? characterInput.MoveInput * moveSpeedMultiplier : Vector2.zero;
+        moveVelocity = Vector2.SmoothDamp(moveVelocity, moveVelocityRaw, ref moveVelocitySmooth, moveVelocitySmoothTime * (moveSpeedMultiplier == 2 ?4:1));
 
         var moveMagnitude = moveVelocity.magnitude;
         var moveRawMagnitude = moveVelocityRaw.magnitude;
@@ -384,6 +395,12 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             {
                 if (CanRotate)
                 {
+                    if (moveMagnitude > 1.2f)
+                    {
+                        var staminaConsumptionMultiplier = Mathf.Max(0, moveMagnitude - 1);
+                        Status.Stamina -= Status.Data.StaminaConsumptionBySprint * Time.deltaTime * staminaConsumptionMultiplier;
+                        Status.SetStaminaRecoveryDelay();
+                    }
                     LookAtByCamera(moveVelocityRaw);
                 }
 

@@ -65,6 +65,7 @@ public class PlayerCharacterInput : MonoBehaviour
     public void OnSprint(InputValue input)
     {
         sprintInput = input.isPressed;
+        Debug.Log(sprintInput);
     }
 
     public void OnAttack(InputValue input)
