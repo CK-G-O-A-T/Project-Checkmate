@@ -85,12 +85,12 @@ AnimatorStateMachine:
   - first: {fileID: -7717652531563859162}
     second:
     - {fileID: -8895349676045673069}
-  - first: {fileID: 4741931057091553102}
-    second:
-    - {fileID: -4579633747143285034}
   - first: {fileID: -6489569131052154323}
     second:
     - {fileID: -4790903224932030587}
+  - first: {fileID: 4741931057091553102}
+    second:
+    - {fileID: -4579633747143285034}
   - first: {fileID: 8429300875342238643}
     second:
     - {fileID: -3376308495214407174}
@@ -2547,9 +2547,9 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 7874684190403295389}
+  - first: {fileID: -2965619047172261338}
     second:
-    - {fileID: 8668673564771857794}
+    - {fileID: 568399343382091015}
   - first: {fileID: 5784702314446677515}
     second:
     - {fileID: -7928130800255570433}
@@ -2557,15 +2557,15 @@ AnimatorStateMachine:
   - first: {fileID: 5973223056819407882}
     second:
     - {fileID: -3472147587666088937}
-  - first: {fileID: -2965619047172261338}
-    second:
-    - {fileID: 568399343382091015}
-  - first: {fileID: 8145939484606630313}
-    second:
-    - {fileID: 6058667204766640960}
   - first: {fileID: 6643324559403500076}
     second:
     - {fileID: 7902196148840713869}
+  - first: {fileID: 7874684190403295389}
+    second:
+    - {fileID: 8668673564771857794}
+  - first: {fileID: 8145939484606630313}
+    second:
+    - {fileID: 6058667204766640960}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -70, y: -120, z: 0}
   m_EntryPosition: {x: 320, y: -150, z: 0}
@@ -5885,24 +5885,24 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -7745869126350354283}
-    second:
-    - {fileID: -1034851189902675187}
-  - first: {fileID: 4249423030176285279}
-    second:
-    - {fileID: 3419668636790165680}
-  - first: {fileID: 2716564533891350119}
-    second:
-    - {fileID: 2512099481035035817}
   - first: {fileID: -8532164161226540457}
     second:
     - {fileID: 4158774428090987713}
+  - first: {fileID: -7745869126350354283}
+    second:
+    - {fileID: -1034851189902675187}
   - first: {fileID: -7441503464431595069}
     second:
     - {fileID: 8605608806085968689}
+  - first: {fileID: 2716564533891350119}
+    second:
+    - {fileID: 2512099481035035817}
   - first: {fileID: 4164647132727611500}
     second:
     - {fileID: -4456495015909125612}
+  - first: {fileID: 4249423030176285279}
+    second:
+    - {fileID: 3419668636790165680}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -7670,6 +7670,9 @@ AnimatorState:
   - {fileID: -646191851066070654}
   m_StateMachineBehaviours:
   - {fileID: 4829725552533298509}
+  - {fileID: 3739693633845164712}
+  - {fileID: 6155970636373694434}
+  - {fileID: 1445456366525944085}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -10026,6 +10029,19 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &1445456366525944085
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b4072e3b4bac74eb895e5cad9db666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueAngleToPlayer: 0
 --- !u!1107 &1454100943054897770
 AnimatorStateMachine:
   serializedVersion: 5
@@ -12387,6 +12403,19 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &3739693633845164712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21890e3dc018fc144ad28a2bd1fb3135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSetAngleToPlayer: 0
 --- !u!1109 &3739855374752049159
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -13030,27 +13059,27 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -3796338757198278429}
-    second:
-    - {fileID: 9215076654297166194}
   - first: {fileID: -6979594814652309983}
     second:
     - {fileID: -7888056177838291570}
-  - first: {fileID: 6792741775786330595}
+  - first: {fileID: -3796338757198278429}
     second:
-    - {fileID: 3464572678495808126}
-  - first: {fileID: 1278295895300919543}
-    second:
-    - {fileID: 1677514523075412385}
-  - first: {fileID: -2591097197821475350}
-    second:
-    - {fileID: 6647683922640951106}
-  - first: {fileID: 6127625443662128564}
-    second:
-    - {fileID: 5824011577030924570}
+    - {fileID: 9215076654297166194}
   - first: {fileID: -3439718051251763724}
     second:
     - {fileID: 7578688297798231591}
+  - first: {fileID: -2591097197821475350}
+    second:
+    - {fileID: 6647683922640951106}
+  - first: {fileID: 1278295895300919543}
+    second:
+    - {fileID: 1677514523075412385}
+  - first: {fileID: 6127625443662128564}
+    second:
+    - {fileID: 5824011577030924570}
+  - first: {fileID: 6792741775786330595}
+    second:
+    - {fileID: 3464572678495808126}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -14080,12 +14109,6 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 7615462711072707745}
-    second:
-    - {fileID: -7012558379668659402}
-  - first: {fileID: 7828260995911144798}
-    second:
-    - {fileID: -6770259147373511846}
   - first: {fileID: -2657778390796023041}
     second:
     - {fileID: 6907585616287336690}
@@ -14095,6 +14118,12 @@ AnimatorStateMachine:
   - first: {fileID: 7175010512283188343}
     second:
     - {fileID: -1396625575535538625}
+  - first: {fileID: 7615462711072707745}
+    second:
+    - {fileID: -7012558379668659402}
+  - first: {fileID: 7828260995911144798}
+    second:
+    - {fileID: -6770259147373511846}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 10, y: -90, z: 0}
   m_EntryPosition: {x: 670, y: -330, z: 0}
@@ -14635,6 +14664,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
+--- !u!114 &6155970636373694434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71d5b68da6b8cf4295409a255122323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continueAngleToPlayer: 0
+  setAttackDamage: 10
 --- !u!114 &6178569535584188014
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -16090,24 +16133,24 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 5783807180111537529}
-    second:
-    - {fileID: 3678761772662087232}
-  - first: {fileID: -7606442993156140030}
-    second:
-    - {fileID: -1749787453048556650}
-  - first: {fileID: 963159124926622928}
-    second:
-    - {fileID: -2757223749360572712}
-  - first: {fileID: 8003455823393815920}
-    second:
-    - {fileID: -1798634331718965730}
   - first: {fileID: -8089192537081391306}
     second:
     - {fileID: 2522626251878778188}
+  - first: {fileID: -7606442993156140030}
+    second:
+    - {fileID: -1749787453048556650}
   - first: {fileID: -1289102998396632894}
     second:
     - {fileID: 8227914391675751839}
+  - first: {fileID: 963159124926622928}
+    second:
+    - {fileID: -2757223749360572712}
+  - first: {fileID: 5783807180111537529}
+    second:
+    - {fileID: 3678761772662087232}
+  - first: {fileID: 8003455823393815920}
+    second:
+    - {fileID: -1798634331718965730}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -70, y: -120, z: 0}
   m_EntryPosition: {x: 320, y: -150, z: 0}
