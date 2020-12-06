@@ -376,7 +376,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         }
 
         var moveVelocityRaw = isGround ? characterInput.MoveInput * moveSpeedMultiplier : Vector2.zero;
-        moveVelocity = Vector2.SmoothDamp(moveVelocity, moveVelocityRaw, ref moveVelocitySmooth, moveVelocitySmoothTime * (moveSpeedMultiplier == 2 ?4:1));
+        moveVelocity = Vector2.SmoothDamp(moveVelocity, moveVelocityRaw, ref moveVelocitySmooth, moveVelocitySmoothTime * (moveSpeedMultiplier == 2 ? 4 : 1));
 
         var moveMagnitude = moveVelocity.magnitude;
         var moveRawMagnitude = moveVelocityRaw.magnitude;
@@ -416,7 +416,11 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         }
         // 방향 업데이트
         characterWorldAngle = Mathf.SmoothDampAngle(characterWorldAngle, characterWorldAngleTarget, ref characterWorldAngleSmooth, characterWorldAngleSmoothTime);
-
+        if (float.IsNaN(characterWorldAngleSmooth))
+        {
+            characterWorldAngleSmooth = 0;
+            characterWorldAngle = characterWorldAngleTarget;
+        }
         //Debug.Log(characterWorldAngleSmoothTime * (1 - Mathf.Min(moveMagnitude, 1)));
         // 카메라가 바라보는 방향
         thisTransform.rotation = Quaternion.Euler(0, characterWorldAngle, 0);
@@ -562,16 +566,32 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         //Animator.SetFloat("moveSpeed", status.)
     }
 
-    private void OnGUI()
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    private void LateUpdate()
     {
-        GUILayout.TextArea($"weapon slot: {status.CurrentWeaponSlotIndex}");
-        GUILayout.TextArea($"switch cooltime: {switchingCooltime}");
-        GUILayout.TextArea($"IsAttacking: {IsAttacking}");
-        GUILayout.TextArea($"doWeaponChange: {Animator.GetBool("doWeaponChange")}");
-        GUILayout.TextArea($"Stamina: {Status.Stamina}");
-        GUILayout.TextArea($"SwitchingPoint: {Status.SwitchPoint}");
-        GUILayout.TextArea($"ySpeed: {this.Animator.GetFloat("ySpeed")}");
+        var debug = DebugManager.Instance;
+        if (debug != null)
+        {
+            debug.PushDebugText($"weapon slot: {status.CurrentWeaponSlotIndex}");
+            debug.PushDebugText($"switch cooltime: {switchingCooltime}");
+            debug.PushDebugText($"IsAttacking: {IsAttacking}");
+            debug.PushDebugText($"doWeaponChange: {Animator.GetBool("doWeaponChange")}");
+            debug.PushDebugText($"Stamina: {Status.Stamina}");
+            debug.PushDebugText($"SwitchingPoint: {Status.SwitchPoint}");
+            debug.PushDebugText($"ySpeed: {this.Animator.GetFloat("ySpeed")}");
+        }
     }
+    //private void OnGUI()
+    //{
+    //    GUILayout.TextArea($"weapon slot: {status.CurrentWeaponSlotIndex}");
+    //    GUILayout.TextArea($"switch cooltime: {switchingCooltime}");
+    //    GUILayout.TextArea($"IsAttacking: {IsAttacking}");
+    //    GUILayout.TextArea($"doWeaponChange: {Animator.GetBool("doWeaponChange")}");
+    //    GUILayout.TextArea($"Stamina: {Status.Stamina}");
+    //    GUILayout.TextArea($"SwitchingPoint: {Status.SwitchPoint}");
+    //    GUILayout.TextArea($"ySpeed: {this.Animator.GetFloat("ySpeed")}");
+    //}
+#endif
 
     public void AttackInputHandle()
     {
