@@ -14,6 +14,9 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     const int WeaponType1LayerIndex = 1;
     const int WeaponType2LayerIndex = 2;
     const int OverrideLayerIndex = 3;
+    const int WeaponType1OverrideLayerIndex = 4;
+    const int WeaponType2OverrideLayerIndex = 5;
+    const int UpperLayerIndex = 6;
 
     // 만약 명칭이 바뀌었다면 주석과 변수 모두 변경해줄 필요가 있음.
     // Animator.StringToHash("Attack1")
