@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Image fadeImage;
+    public UnityEvent fadeIn;
+    public UnityEvent fadeOut;
+    public bool gameStart = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -39,24 +44,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Image fadeImage;
-    public UnityEvent fadeIn;
-    public UnityEvent fadeOut;
-    public bool gameStart = false;
-    public PlayerInput managerInput;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //managerInput.actions
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void LoadScene(string sceneName)
     {
         StartCoroutine(SceneLoad(sceneName));
@@ -68,12 +55,10 @@ public class GameManager : MonoBehaviour
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
         yield return SceneManager.LoadSceneAsync(sceneName);
         Debug.Log("Scene Load Complete");
-
-        //managerInput.enabled = true;
         StartCoroutine(FadeOut());
     }
 
-    private IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         Color imgColor = fadeImage.color;
         for (float i = 0f; i <= 1.1f; i += Time.deltaTime * 0.8f)
@@ -85,7 +70,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Fade In Complete");
         fadeIn.Invoke();
     }
-    private IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         Color imgColor = fadeImage.color;
         for (float i = 1f; i >= -0.1f; i -= Time.deltaTime * 0.8f)
@@ -106,7 +91,6 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(FadeIn());
             gameStart = true;
-            managerInput.enabled = false;
         }
     }
 
