@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(FadeIn());
             gameStart = true;
-            //managerInput.enabled = false;
+            managerInput.enabled = false;
         }
     }
 
