@@ -12,7 +12,7 @@ public class BossDamageTriggerManager : MonoBehaviour
 
     public void DamageTrigger_StartTrigger()
     {
-        for (int i = 0; i < damageTriggers.Length - 1; i++)
+        for (int i = 0; i < damageTriggers.Length; i++)
         {
             damageTriggers[i].damage = setAttackDamage;
             damageTriggers[i].StartTrigger();
@@ -21,7 +21,7 @@ public class BossDamageTriggerManager : MonoBehaviour
 
     public void DamageTrigger_EndTrigger()
     {
-        for (int i = 0; i < damageTriggers.Length - 1; i++)
+        for (int i = 0; i < damageTriggers.Length; i++)
         {
             damageTriggers[i].EndTrigger();
         }

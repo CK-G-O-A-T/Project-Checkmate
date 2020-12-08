@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 2128912a6e0841c46b538ab00143fabc
+guid: 515646489f992534b8a26defd7b07a5e
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: 5691740687302830314
-    second: "Boss_\uB3CC\uC9C4(\uC810\uD504)"
+      74: -3453019164719840495
+    second: "Boss_\uB3CC\uC9C4(\uB4A4\uB85C\uC810\uD504)"
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,14 +35,14 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: "Boss_\uB3CC\uC9C4(\uC810\uD504)"
-      takeName: "Boss_\uB3CC\uC9C4(\uC810\uD504)"
+      name: "Boss_\uB3CC\uC9C4(\uB4A4\uB85C\uC810\uD504)"
+      takeName: "Boss_\uB3CC\uC9C4(\uB4A4\uB85C\uC810\uD504)"
       internalID: 0
-      firstFrame: 36
-      lastFrame: 58
+      firstFrame: 0
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: 0.05
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -51,18 +51,32 @@ ModelImporter:
       loopBlendOrientation: 1
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
       heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.27631414
+        functionName: WideAreaTrigger_StartTrigger
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.32573867
+        functionName: WideAreaTrigger_EndTrigger
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 36
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
