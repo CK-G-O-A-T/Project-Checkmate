@@ -247,6 +247,9 @@ MonoBehaviour:
   isMove: 1
   isGroggy: 0
   isDead: 0
+  jumpTarget: {x: 0, y: 0, z: 0}
+  speed: 50
+  checkArrive: 0
   angle: 360
 --- !u!114 &119878378670879093
 MonoBehaviour:

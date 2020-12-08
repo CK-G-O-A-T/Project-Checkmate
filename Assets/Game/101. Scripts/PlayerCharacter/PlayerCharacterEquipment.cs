@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PlayerCharacterEquipment : MonoBehaviour
 {
+    const int BaseLayerIndex = 0;
+    const int WeaponType1LayerIndex = 1;
+    const int WeaponType2LayerIndex = 2;
+    const int OverrideLayerIndex = 3;
+    const int WeaponType1OverrideLayerIndex = 4;
+    const int WeaponType2OverrideLayerIndex = 5;
+    const int UpperLayerIndex = 6;
+
     [Header("오브젝트 설정")]
     [SerializeField] Transform weaponJoint;
     [SerializeField] Transform currentWeaponTransform;
@@ -11,10 +19,6 @@ public class PlayerCharacterEquipment : MonoBehaviour
 
     [Header("데이터")]
     [SerializeField] WeaponData weaponData;
-
-    [Header("애니메이션")]
-    [SerializeField] int WeaponType1LayerIndex = 1;
-    [SerializeField] int WeaponType2LayerIndex = 2;
 
     DamageTrigger[] damageTriggers = Array.Empty<DamageTrigger>();
 
@@ -84,16 +88,25 @@ public class PlayerCharacterEquipment : MonoBehaviour
             default:
                 animator.SetLayerWeight(WeaponType1LayerIndex, 0);
                 animator.SetLayerWeight(WeaponType2LayerIndex, 0);
+
+                animator.SetLayerWeight(WeaponType1OverrideLayerIndex, 0);
+                animator.SetLayerWeight(WeaponType2OverrideLayerIndex, 0);
                 break;
             case WeaponType.OneHanded:
                 animator.SetLayerWeight(WeaponType1LayerIndex, 1);
                 animator.SetLayerWeight(WeaponType2LayerIndex, 0);
+
+                animator.SetLayerWeight(WeaponType1OverrideLayerIndex, 1);
+                animator.SetLayerWeight(WeaponType2OverrideLayerIndex, 0);
                 //5회 공격
                 playerCharacterBehaviour.MaxAttackCombo = 5;
                 break;
             case WeaponType.Rapier:
                 animator.SetLayerWeight(WeaponType1LayerIndex, 0);
                 animator.SetLayerWeight(WeaponType2LayerIndex, 1);
+
+                animator.SetLayerWeight(WeaponType1OverrideLayerIndex, 0);
+                animator.SetLayerWeight(WeaponType2OverrideLayerIndex, 1);
                 //4회 공격
                 playerCharacterBehaviour.MaxAttackCombo = 4;
                 break;
@@ -116,13 +129,35 @@ public class PlayerCharacterEquipment : MonoBehaviour
         }
     }
 
-    void DamageTrigger_StartTrigger()
+    void DamageTrigger_StartTrigger(int layerIndex)
     {
-        StartTrigger();
+        if (LayerIndexMatched(layerIndex))
+            StartTrigger();
     }
 
-    void DamageTrigger_EndTrigger()
+    void DamageTrigger_EndTrigger(int layerIndex)
     {
-        EndTrigger();
+        if (LayerIndexMatched(layerIndex))
+            EndTrigger();
+    }
+
+    public bool LayerIndexMatched(int layerIndex)
+    {
+        switch (WeaponData.Type)
+        {
+            case WeaponType.OneHanded:
+                if (layerIndex == WeaponType1LayerIndex || layerIndex == WeaponType1OverrideLayerIndex)
+                {
+                    return true;
+                }
+                break;
+            case WeaponType.Rapier:
+                if (layerIndex == WeaponType2LayerIndex || layerIndex == WeaponType2OverrideLayerIndex)
+                {
+                    return true;
+                }
+                break;
+        }
+        return false;
     }
 }
