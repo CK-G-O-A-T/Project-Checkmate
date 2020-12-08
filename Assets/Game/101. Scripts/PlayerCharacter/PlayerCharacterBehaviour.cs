@@ -659,7 +659,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     /// <summary>
     /// 애니메이터 이벤트
     /// </summary>
-    void Behaviour_WeaponChange()
+    void Behaviour_WeaponChange(int layerIndex)
     {
         WeaponChange();
     }

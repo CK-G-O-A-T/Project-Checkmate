@@ -129,13 +129,35 @@ public class PlayerCharacterEquipment : MonoBehaviour
         }
     }
 
-    void DamageTrigger_StartTrigger()
+    void DamageTrigger_StartTrigger(int layerIndex)
     {
-        StartTrigger();
+        if (LayerIndexMatched(layerIndex))
+            StartTrigger();
     }
 
-    void DamageTrigger_EndTrigger()
+    void DamageTrigger_EndTrigger(int layerIndex)
     {
-        EndTrigger();
+        if (LayerIndexMatched(layerIndex))
+            EndTrigger();
+    }
+
+    public bool LayerIndexMatched(int layerIndex)
+    {
+        switch (WeaponData.Type)
+        {
+            case WeaponType.OneHanded:
+                if (layerIndex == WeaponType1LayerIndex || layerIndex == WeaponType1OverrideLayerIndex)
+                {
+                    return true;
+                }
+                break;
+            case WeaponType.Rapier:
+                if (layerIndex == WeaponType2LayerIndex || layerIndex == WeaponType2OverrideLayerIndex)
+                {
+                    return true;
+                }
+                break;
+        }
+        return false;
     }
 }

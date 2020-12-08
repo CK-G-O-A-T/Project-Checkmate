@@ -15,11 +15,11 @@ class AnimatorEventCaller : StateMachineBehaviour
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (callByEnter)
-            animator.SendMessage(eventName);
+            animator.SendMessage(eventName, layerIndex);
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (callByExit)
-            animator.SendMessage(eventName);
+            animator.SendMessage(eventName, layerIndex);
     }
 }
