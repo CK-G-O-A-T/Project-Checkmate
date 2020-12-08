@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
     }
 
     public Image fadeImage;
-    public bool pressCheck;
     public UnityEvent fadeIn;
     public UnityEvent fadeOut;
     public bool gameStart = false;
@@ -103,7 +102,7 @@ public class GameManager : MonoBehaviour
 
     public void OnAnyKey(InputValue value)
     {
-        if (value.isPressed && !gameStart)
+        if (!gameStart && value.isPressed)
         {
             StartCoroutine(FadeIn());
             gameStart = true;
