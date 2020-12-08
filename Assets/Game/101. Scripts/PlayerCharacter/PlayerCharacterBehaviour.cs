@@ -317,6 +317,12 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         AttackCancelUpdate();
 
         TimeUpdate();
+
+        if (DebugManager.Instance.IsGodMode)
+        {
+            Status.Stamina = 100;
+            Status.Hp = 100;
+        }
     }
 
     Vector3 lastVelocity;

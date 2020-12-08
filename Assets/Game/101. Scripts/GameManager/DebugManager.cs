@@ -11,6 +11,9 @@ public class DebugManager : MonoBehaviour
         get;
         private set;
     }
+    public bool IsGodMode { get; set; }
+
+    bool isGodmodePressed = false;
     [System.Diagnostics.Conditional("UNITY_EDITOR")]
     [System.Diagnostics.Conditional("DEVELOPMENT_BUILD")]
     public void PushDebugText(string text)
@@ -30,6 +33,11 @@ public class DebugManager : MonoBehaviour
     private void Update()
     {
         debugTextBuilder.Clear();
+
+        if (Keyboard.current[Key.F4].IsCurrentState(ref isGodmodePressed) == ButtonInputState.Pressed)
+        {
+            IsGodMode = !IsGodMode;
+        }
     }
 
     private void OnGUI()
