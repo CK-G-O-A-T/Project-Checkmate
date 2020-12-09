@@ -8,11 +8,13 @@ public class UIManager : MonoBehaviour
     public bool isPopup = false;
     public GameManager gameManager;
     public GameObject pauseCanvas;
-    
+    public bool keyActive = true;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GetComponent<GameManager>();
+        keyActive = true;
     }
 
     private void FixedUpdate()
@@ -29,11 +31,18 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        if (gameManager.gameStart && !isPopup && keyboard.escapeKey.isPressed)
+        if (keyActive && gameManager.gameStart && !isPopup && keyboard.escapeKey.isPressed)
         {
             isPopup = true;
             Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             pauseCanvas.SetActive(true);
+
+            TogglePlayerCamera(false);
+            TogglePlayerInput(false);
+
+            keyActive = false;
         }
     }
 
@@ -45,10 +54,33 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        if (!gameManager.gameStart && keyboard.anyKey.isPressed)
+        if (!gameManager.gameStart && (!keyboard.escapeKey.isPressed && keyboard.anyKey.isPressed))
         {
             gameManager.gameStart = true;
             StartCoroutine(gameManager.FadeIn());
         }
+    }
+
+    public void CloseMenuCourutine()
+    {
+        StartCoroutine(CloseMenu());
+    }
+
+    IEnumerator CloseMenu()
+    {
+        Debug.Log("Start UI Manager Courutine");
+        yield return new WaitForSecondsRealtime(0.5f);
+        keyActive = true;
+        Debug.Log("End UI Manager Courutine");
+    }
+
+    public void TogglePlayerCamera(bool value)
+    {
+        gameManager.playerCamera.enabled = value;
+    }
+
+    public void TogglePlayerInput(bool value)
+    {
+        gameManager.player.enabled = value;
     }
 }

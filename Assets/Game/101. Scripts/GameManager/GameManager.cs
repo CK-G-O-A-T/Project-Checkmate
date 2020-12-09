@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     public UnityEvent fadeIn;
     public UnityEvent fadeOut;
     public bool gameStart = false;
+    public CinemachineBrain playerCamera;
+    public PlayerInput player;
 
     private void Awake()
     {
@@ -56,6 +59,8 @@ public class GameManager : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(sceneName);
         Debug.Log("Scene Load Complete");
         StartCoroutine(FadeOut());
+        playerCamera = Camera.main.GetComponent<CinemachineBrain>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
     }
 
     public IEnumerator FadeIn()
