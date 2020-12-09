@@ -575,8 +575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce6ba0f5fd5644192c76ba88ad2c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainHpBar: {fileID: 2322599756799110322}
-  subHpBar: {fileID: 3287016624484350459}
+  mainGaugeBar: {fileID: 2322599756799110322}
+  subGaugeBar: {fileID: 3287016624484350459}
   decreaseSpeed: 1.5
   player: {fileID: 0}
 --- !u!1 &2322599756061375593
@@ -744,8 +744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdab8f0708bbb243a45b4517f9c7861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainHpBar: {fileID: 2322599755425277802}
-  subHpBar: {fileID: 6946176463354886658}
+  mainGaugeBar: {fileID: 2322599755425277802}
+  subGaugeBar: {fileID: 6946176463354886658}
   decreaseSpeed: 1.5
   aiMaster: {fileID: 0}
 --- !u!1 &2322599756336320515
@@ -1035,10 +1035,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 5aeaa18a90056194688c560ac27c2987, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1133,8 +1133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076cec066ae18da4798d707096b5d6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainHpBar: {fileID: 2322599755607966346}
-  subHpBar: {fileID: 3202534616586245211}
+  mainGaugeBar: {fileID: 2322599755607966346}
+  subGaugeBar: {fileID: 3202534616586245211}
   decreaseSpeed: 1.5
   player: {fileID: 0}
 --- !u!1 &2322599756992604424

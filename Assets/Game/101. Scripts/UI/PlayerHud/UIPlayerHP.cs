@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIPlayerHP : UIHPBaseClass
+public class UIPlayerHP : UIGaugebar
 {
     public PlayerCharacterStatus player;
 
@@ -13,12 +13,12 @@ public class UIPlayerHP : UIHPBaseClass
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterStatus>();
         }
-        maxHp = player.Hp;
-        currentHp = maxHp;
+        maxValue = player.Hp;
+        currentValue = maxValue;
     }
 
-    protected override void SetCurrentHpBarSetting()
+    protected override void SetCurrentGaugeSetting()
     {
-        currentHp = player.Hp;
+        currentValue = player.Hp;
     }
 }
