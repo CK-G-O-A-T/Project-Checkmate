@@ -55,6 +55,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     Transform thisTransform;
     PlayerCharacterInput characterInput;
     PlayerCharacterEquipment characterEquipment;
+    PlayerCharacterAudio characterAudio;
     Animator thisAnimator;
     AnimatorTriggerManager animatorTriggerManager;
     Rigidbody thisRigidbody;
@@ -87,6 +88,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     public PlayerCharacterInput CharacterInput => characterInput;
     public PlayerCharacterStatus Status => status;
     public PlayerCharacterEquipment Equipment => characterEquipment;
+    public PlayerCharacterAudio CharacterAudio => characterAudio;
 
     public bool IsAttacking
     {
@@ -268,6 +270,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         thisTransform = transform;
         characterInput = GetComponent<PlayerCharacterInput>();
         characterEquipment = GetComponent<PlayerCharacterEquipment>();
+        characterAudio = GetComponent<PlayerCharacterAudio>();
         thisAnimator = GetComponent<Animator>();
         thisRigidbody = GetComponent<Rigidbody>();
         animatorTriggerManager = GetComponent<AnimatorTriggerManager>();
