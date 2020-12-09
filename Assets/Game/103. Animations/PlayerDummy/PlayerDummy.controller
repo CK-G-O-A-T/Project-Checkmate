@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1101 &-4294554601801912224
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1101 &-1094858244334209143
@@ -2688,7 +2688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1101 &2780627653853666774
@@ -3694,7 +3694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1102 &7078419328956345173
@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1102 &8015252590802531229
