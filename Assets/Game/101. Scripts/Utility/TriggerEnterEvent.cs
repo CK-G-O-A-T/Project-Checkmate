@@ -6,9 +6,19 @@ using UnityEngine.Events;
 public class TriggerEnterEvent : MonoBehaviour
 {
     public UnityEvent enterEvent;
+    public bool isOneshot = false;
+    public string[] targetTag;
 
     private void OnTriggerEnter(Collider other)
     {
-        enterEvent.Invoke();
+        if (enabled && other.CompareTags(targetTag))
+        {
+            enterEvent.Invoke();
+
+            if (isOneshot)
+            {
+                this.enabled = false;
+            }
+        }
     }
 }
