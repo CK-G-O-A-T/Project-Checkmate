@@ -74,7 +74,7 @@ public class PlayerCharacterEquipment : MonoBehaviour
                 }
 
                 // 애니메이터 상태 설정
-                 SetWeaponTypeForAnimator(WeaponData.Type);
+                SetWeaponTypeForAnimator(WeaponData.Type);
                 //playerCharacterBehaviour.Animator.SetInteger("weaponType", (int)weaponData.Type);
             }
         } // end of setter
@@ -113,6 +113,30 @@ public class PlayerCharacterEquipment : MonoBehaviour
         }
     }
 
+    void PlaySwingAudio()
+    {
+        switch (WeaponData.Type)
+        {
+            case WeaponType.OneHanded:
+                playerCharacterBehaviour.CharacterAudio.weaponType1AttackAudio.Play();
+                break;
+            case WeaponType.Rapier:
+                break;
+        }
+    }
+
+    void CancelSwingAudio()
+    {
+        switch (WeaponData.Type)
+        {
+            case WeaponType.OneHanded:
+                playerCharacterBehaviour.CharacterAudio.weaponType1AttackAudio.Stop();
+                break;
+            case WeaponType.Rapier:
+                break;
+        }
+    }
+
     public void StartTrigger()
     {
         foreach (var damageTrigger in damageTriggers)
@@ -132,13 +156,24 @@ public class PlayerCharacterEquipment : MonoBehaviour
     void DamageTrigger_StartTrigger(int layerIndex)
     {
         if (LayerIndexMatched(layerIndex))
+        {
             StartTrigger();
+            PlaySwingAudio();
+        }
     }
 
     void DamageTrigger_EndTrigger(int layerIndex)
     {
         if (LayerIndexMatched(layerIndex))
+        {
             EndTrigger();
+        }
+    }
+
+    void DamageTrigger_CancelTrigger()
+    {
+        EndTrigger();
+        CancelSwingAudio();
     }
 
     public bool LayerIndexMatched(int layerIndex)

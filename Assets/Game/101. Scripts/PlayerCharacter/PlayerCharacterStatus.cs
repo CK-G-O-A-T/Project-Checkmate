@@ -20,6 +20,7 @@ public class PlayerCharacterStatus : MonoBehaviour
     //[SerializeField] PlayerHud playerHud;
     [SerializeField] PlayerCharacterData data;
     [SerializeField] UIPlayerHP uiPlayerHP;
+    [SerializeField] UIPlayerStamina uIPlayerStamina;
 
     float remainedStaminaRecoveryDelayTime = 0;
 
@@ -30,7 +31,7 @@ public class PlayerCharacterStatus : MonoBehaviour
         {
             value = Mathx.Clamp(value, 0, data.MaxHp);
             this.hp = value;
-            uiPlayerHP.UpdateHpBar();
+            uiPlayerHP.UpdateGauge();
         }
     }
     public double Stamina
@@ -40,6 +41,7 @@ public class PlayerCharacterStatus : MonoBehaviour
         {
             value = Mathx.Clamp(value, 0, data.MaxStamina);
             this.stamina = value;
+            uIPlayerStamina.UpdateGauge();
         }
     }
     public double SwitchPoint
@@ -196,7 +198,7 @@ public class PlayerCharacterStatus : MonoBehaviour
     private void Start()
     {
         if (uiPlayerHP != null)
-            uiPlayerHP.UpdateHpBar();
+            uiPlayerHP.UpdateGauge();
         SortWeaponSlot();
     }
 

@@ -380,7 +380,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.75
   m_HasExitTime: 1
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_InterruptionSource: 3
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &-7675942491426860727
@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1101 &-4294554601801912224
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1101 &-1094858244334209143
@@ -1519,13 +1519,13 @@ AnimatorStateMachine:
   - {fileID: -1347811628837792763}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -2111194706670520700}
-    second:
-    - {fileID: -5828992035488849000}
   - first: {fileID: 6590901964222978241}
     second:
     - {fileID: 6317107090281908936}
     - {fileID: -5635921086335133571}
+  - first: {fileID: -2111194706670520700}
+    second:
+    - {fileID: -5828992035488849000}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -2688,7 +2688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1101 &2780627653853666774
@@ -3694,7 +3694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1102 &7078419328956345173
@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca9f64447ed6024eb5632f74d7d38f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: DamageTrigger_EndTrigger
+  eventName: DamageTrigger_CancelTrigger
   callByEnter: 1
   callByExit: 0
 --- !u!1102 &8015252590802531229

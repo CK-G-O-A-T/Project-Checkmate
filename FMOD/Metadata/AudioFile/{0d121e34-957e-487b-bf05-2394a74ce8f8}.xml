@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{0d121e34-957e-487b-bf05-2394a74ce8f8}">
+		<property name="assetPath">
+			<value>swipes and whooshes tshirt fast and short swings stereo ORTF 8040.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>15.981333333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5c5143b3-3ed4-44f7-b062-6fb818301a06}</destination>
+		</relationship>
+	</object>
+</objects>
