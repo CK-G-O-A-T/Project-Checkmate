@@ -74,7 +74,7 @@ public class PlayerCharacterEquipment : MonoBehaviour
                 }
 
                 // 애니메이터 상태 설정
-                 SetWeaponTypeForAnimator(WeaponData.Type);
+                SetWeaponTypeForAnimator(WeaponData.Type);
                 //playerCharacterBehaviour.Animator.SetInteger("weaponType", (int)weaponData.Type);
             }
         } // end of setter
@@ -139,6 +139,11 @@ public class PlayerCharacterEquipment : MonoBehaviour
     {
         if (LayerIndexMatched(layerIndex))
             EndTrigger();
+    }
+
+    void DamageTrigger_CancelTrigger()
+    {
+        EndTrigger();
     }
 
     public bool LayerIndexMatched(int layerIndex)
