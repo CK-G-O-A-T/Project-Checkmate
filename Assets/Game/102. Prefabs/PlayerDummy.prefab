@@ -405,10 +405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6266e09ca7e9cc140a79682325b108fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fmodStudioEventEmiiter: {fileID: 2818132740825366224}
   eventKeyDatas:
   - keyName: Footstep
-    fmodEventName: event:/SFX/PC/PC_Footstep
+    fmodEvent: {fileID: 2818132740825366224}
 --- !u!114 &9139746205918074416
 MonoBehaviour:
   m_ObjectHideFlags: 0

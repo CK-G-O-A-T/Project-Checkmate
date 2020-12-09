@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 
 /// <summary>
 /// 애니메이션에서 FMOD에 대한 재생 이벤트를 수신하고 FMOD에 전달합니다.
@@ -12,33 +13,25 @@ public class FmodAnimationEvent : MonoBehaviour
     struct FmodAnimationEventKeyData
     {
         public string keyName;
-        [FMODUnity.EventRef]
-        public string fmodEventName;
+        public StudioEventEmitter fmodEvent;
     }
-    [SerializeField] FMODUnity.StudioEventEmitter fmodStudioEventEmiiter;
     [SerializeField] FmodAnimationEventKeyData[] eventKeyDatas = Array.Empty<FmodAnimationEventKeyData>();
 
-    Dictionary<string, string> eventDictionary = new Dictionary<string, string>();
+    Dictionary<string, StudioEventEmitter> eventDictionary = new Dictionary<string, StudioEventEmitter>();
 
     private void Awake()
     {
         foreach(var eventKeyData in eventKeyDatas)
         {
-            eventDictionary.Add(eventKeyData.keyName, eventKeyData.fmodEventName);
-        }
-
-        if (fmodStudioEventEmiiter == null)
-        {
-            this.enabled = false;
+            eventDictionary.Add(eventKeyData.keyName, eventKeyData.fmodEvent);
         }
     }
 
     void FMOD_Play(string keyName)
     {
-        if (eventDictionary.TryGetValue(keyName, out var value))
+        if (eventDictionary.TryGetValue(keyName, out var fmodEvent))
         {
-            fmodStudioEventEmiiter.Event = value;
-            fmodStudioEventEmiiter.Play();
+            fmodEvent.Play();
         }
     }
 }
