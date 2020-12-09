@@ -5,7 +5,7 @@
 			<value>Main_Title</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{c8dd6a66-07e2-413e-97f9-bb977516b753}</destination>
@@ -142,7 +142,11 @@
 			<destination>{2c92203f-0b64-4ca0-bbc3-f171bf3d20f0}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{41ce12d5-fd8d-45d0-be12-22ceebbdb1ef}" />
+	<object class="MixerBusPanner" id="{41ce12d5-fd8d-45d0-be12-22ceebbdb1ef}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{9144864a-7c30-4c31-b0ac-17ad7420194a}" />
 	<object class="ADSRModulator" id="{317b99f8-88c9-498a-a07b-a487544249a9}">
 		<property name="nameOfPropertyBeingModulated">
@@ -162,6 +166,10 @@
 	</object>
 	<object class="MixerBusPanner" id="{dde3c987-9e1c-4f51-9364-a1b952b76b07}" />
 	<object class="MixerBusFader" id="{96c23952-9c11-4aaf-babe-93dbca9f2e32}" />
-	<object class="SpatialiserEffect" id="{2c92203f-0b64-4ca0-bbc3-f171bf3d20f0}" />
+	<object class="SpatialiserEffect" id="{2c92203f-0b64-4ca0-bbc3-f171bf3d20f0}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{1bb9a1ba-aac9-49c6-9041-2e8896c8536e}" />
 </objects>

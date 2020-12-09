@@ -5,7 +5,7 @@
 			<value>BGM_Stage</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{c8dd6a66-07e2-413e-97f9-bb977516b753}</destination>
@@ -139,7 +139,11 @@
 			<destination>{4ae19c35-44ae-40ac-b0c1-4f8530cb860c}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{f1faf229-176c-4675-a40a-23f650791990}" />
+	<object class="MixerBusPanner" id="{f1faf229-176c-4675-a40a-23f650791990}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{f45a56d4-44b3-4496-80fc-9e80c781cf92}" />
 	<object class="ADSRModulator" id="{ec003265-d4a5-4b6b-a4d8-d2548c8c9e2d}">
 		<property name="nameOfPropertyBeingModulated">
@@ -168,6 +172,10 @@
 	</object>
 	<object class="MixerBusPanner" id="{2f7c00de-e78e-48c3-93e4-2b726c7d62fa}" />
 	<object class="MixerBusFader" id="{21ae4289-93cf-4a05-bc31-c4ce9f0466c0}" />
-	<object class="SpatialiserEffect" id="{4ae19c35-44ae-40ac-b0c1-4f8530cb860c}" />
+	<object class="SpatialiserEffect" id="{4ae19c35-44ae-40ac-b0c1-4f8530cb860c}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{3ffa57bd-f426-45b3-8bcd-8967e73abb3b}" />
 </objects>
