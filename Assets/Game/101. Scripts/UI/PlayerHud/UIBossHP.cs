@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIBossHP : UIHPBaseClass
+public class UIBossHP : UIGaugebar
 {
     public AIMaster aiMaster;
     private BossDamageHandler damageEvent;
 
     protected override void Start()
     {
-        maxHp = aiMaster.healthPoint;
-        currentHp = maxHp;
+        maxValue = aiMaster.healthPoint;
+        currentValue = maxValue;
 
         damageEvent = aiMaster.GetComponent<BossDamageHandler>();
-        damageEvent.damageEvent.AddListener(UpdateHpBar);
+        damageEvent.damageEvent.AddListener(UpdateGauge);
     }
 
-    protected override void SetCurrentHpBarSetting()
+    protected override void SetCurrentGaugeSetting()
     {
-        currentHp = aiMaster.healthPoint;
+        currentValue = aiMaster.healthPoint;
     }
 }

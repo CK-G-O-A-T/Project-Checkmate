@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 119878378670879094}
   - component: {fileID: 119878378670879095}
   - component: {fileID: 119878378670879048}
+  - component: {fileID: 7312220281735496437}
   m_Layer: 0
   m_Name: Boss_Figure.FBX
   m_TagString: Enemy
@@ -362,6 +363,19 @@ MonoBehaviour:
   groggyRecoverySpeed: 1
   groggyRecoveryInterval: 1
   maxStandByTime: 2
+--- !u!114 &7312220281735496437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119878378670879088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3f3bfbab62a3a429278b5cd87cbd35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiMaster: {fileID: 119878378670879089}
 --- !u!1 &293361475684283074
 GameObject:
   m_ObjectHideFlags: 0
@@ -12594,15 +12608,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6fe47caf93ec9f4c903875eba975f75, type: 3}
---- !u!198 &570585403335005156 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6157103925289351561, guid: a6fe47caf93ec9f4c903875eba975f75,
-    type: 3}
-  m_PrefabInstance: {fileID: 5951873059165481581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5057039609709250456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1492797831701491189, guid: a6fe47caf93ec9f4c903875eba975f75,
+    type: 3}
+  m_PrefabInstance: {fileID: 5951873059165481581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &570585403335005156 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6157103925289351561, guid: a6fe47caf93ec9f4c903875eba975f75,
     type: 3}
   m_PrefabInstance: {fileID: 5951873059165481581}
   m_PrefabAsset: {fileID: 0}

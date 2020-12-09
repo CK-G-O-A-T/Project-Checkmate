@@ -303,7 +303,7 @@ public class AIMaster : MonoBehaviour
         }
         if (checkArrive)
         {
-            speed = Mathf.Lerp(speed, 0, Time.deltaTime * 3f);
+            speed = Mathf.Lerp(speed, 0, Time.deltaTime * 4f);
             if (speed <= 10f)
             {
                 anim.SetTrigger("timerTrigger");
