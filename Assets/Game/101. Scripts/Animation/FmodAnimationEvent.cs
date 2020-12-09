@@ -8,6 +8,7 @@ using System.Collections.Generic;
 /// </summary>
 public class FmodAnimationEvent : MonoBehaviour
 {
+    [Serializable]
     struct FmodAnimationEventKeyData
     {
         public string keyName;

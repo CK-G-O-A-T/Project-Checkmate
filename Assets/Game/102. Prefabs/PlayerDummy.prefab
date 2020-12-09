@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 2731314918267479013}
   - component: {fileID: 3100129453836694337}
   - component: {fileID: 4461379452600908133}
+  - component: {fileID: 7429140629551599302}
+  - component: {fileID: 3697916664129597230}
   m_Layer: 0
   m_Name: PlayerDummy
   m_TagString: Player
@@ -182,6 +184,7 @@ MonoBehaviour:
   weaponSlot4: {fileID: 0}
   data: {fileID: 11400000, guid: e2e7ca0e0359468408e1ed4b66b0a605, type: 2}
   uiPlayerHP: {fileID: 0}
+  uIPlayerStamina: {fileID: 0}
 --- !u!114 &4167257310016242893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +336,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7429140629551599302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167257310016242894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
+--- !u!114 &3697916664129597230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167257310016242894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6266e09ca7e9cc140a79682325b108fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodStudioEventEmiiter: {fileID: 7429140629551599302}
+  eventKeyDatas:
+  - keyName: Footstep
+    fmodEventName: event:/SFX/PC/PC_Footstep
 --- !u!1001 &4541179195634463540
 PrefabInstance:
   m_ObjectHideFlags: 0
