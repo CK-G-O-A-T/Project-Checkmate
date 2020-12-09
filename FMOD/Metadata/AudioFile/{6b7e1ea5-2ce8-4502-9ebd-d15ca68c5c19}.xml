@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{6b7e1ea5-2ce8-4502-9ebd-d15ca68c5c19}">
+		<property name="assetPath">
+			<value>13 - Trimmed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.59959183673469385</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{5c5143b3-3ed4-44f7-b062-6fb818301a06}</destination>
+		</relationship>
+	</object>
+</objects>
