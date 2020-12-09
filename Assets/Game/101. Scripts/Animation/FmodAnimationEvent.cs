@@ -27,8 +27,9 @@ public class FmodAnimationEvent : MonoBehaviour
         }
     }
 
-    void FMOD_Play(string keyName)
+    void FMOD_Play(AnimationEvent eventParams)
     {
+        var keyName = eventParams.stringParameter;
         if (eventDictionary.TryGetValue(keyName, out var fmodEvent))
         {
             fmodEvent.Play();

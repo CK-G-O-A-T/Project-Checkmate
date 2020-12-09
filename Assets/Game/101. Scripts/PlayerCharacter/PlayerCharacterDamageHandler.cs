@@ -21,7 +21,8 @@ class PlayerCharacterDamageHandler : DamageHandler
             Debug.Log($"플레이어 데미지 핸들: {damageData}");
             behaviour.Status.Hp -= damageData.Damage;
             behaviour.DoImpact();
-            hurtSound.Play();
+            behaviour.CharacterAudio.hitAudio.Play();
+            //hurtSound.Play();
         }
         else
         {
