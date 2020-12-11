@@ -24,12 +24,12 @@ public class PauseMenu : MonoBehaviour
 
         if (keyActive && keyboard.escapeKey.isPressed)
         {
-            Time.timeScale = 1f;
+            TimeManager.Instance.IsPause = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             uiManager.CloseMenuCourutine();
             uiManager.isPopup = false;
-            uiManager.TogglePlayerCamera(true);
+            //uiManager.TogglePlayerCamera(true);
             uiManager.TogglePlayerInput(true);
             gameObject.SetActive(false);
         }

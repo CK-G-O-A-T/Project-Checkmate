@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameManager.Instance.GetComponent<GameManager>();
+        gameManager = GameManager.Instance;
         keyActive = true;
     }
 
@@ -33,13 +33,12 @@ public class UIManager : MonoBehaviour
 
         if (keyActive && gameManager.gameStart && !isPopup && keyboard.escapeKey.isPressed)
         {
-            TogglePlayerCamera(false);
+            //TogglePlayerCamera(false);
             TogglePlayerInput(false);
 
             isPopup = true;
 
-            // timeScale을 조절하면 에러발생! 카메라가 멀리 튀어나가 버리는 듯 함!
-            Time.timeScale = 0f;
+            TimeManager.Instance.IsPause = true;
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
