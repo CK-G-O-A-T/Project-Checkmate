@@ -2102,7 +2102,15 @@ AnimatorController:
     m_Name: WeaponType2 Override
     m_StateMachine: {fileID: -735456215955520085}
     m_Mask: {fileID: 0}
-    m_Motions: []
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: 7078419328956345173}
+      m_Motion: {fileID: 1827226128182048838, guid: 66079d1372f7c85489ea6ebb70c7a3f7,
+        type: 3}
+    - serializedVersion: 2
+      m_State: {fileID: 3872876405907327163}
+      m_Motion: {fileID: 1827226128182048838, guid: 9d0c269ae90807e4483357d8f2e1f04a,
+        type: 3}
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: 3
