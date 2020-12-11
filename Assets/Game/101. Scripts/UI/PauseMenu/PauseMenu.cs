@@ -40,4 +40,9 @@ public class PauseMenu : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         keyActive = true;
     }
+
+    public void ClickTest()
+    {
+        Debug.Log("Click!");
+    }
 }

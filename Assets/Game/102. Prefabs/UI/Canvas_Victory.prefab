@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 495283710264587023}
   - component: {fileID: 495283710264587026}
   - component: {fileID: 495283710264587025}
-  - component: {fileID: 495283710264587024}
   m_Layer: 5
   m_Name: text (1)
   m_TagString: Untagged
@@ -75,25 +74,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &495283710264587024
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495283710264587022}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &495283710887449440
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +85,6 @@ GameObject:
   - component: {fileID: 495283710887449441}
   - component: {fileID: 495283710887449444}
   - component: {fileID: 495283710887449443}
-  - component: {fileID: 495283710887449442}
   m_Layer: 5
   m_Name: line (3)
   m_TagString: Untagged
@@ -169,25 +148,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &495283710887449442
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495283710887449440}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &495283711311798774
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +234,7 @@ GameObject:
   - component: {fileID: 495283711415945191}
   - component: {fileID: 495283711415945190}
   - component: {fileID: 495283711415945189}
+  - component: {fileID: 1797465576}
   m_Layer: 5
   m_Name: Canvas_Victory
   m_TagString: Untagged
@@ -365,6 +326,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &1797465576
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495283711415945188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f1618f8a956bbd3428e86804c7640a52, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5717023063938830571
 GameObject:
   m_ObjectHideFlags: 0
