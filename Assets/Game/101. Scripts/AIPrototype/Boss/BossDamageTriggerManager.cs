@@ -19,6 +19,12 @@ public class BossDamageTriggerManager : MonoBehaviour
         }
     }
 
+    public void DamageTrigger_StartIndexTrigger(int index)
+    {
+        damageTriggers[index].damage = setAttackDamage;
+        damageTriggers[index].StartTrigger();
+    }
+
     public void DamageTrigger_EndTrigger()
     {
         for (int i = 0; i < damageTriggers.Length; i++)
