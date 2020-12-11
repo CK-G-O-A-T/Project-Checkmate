@@ -11864,12 +11864,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 289510086}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &289510090 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5951873057876303116, guid: 8aa0b698a6622994a8a944ec534374d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 289510086}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &289510093 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5951873059436533992, guid: 8aa0b698a6622994a8a944ec534374d8,
@@ -69818,7 +69812,7 @@ PrefabInstance:
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 1.1234723e-11
+      value: -1.5399914e-11
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -69828,7 +69822,7 @@ PrefabInstance:
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.012965012
+      value: 0.012965013
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -69838,7 +69832,7 @@ PrefabInstance:
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -8.6646884e-10
+      value: 0.0000000011877056
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -69863,7 +69857,7 @@ PrefabInstance:
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -1.9834713e-10
+      value: 1.9832763e-10
       objectReference: {fileID: 0}
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -69873,7 +69867,7 @@ PrefabInstance:
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.005763416
+      value: 0.005763376
       objectReference: {fileID: 0}
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -69888,7 +69882,7 @@ PrefabInstance:
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.000000034414285
+      value: -0.00000003441114
       objectReference: {fileID: 0}
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -69913,7 +69907,7 @@ PrefabInstance:
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -9.9191544e-11
+      value: 9.9154886e-11
       objectReference: {fileID: 0}
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -69923,12 +69917,12 @@ PrefabInstance:
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0057634045
+      value: 0.0057633845
       objectReference: {fileID: 0}
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.000000017210294
+      value: -0.000000017203991
       objectReference: {fileID: 0}
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -81318,12 +81312,12 @@ MonoBehaviour:
   bossName: TempBoss
   healthPoint: 1200
   setRotationSpeed: 20
-  isFirstStrike: 1
-  rayCastTransform: {fileID: 289510090}
+  isFirstStrike: 0
+  rayCastTransform: {fileID: 55666986}
   guidanceDistance: 2
   bossDamageTriggerManager: {fileID: 0}
   changePhase2HealthPoint: 1100
-  groggyComponent: {fileID: 289510097}
+  groggyComponent: {fileID: 645268904130457325}
   infect: 0
   setMaxInfect: 0
   infectContinuingTime: 5
@@ -81334,7 +81328,7 @@ MonoBehaviour:
   trackingDistance: 30
   DebugOn: 1
   AgentNextPostiion: {x: 0, y: 0, z: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 6151786104560332331}
   isEvade: 0
   isMove: 1
   isGroggy: 0

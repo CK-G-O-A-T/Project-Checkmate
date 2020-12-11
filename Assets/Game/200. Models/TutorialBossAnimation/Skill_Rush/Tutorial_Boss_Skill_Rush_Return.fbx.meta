@@ -42,7 +42,7 @@ ModelImporter:
       lastFrame: 130
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: 3
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -649,7 +649,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: ROOT_BOON
+    rootMotionBoneName: Bip001
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1

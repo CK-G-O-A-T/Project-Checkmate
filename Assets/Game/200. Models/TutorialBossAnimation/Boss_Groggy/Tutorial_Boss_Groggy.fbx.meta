@@ -38,7 +38,7 @@ ModelImporter:
       name: "BOSS_\uADF8\uB85C\uAE30"
       takeName: "BOSS_\uADF8\uB85C\uAE30"
       internalID: 0
-      firstFrame: 0
+      firstFrame: 40
       lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
@@ -649,7 +649,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: ROOT_BOON
+    rootMotionBoneName: Bip001
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1

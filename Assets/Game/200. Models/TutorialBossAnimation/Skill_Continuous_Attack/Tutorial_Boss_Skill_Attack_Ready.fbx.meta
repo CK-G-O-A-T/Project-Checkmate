@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: e31934577ba4e2f428e7d9c641c286fa
+guid: d39b1b8b41644b846b0169c31347f8ca
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -4187550127410955618
-    second: "BOSS_\uB3CC\uC9C4(\uB4A4\uB85C \uB3CC\uC9C4)"
+      74: 3782969968596871048
+    second: "BOSS_\uC5F0\uC18D\uACF5\uACA9"
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -26,7 +26,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: "BOSS_\uB3CC\uC9C4(\uB4A4\uB85C \uB3CC\uC9C4)"
-      takeName: "BOSS_\uB3CC\uC9C4(\uB4A4\uB85C \uB3CC\uC9C4)"
+      name: "BOSS_\uC5F0\uC18D\uACF5\uACA9"
+      takeName: "BOSS_\uC5F0\uC18D\uACF5\uACA9"
       internalID: 0
       firstFrame: 0
-      lastFrame: 34
+      lastFrame: 26
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -49,7 +49,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
