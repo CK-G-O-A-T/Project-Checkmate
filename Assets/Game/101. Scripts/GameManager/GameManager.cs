@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,6 +26,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public Image fadeImage;
+    public UnityEvent fadeIn;
+    public UnityEvent fadeOut;
+    public bool gameStart = false;
+    public CinemachineBrain playerCamera;
+    public PlayerInput player;
+
+    private delegate void DeligateFunc();
+    private DeligateFunc delimanjoo;
+
     private void Awake()
     {
         if (instance == null)
@@ -35,30 +46,13 @@ public class GameManager : MonoBehaviour
 
         else
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
-    }
-
-    public Image fadeImage;
-    public UnityEvent fadeIn;
-    public UnityEvent fadeOut;
-    public bool gameStart = false;
-    public PlayerInput managerInput;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //managerInput.actions
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void LoadScene(string sceneName)
     {
+        delimanjoo = new DeligateFunc(LoadMainGameData);
         StartCoroutine(SceneLoad(sceneName));
     }
 
@@ -68,12 +62,24 @@ public class GameManager : MonoBehaviour
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
         yield return SceneManager.LoadSceneAsync(sceneName);
         Debug.Log("Scene Load Complete");
-
-        //managerInput.enabled = true;
         StartCoroutine(FadeOut());
+        delimanjoo();
     }
 
-    private IEnumerator FadeIn()
+    private void LoadMainGameData()
+    {
+        playerCamera = Camera.main.GetComponent<CinemachineBrain>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+    }
+
+    private void InitMainGameData()
+    {
+        playerCamera = null;
+        player = null;
+        gameStart = false;
+    }
+
+    public IEnumerator FadeIn()
     {
         Color imgColor = fadeImage.color;
         for (float i = 0f; i <= 1.1f; i += Time.deltaTime * 0.8f)
@@ -85,7 +91,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Fade In Complete");
         fadeIn.Invoke();
     }
-    private IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         Color imgColor = fadeImage.color;
         for (float i = 1f; i >= -0.1f; i -= Time.deltaTime * 0.8f)
@@ -98,6 +104,13 @@ public class GameManager : MonoBehaviour
         fadeOut.Invoke();
     }
 
+    public void ReturnToMainTitle()
+    {
+        delimanjoo = new DeligateFunc(InitMainGameData);
+        StartCoroutine(SceneLoad("TitleScene"));
+        TimeManager.Instance.IsPause = false;
+    }
+
     #region Input Action
 
     public void OnAnyKey(InputValue value)
@@ -106,7 +119,6 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(FadeIn());
             gameStart = true;
-            //managerInput.enabled = false;
         }
     }
 
