@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     public CinemachineBrain playerCamera;
     public PlayerInput player;
 
+    private delegate void DeligateFunc();
+    private DeligateFunc delimanjoo;
+
     private void Awake()
     {
         if (instance == null)
@@ -43,12 +46,13 @@ public class GameManager : MonoBehaviour
 
         else
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
     }
 
     public void LoadScene(string sceneName)
     {
+        delimanjoo = new DeligateFunc(LoadMainGameData);
         StartCoroutine(SceneLoad(sceneName));
     }
 
@@ -59,8 +63,20 @@ public class GameManager : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(sceneName);
         Debug.Log("Scene Load Complete");
         StartCoroutine(FadeOut());
+        delimanjoo();
+    }
+
+    private void LoadMainGameData()
+    {
         playerCamera = Camera.main.GetComponent<CinemachineBrain>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+    }
+
+    private void InitMainGameData()
+    {
+        playerCamera = null;
+        player = null;
+        gameStart = false;
     }
 
     public IEnumerator FadeIn()
@@ -86,6 +102,13 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log("Fade Out Complete");
         fadeOut.Invoke();
+    }
+
+    public void ReturnToMainTitle()
+    {
+        delimanjoo = new DeligateFunc(InitMainGameData);
+        StartCoroutine(SceneLoad("TitleScene"));
+        TimeManager.Instance.IsPause = false;
     }
 
     #region Input Action

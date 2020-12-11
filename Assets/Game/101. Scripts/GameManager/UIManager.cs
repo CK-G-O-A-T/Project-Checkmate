@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
 
         if (keyActive && gameManager.gameStart && !isPopup && keyboard.escapeKey.isPressed)
         {
-            //TogglePlayerCamera(false);
+            TogglePlayerCamera(false);
             TogglePlayerInput(false);
 
             isPopup = true;

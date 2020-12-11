@@ -24,14 +24,7 @@ public class PauseMenu : MonoBehaviour
 
         if (keyActive && keyboard.escapeKey.isPressed)
         {
-            TimeManager.Instance.IsPause = false;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            uiManager.CloseMenuCourutine();
-            uiManager.isPopup = false;
-            //uiManager.TogglePlayerCamera(true);
-            uiManager.TogglePlayerInput(true);
-            gameObject.SetActive(false);
+            Resum();
         }
     }
 
@@ -41,8 +34,20 @@ public class PauseMenu : MonoBehaviour
         keyActive = true;
     }
 
-    public void ClickTest()
+    public void ReturnToMainMenu()
     {
-        Debug.Log("Click!");
+        GameManager.Instance.ReturnToMainTitle();
+    }
+
+    public void Resum()
+    {
+        TimeManager.Instance.IsPause = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        uiManager.CloseMenuCourutine();
+        uiManager.isPopup = false;
+        uiManager.TogglePlayerCamera(true);
+        uiManager.TogglePlayerInput(true);
+        gameObject.SetActive(false);
     }
 }
