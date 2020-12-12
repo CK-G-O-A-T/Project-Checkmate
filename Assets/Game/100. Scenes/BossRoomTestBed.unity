@@ -23415,7 +23415,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725214101}
-  m_LocalRotation: {x: 0.00080361124, y: -0.9844375, z: -0.17567544, w: -0.0045032287}
+  m_LocalRotation: {x: 0.0008037291, y: -0.9844375, z: -0.17567545, w: -0.004503889}
   m_LocalPosition: {x: -0.008426189, y: 1.1050512, z: -0.7355056}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -57549,17 +57549,17 @@ PrefabInstance:
     - target: {fileID: 575770652364866834, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000021644255
+      value: -0.000000010293139
       objectReference: {fileID: 0}
     - target: {fileID: 575770652364866834, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 9.052765e-11
+      value: -4.3051243e-10
       objectReference: {fileID: 0}
     - target: {fileID: 575770652364866834, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.04178872
+      value: -0.04178866
       objectReference: {fileID: 0}
     - target: {fileID: 575770652364866834, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -57704,32 +57704,32 @@ PrefabInstance:
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.012965016
+      value: -0.38306087
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -5.8626645e-11
+      value: -0.000000027932277
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -7.6017957e-13
+      value: -0.0000000115833005
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.1851583
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99991596
+      value: 0.9237231
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.3942194
       objectReference: {fileID: 0}
     - target: {fileID: 575770652967651497, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -57749,17 +57749,17 @@ PrefabInstance:
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.005763377
+      value: -0.005763416
       objectReference: {fileID: 0}
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000034747003
+      value: -0.000000016952889
       objectReference: {fileID: 0}
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -2.002634e-10
+      value: -9.770817e-11
       objectReference: {fileID: 0}
     - target: {fileID: 575770653465723462, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -57799,17 +57799,17 @@ PrefabInstance:
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0057633845
+      value: -0.0057634143
       objectReference: {fileID: 0}
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017866313
+      value: -0.000000016952887
       objectReference: {fileID: 0}
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.0297216e-10
+      value: -9.7708334e-11
       objectReference: {fileID: 0}
     - target: {fileID: 575770653977070794, guid: 709267ed75b7f9c46a23af07255331d7,
         type: 3}
@@ -65772,6 +65772,110 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 153797787, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 153797787, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 153797787, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 196206337, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196206337, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 196206337, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 202919793, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202919793, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 202919793, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329158252, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329158252, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329158252, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414677144, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414677144, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414677144, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414677144, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: Event
+      value: event:/SFX/Boss/Boss_SkillAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536259439, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536259439, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536259439, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645485172, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645485172, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645485172, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692813606, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 9.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045062457, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045062457, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2045062457, guid: f1701bac780dbf1408605d7a89442524, type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 166421395532358997, guid: f1701bac780dbf1408605d7a89442524,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -65831,6 +65935,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss_Version_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511957140414328330, guid: f1701bac780dbf1408605d7a89442524,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511957140414328330, guid: f1701bac780dbf1408605d7a89442524,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5511957140414328330, guid: f1701bac780dbf1408605d7a89442524,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1701bac780dbf1408605d7a89442524, type: 3}
