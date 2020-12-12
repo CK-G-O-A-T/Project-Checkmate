@@ -159,7 +159,7 @@
 			<value>1.0666666666666667</value>
 		</property>
 		<property name="volume">
-			<value>-6</value>
+			<value>-20.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{f709b60e-3a3c-48d6-ae04-84d8754e83e6}</destination>
@@ -180,7 +180,7 @@
 			<value>1.0666666666666667</value>
 		</property>
 		<property name="volume">
-			<value>-9</value>
+			<value>-22.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{7910012a-965d-4cb4-b8d9-9e1e473d761d}</destination>
@@ -233,6 +233,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{1ed549e0-47c5-4769-9f20-864c72364bad}">
+		<property name="volume">
+			<value>-6.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -503,8 +506,11 @@
 	</object>
 	<object class="MixerBusFader" id="{b10893ba-e967-46d0-be1a-cbcaab7c0379}" />
 	<object class="SFXReverbEffect" id="{a6c1fb76-f202-49b3-9c48-5e8be87f16f4}">
+		<property name="decayTime">
+			<value>2300</value>
+		</property>
 		<property name="wetLevel">
-			<value>-7</value>
+			<value>-5.5</value>
 		</property>
 	</object>
 	<object class="ThreeEQEffect" id="{2ec33f8a-7ca2-4eee-b52b-fc675e880c22}" />

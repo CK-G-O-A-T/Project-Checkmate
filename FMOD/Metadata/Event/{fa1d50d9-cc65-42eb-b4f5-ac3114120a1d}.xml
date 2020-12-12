@@ -179,10 +179,10 @@
 	</object>
 	<object class="SFXReverbEffect" id="{de0f78c4-eb0b-4fa8-8425-5a07896e06a1}">
 		<property name="decayTime">
-			<value>950</value>
+			<value>2300</value>
 		</property>
 		<property name="wetLevel">
-			<value>-10</value>
+			<value>-9.5</value>
 		</property>
 	</object>
 </objects>

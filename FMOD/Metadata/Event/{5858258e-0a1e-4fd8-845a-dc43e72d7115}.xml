@@ -93,7 +93,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{51cb344b-fe3a-4a53-9eb9-951df3ee93a1}">
 		<property name="volume">
-			<value>-16</value>
+			<value>-18.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{165acbec-4792-4bbc-a704-16ef7e25f7a4}</destination>
@@ -126,7 +126,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{7cb6f9e7-0d77-471c-a562-ed751e6ced83}">
 		<property name="volume">
-			<value>-3</value>
+			<value>-16</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -156,6 +156,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{3ad7bdc4-3bde-4177-ab77-41c40abe7dd5}">
+		<property name="volume">
+			<value>-5</value>
+		</property>
 		<property name="name">
 			<value>Audio 2</value>
 		</property>
@@ -194,6 +197,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{cbb92766-a9df-425f-9990-9df1636a39c8}">
+		<property name="volume">
+			<value>-2.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 3</value>
 		</property>
@@ -378,10 +384,10 @@
 	<object class="SpatialiserEffect" id="{ea2cc2b0-f748-4124-a896-e0b91041d775}" />
 	<object class="SFXReverbEffect" id="{49723dbc-8330-4fe9-b325-7b528353121b}">
 		<property name="decayTime">
-			<value>950</value>
+			<value>2600</value>
 		</property>
 		<property name="wetLevel">
-			<value>-11.5</value>
+			<value>-3</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{fc6da14b-8621-4043-8937-5784cc62ec8a}" />
