@@ -8,6 +8,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField] float globalTimeScale = 1;
     [SerializeField] float actionTimeScale = 1;
     [SerializeField] float debugTimeScale = 1;
+    [SerializeField] bool isPause;
+
+    public static TimeManager Instance { get; private set; }
 
     public float GlobalTimeScale
     {
@@ -46,17 +49,38 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    public bool IsPause
+    {
+        get => isPause;
+        set
+        {
+            isPause = value;
+            UpdateTimeScale();
+        }
+    }
+
     private void Awake()
     {
-        UpdateTimeScale();
+        if (Instance == null)
+        {
+            Instance = this;
+            UpdateTimeScale();
+        }
     }
 
     public void UpdateTimeScale()
     {
-        var timeScale = GlobalTimeScale * ActionTimeScale * DebugTimeScale;
+        if (!isPause)
+        {
+            var timeScale = GlobalTimeScale * ActionTimeScale * DebugTimeScale;
 
-        Time.timeScale = timeScale;
-        Time.fixedDeltaTime = FixedTimestep * Mathx.Clamp(timeScale, 0.0001f, 1f);
+            Time.timeScale = timeScale;
+            Time.fixedDeltaTime = FixedTimestep * Mathx.Clamp(timeScale, 0.0001f, 1f);
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
     }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD

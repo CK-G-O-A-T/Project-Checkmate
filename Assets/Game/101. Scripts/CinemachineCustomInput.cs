@@ -61,40 +61,52 @@ namespace Cinemachine
 
         public virtual float GetAxisValue(int axis)
         {
-            var action = ResolveForPlayer(axis, axis == 2 ? ZAxis : XYAxis);
+            if (TimeManager.Instance != null && !TimeManager.Instance.IsPause)
+            {
+                var action = ResolveForPlayer(axis, axis == 2 ? ZAxis : XYAxis);
 
-            var deltaCorrection = 1f;
+                var deltaCorrection = 1f;
 
-            if (action.controls[0].device is Mouse)
-            {
-                // 현재 FixedUpdate인지 감지
-                if (deltaTime != Time.deltaTime)
+                if (action.controls[0].device is Mouse)
                 {
-                    deltaCorrection = Time.fixedDeltaTime / deltaTime;
+                    // 현재 FixedUpdate인지 감지
+                    if (deltaTime != Time.deltaTime)
+                    {
+                        deltaCorrection = Time.fixedDeltaTime / deltaTime;
+                    }
                 }
-            }
-            else if (action.controls[0].device is Gamepad)
-            {
-                // 현재 LateUpdate인지 감지
-                if (deltaTime == Time.deltaTime)
+                else if (action.controls[0].device is Gamepad)
                 {
-                    deltaCorrection = deltaTime / 0.016f;
+                    // 현재 LateUpdate인지 감지
+                    if (deltaTime == Time.deltaTime)
+                    {
+                        deltaCorrection = deltaTime / 0.016f;
+                    }
                 }
-            }
-            //fixedUpdated = deltaTime != Time.deltaTime;
-            //Debug.Log($"{action.controls[0].device.GetType()} {deltaCorrection}");
-            //Debug.Log($"action.ReadValue<Vector2>().x : {action.ReadValue<Vector2>().x}");
-            //Debug.Log($"action.ReadValue<Vector2>().y : {action.ReadValue<Vector2>().y}");
-            if (action != null)
-            {
-                switch (axis)
+
+                if (float.IsNaN(deltaCorrection) || float.IsInfinity(deltaCorrection))
                 {
-                    case 0: return action.ReadValue<Vector2>().x * deltaCorrection;
-                    case 1: return action.ReadValue<Vector2>().y * deltaCorrection;
-                    case 2: return action.ReadValue<float>() * deltaCorrection;
+                    deltaCorrection = 0;
                 }
+                //fixedUpdated = deltaTime != Time.deltaTime;
+                //Debug.Log($"{action.controls[0].device.GetType()} {deltaCorrection}");
+                //Debug.Log($"action.ReadValue<Vector2>().x : {action.ReadValue<Vector2>().x}");
+                //Debug.Log($"action.ReadValue<Vector2>().y : {action.ReadValue<Vector2>().y}");
+                if (action != null)
+                {
+                    switch (axis)
+                    {
+                        case 0: return action.ReadValue<Vector2>().x * deltaCorrection;
+                        case 1: return action.ReadValue<Vector2>().y * deltaCorrection;
+                        case 2: return action.ReadValue<float>() * deltaCorrection;
+                    }
+                }
+                return 0;
             }
-            return 0;
+            else
+            {
+                return 0;
+            }
         }
 
         const int NUM_AXES = 3;

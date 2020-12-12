@@ -17,5 +17,6 @@ public class BossActivate : MonoBehaviour
     public void BossStart()
     {
         aiMaster.anim.SetTrigger("gameStart");
+        aiMaster.isFirstStrike = true;
     }
 }
