@@ -130,7 +130,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{1a742a37-9d43-45d6-a39c-df529f64be44}">
 		<property name="volume">
-			<value>-3</value>
+			<value>-4</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -188,10 +188,22 @@
 	<object class="MixerBusEffectChain" id="{9672d9ab-8b1d-47eb-87fa-202322d17d14}">
 		<relationship name="effects">
 			<destination>{b70a9036-bf7a-42b1-867c-00f980cc9881}</destination>
+			<destination>{4340e0e9-5a42-479e-972e-bc1a62fea5c0}</destination>
+			<destination>{e13c5fc1-e1a1-4938-a34e-6f4c5fb42481}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{60f294a6-078e-489d-b2ae-eddfeb12c077}" />
 	<object class="MixerBusFader" id="{6756b688-4d94-41f8-842b-bc1528fe768b}" />
 	<object class="SpatialiserEffect" id="{a6e8e427-5dea-4653-b495-2b0ae54e34aa}" />
 	<object class="MixerBusFader" id="{b70a9036-bf7a-42b1-867c-00f980cc9881}" />
+	<object class="ThreeEQEffect" id="{4340e0e9-5a42-479e-972e-bc1a62fea5c0}">
+		<property name="midGain">
+			<value>4</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{e13c5fc1-e1a1-4938-a34e-6f4c5fb42481}">
+		<property name="wetLevel">
+			<value>-8.5</value>
+		</property>
+	</object>
 </objects>
