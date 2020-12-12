@@ -13,8 +13,8 @@ public class UIPlayerHP : UIGaugebar
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterStatus>();
         }
-        maxValue = player.Hp;
-        currentValue = maxValue;
+        maxValue = player.Data.MaxSwitchingPoint;
+        currentValue = player.Hp;
     }
 
     protected override void SetCurrentGaugeSetting()

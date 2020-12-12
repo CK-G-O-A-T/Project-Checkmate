@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIPlayerStamina : UIGaugebar
+public class UIPlayerSwitchPoint : UIGaugebar
 {
     public PlayerCharacterStatus player;
 
@@ -13,12 +13,12 @@ public class UIPlayerStamina : UIGaugebar
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterStatus>();
         }
-        maxValue = player.Data.MaxStamina;
-        currentValue = player.Stamina;
+        maxValue = player.Data.MaxSwitchingPoint;
+        currentValue = player.SwitchPoint;
     }
 
     protected override void SetCurrentGaugeSetting()
     {
-        currentValue = player.Stamina;
+        currentValue = player.SwitchPoint;
     }
 }
