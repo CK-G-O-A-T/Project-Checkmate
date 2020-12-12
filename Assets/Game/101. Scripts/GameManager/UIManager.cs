@@ -98,7 +98,7 @@ public class UIManager : MonoBehaviour
         {
             fmodAudio.Play();
             gameManager.gameStart = true;
-            StartCoroutine(gameManager.FadeIn());
+            gameManager.MainMenuToGameScene();
         }
     }
 
