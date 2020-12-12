@@ -7,7 +7,11 @@ public class UIManager : MonoBehaviour
 {
     public bool isPopup = false;
     private GameManager gameManager;
+
     public GameObject pauseCanvas;
+    public GameObject victoryCanvas;
+    public GameObject gameOverCanvas;
+
     public bool keyActive = true;
 
     // Start is called before the first frame update
@@ -17,13 +21,13 @@ public class UIManager : MonoBehaviour
         keyActive = true;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        PopupPauseMenu();
+        PauseMenu();
         GameStart();
     }
 
-    private void PopupPauseMenu()
+    private void PauseMenu()
     {
         var keyboard = Keyboard.current;
         if (keyboard == null)
@@ -33,18 +37,51 @@ public class UIManager : MonoBehaviour
 
         if (keyActive && gameManager.gameStart && !isPopup && keyboard.escapeKey.isPressed)
         {
-            TogglePlayerCamera(false);
-            TogglePlayerInput(false);
-
-            isPopup = true;
-
-            TimeManager.Instance.IsPause = true;
-
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            pauseCanvas.SetActive(true);
-            keyActive = false;
+            Debug.Log("PauseMenuOpen");
+            PauseMenuOpen();
         }
+
+        else if (keyActive && gameManager.gameStart && isPopup && keyboard.escapeKey.isPressed)
+        {
+            Debug.Log("PauseMenuClose");
+            PauseMenuClose();
+        }
+
+    }
+
+    public void PauseMenuOpen()
+    {
+        TogglePlayerCamera(false);
+        TogglePlayerInput(false);
+
+        isPopup = true;
+
+        TimeManager.Instance.IsPause = true;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        pauseCanvas.SetActive(true);
+        keyActive = false;
+
+        StartCoroutine(CloseMenu());
+    }
+
+    public void PauseMenuClose()
+    {
+        TogglePlayerCamera(true);
+        TogglePlayerInput(true);
+
+        isPopup = false;
+
+        TimeManager.Instance.IsPause = false;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        pauseCanvas.SetActive(false);
+        keyActive = false;
+
+        StartCoroutine(CloseMenu());
     }
 
     private void GameStart()
@@ -60,11 +97,6 @@ public class UIManager : MonoBehaviour
             gameManager.gameStart = true;
             StartCoroutine(gameManager.FadeIn());
         }
-    }
-
-    public void CloseMenuCourutine()
-    {
-        StartCoroutine(CloseMenu());
     }
 
     IEnumerator CloseMenu()
@@ -83,5 +115,15 @@ public class UIManager : MonoBehaviour
     public void TogglePlayerInput(bool value)
     {
         gameManager.player.enabled = value;
+    }
+
+    public void VictoryCanvasOpen()
+    {
+
+    }
+
+    public void GameOverCanvasOpen()
+    {
+
     }
 }

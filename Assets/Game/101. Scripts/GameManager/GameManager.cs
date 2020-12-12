@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     public bool gameStart = false;
     public CinemachineBrain playerCamera;
     public PlayerInput player;
+    public BossDamageHandler boss;
+    public UIManager uiManager;
 
     private delegate void DeligateFunc();
     private DeligateFunc delimanjoo;
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
     {
         playerCamera = Camera.main.GetComponent<CinemachineBrain>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        boss = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossDamageHandler>();
     }
 
     private void InitMainGameData()
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
         playerCamera = null;
         player = null;
         gameStart = false;
+        boss = null;
     }
 
     public IEnumerator FadeIn()
