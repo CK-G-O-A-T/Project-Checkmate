@@ -27,7 +27,6 @@
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{dee0dc68-60de-4d45-8226-d732434dd374}</destination>
-			<destination>{331b058b-e9f4-4d0a-b4e9-24d80c5e95f9}</destination>
 		</relationship>
 		<relationship name="timeline">
 			<destination>{961d47db-2e87-41af-81b5-c00d53fcae69}</destination>
@@ -67,20 +66,9 @@
 			<destination>{11c44741-54dd-41cc-9c39-6f4a108038cd}</destination>
 		</relationship>
 	</object>
-	<object class="GroupTrack" id="{331b058b-e9f4-4d0a-b4e9-24d80c5e95f9}">
-		<relationship name="modules">
-			<destination>{ad4b26ff-203b-474a-8e8d-c21b8b446e7a}</destination>
-			<destination>{3f671b6d-e870-4540-9537-a282b7ba3804}</destination>
-		</relationship>
-		<relationship name="mixerGroup">
-			<destination>{eff0f372-b80c-4f04-ac70-f16b642dcec2}</destination>
-		</relationship>
-	</object>
 	<object class="Timeline" id="{961d47db-2e87-41af-81b5-c00d53fcae69}">
 		<relationship name="modules">
 			<destination>{cee0b111-0689-4612-bd1d-ea22c3a69680}</destination>
-			<destination>{ad4b26ff-203b-474a-8e8d-c21b8b446e7a}</destination>
-			<destination>{3f671b6d-e870-4540-9537-a282b7ba3804}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{be50c629-f0ab-4791-90ee-f7a1442f79b4}</destination>
@@ -129,45 +117,6 @@
 		</relationship>
 		<relationship name="panner">
 			<destination>{2f7c00de-e78e-48c3-93e4-2b726c7d62fa}</destination>
-		</relationship>
-		<relationship name="output">
-			<destination>{484c5dbe-d202-4510-83ff-2786d475f8ac}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{ad4b26ff-203b-474a-8e8d-c21b8b446e7a}">
-		<property name="length">
-			<value>84.87133333333334</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{8f3c366b-4b37-4842-bd19-6d1cf3a9767d}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{3f671b6d-e870-4540-9537-a282b7ba3804}">
-		<property name="start">
-			<value>84.87133333333334</value>
-		</property>
-		<property name="length">
-			<value>84.87133333333334</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{8f3c366b-4b37-4842-bd19-6d1cf3a9767d}</destination>
-		</relationship>
-	</object>
-	<object class="EventMixerGroup" id="{eff0f372-b80c-4f04-ac70-f16b642dcec2}">
-		<property name="volume">
-			<value>-7</value>
-		</property>
-		<property name="name">
-			<value>Audio 2</value>
-		</property>
-		<relationship name="modulators">
-			<destination>{41fadb7d-fafa-4bfe-b2aa-d341b221fd52}</destination>
-		</relationship>
-		<relationship name="effectChain">
-			<destination>{5e8ded2d-cc65-4a95-901d-099f49ab2362}</destination>
-		</relationship>
-		<relationship name="panner">
-			<destination>{882c83bd-3dfe-4ced-ad71-3dac4f7f65f5}</destination>
 		</relationship>
 		<relationship name="output">
 			<destination>{484c5dbe-d202-4510-83ff-2786d475f8ac}</destination>
@@ -222,26 +171,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2f7c00de-e78e-48c3-93e4-2b726c7d62fa}" />
-	<object class="ADSRModulator" id="{41fadb7d-fafa-4bfe-b2aa-d341b221fd52}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="initialValue">
-			<value>-80</value>
-		</property>
-		<property name="releaseTime">
-			<value>2000</value>
-		</property>
-		<property name="finalValue">
-			<value>-80</value>
-		</property>
-	</object>
-	<object class="MixerBusEffectChain" id="{5e8ded2d-cc65-4a95-901d-099f49ab2362}">
-		<relationship name="effects">
-			<destination>{c491597d-b556-40af-b4a0-6cf8d6d54e49}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusPanner" id="{882c83bd-3dfe-4ced-ad71-3dac4f7f65f5}" />
 	<object class="MixerBusFader" id="{21ae4289-93cf-4a05-bc31-c4ce9f0466c0}" />
 	<object class="SpatialiserEffect" id="{4ae19c35-44ae-40ac-b0c1-4f8530cb860c}">
 		<property name="bypass">
@@ -249,5 +178,4 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{3ffa57bd-f426-45b3-8bcd-8967e73abb3b}" />
-	<object class="MixerBusFader" id="{c491597d-b556-40af-b4a0-6cf8d6d54e49}" />
 </objects>
