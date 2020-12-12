@@ -10894,13 +10894,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossName: TempBoss
-  healthPoint: 1200
+  healthPoint: 1100
   setRotationSpeed: 20
   isFirstStrike: 0
   rayCastTransform: {fileID: 139782470115997742}
   guidanceDistance: 2
   bossDamageTriggerManager: {fileID: 0}
-  changePhase2HealthPoint: 1100
+  changePhase2HealthPoint: 720
   hitSound: {fileID: 4352239784282103745}
   groggyComponent: {fileID: 649907906657615849}
   infect: 0
