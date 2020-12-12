@@ -27,6 +27,7 @@ public class WeaponDamageTrigger : DamageTrigger
         Debug.Log($"무기 '{weaponData.WeaponName}' 공격");
 
         PlayerCharacterBehaviour.Status.SwitchPoint += WeaponData.SwitchingPointIncreaseByHit;
+        TimeManager.Instance.ToReferenceNull()?.SetActionTimeScale(0.1f);
 
         base.DealingDamage(damageHandler);
     }

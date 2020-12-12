@@ -10,6 +10,11 @@ public class TimeManager : MonoBehaviour
     [SerializeField] float debugTimeScale = 1;
     [SerializeField] bool isPause;
 
+    //float actionTimeScaleSmooth;
+    float actionTimeLerpDuration = 0;
+    float currentActionTimeLerpTime = 0;
+    float lastSetActionTimeScale;
+
     public static TimeManager Instance { get; private set; }
 
     public float GlobalTimeScale
@@ -81,6 +86,25 @@ public class TimeManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+    }
+
+    public void SetActionTimeScale(float value, float restoreTime = 0.25f)
+    {
+        lastSetActionTimeScale = value;
+        ActionTimeScale = lastSetActionTimeScale;
+        actionTimeLerpDuration = restoreTime;
+        currentActionTimeLerpTime = 0;
+    }
+
+    private void Update()
+    {
+        currentActionTimeLerpTime += (Time.unscaledDeltaTime * GlobalTimeScale * DebugTimeScale) / actionTimeLerpDuration;
+        actionTimeScale = Mathf.Lerp(lastSetActionTimeScale, 1f, currentActionTimeLerpTime);
+        DebugManager.Instance.PushDebugText($"actionTimeScale: {(actionTimeScale)}");
+        DebugManager.Instance.PushDebugText($"timeScale: {Time.timeScale}");
+
+        //actionTimeScale = Mathf.SmoothDamp(actionTimeScale, 1f, ref actionTimeScaleSmooth, actionTimeSmoothTime, float.PositiveInfinity, Time.unscaledDeltaTime * GlobalTimeScale * DebugTimeScale);
+        UpdateTimeScale();
     }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
