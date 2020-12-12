@@ -243,7 +243,8 @@ MonoBehaviour:
   weaponSlot4: {fileID: 0}
   data: {fileID: 11400000, guid: e2e7ca0e0359468408e1ed4b66b0a605, type: 2}
   uiPlayerHP: {fileID: 0}
-  uIPlayerStamina: {fileID: 0}
+  uiPlayerStamina: {fileID: 0}
+  uiPlayerSwitchPoint: {fileID: 0}
 --- !u!114 &4167257310016242893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +299,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviour: {fileID: 0}
+  effectManager: {fileID: 0}
   hurtSound: {fileID: 4461379452600908133}
+  cameraManager: {fileID: 0}
 --- !u!82 &4461379452600908133
 AudioSource:
   m_ObjectHideFlags: 0

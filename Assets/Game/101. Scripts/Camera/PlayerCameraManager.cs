@@ -9,6 +9,7 @@ public class PlayerCameraManager : MonoBehaviour
     [SerializeField] Transform targetTransform;
     [Range(0, 1)]
     [SerializeField] float lockonCameraHeight = 0.35f;
+    [SerializeField] CinemachineImpulseSource cameraImpulseSource;
 
     //Transform freeLookCameraTransform;
     float playerAngleOrigin;
@@ -37,6 +38,15 @@ public class PlayerCameraManager : MonoBehaviour
                 freeLookCamera.m_YAxis.m_MaxSpeed = yspeedBackup;
             }
         }
+    }
+
+    public void CameraShake(float time, float frequency, float amplitude)
+    {
+        var impulseDefine = cameraImpulseSource.m_ImpulseDefinition;
+        impulseDefine.m_TimeEnvelope.m_DecayTime = time;
+        impulseDefine.m_AmplitudeGain = amplitude;
+        impulseDefine.m_FrequencyGain = frequency;
+        cameraImpulseSource.GenerateImpulse(transform.position);
     }
 
     private void Awake()

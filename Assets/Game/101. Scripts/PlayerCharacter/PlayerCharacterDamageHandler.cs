@@ -6,6 +6,7 @@ class PlayerCharacterDamageHandler : DamageHandler
     [SerializeField] PlayerCharacterBehaviour behaviour;
     [SerializeField] PcvfxManager effectManager;
     [SerializeField] AudioSource hurtSound;
+    [SerializeField] PlayerCameraManager cameraManager;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ class PlayerCharacterDamageHandler : DamageHandler
             behaviour.DoImpact();
             behaviour.CharacterAudio.hitAudio.Play();
             effectManager.PlayEffect(6);
+            cameraManager.CameraShake(0.1f, 10f, 0.5f);
             //hurtSound.Play();
         }
         else
