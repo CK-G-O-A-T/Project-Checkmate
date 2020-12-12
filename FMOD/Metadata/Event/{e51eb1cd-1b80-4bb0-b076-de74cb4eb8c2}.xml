@@ -5,7 +5,7 @@
 			<value>Menu_Click</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{c4b6ebc2-38ab-4e9d-a4cb-d2717bc6a690}</destination>
@@ -119,7 +119,11 @@
 			<destination>{39aaca02-041f-4cf7-a646-15b131a530ee}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{9999bc14-c57a-441e-9887-938b3ed96f2c}" />
+	<object class="MixerBusPanner" id="{9999bc14-c57a-441e-9887-938b3ed96f2c}">
+		<property name="overridingOutputFormat">
+			<value>1</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{b9e1e1d8-455f-494f-9736-e43fe7334041}" />
 	<object class="MixerBusEffectChain" id="{e0fa662f-3ad3-4473-a275-68919971bc4e}">
 		<relationship name="effects">
@@ -130,7 +134,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{f17ba0ad-5d06-4412-86ba-229f6ddb710e}" />
 	<object class="MixerBusFader" id="{f65cdb23-1891-43c7-8e09-48199657ec5e}" />
-	<object class="SpatialiserEffect" id="{39aaca02-041f-4cf7-a646-15b131a530ee}" />
+	<object class="SpatialiserEffect" id="{39aaca02-041f-4cf7-a646-15b131a530ee}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{1898682f-4fc6-4e4b-a911-992e35aa896d}" />
 	<object class="ThreeEQEffect" id="{6bb7c138-1226-4b72-a4a4-a3ca0248e6ff}">
 		<property name="highGain">

@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public GameObject pauseCanvas;
     public bool keyActive = true;
 
+    [SerializeField] FMODUnity.StudioEventEmitter fmodAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,7 @@ public class UIManager : MonoBehaviour
 
         if (!gameManager.gameStart && (!keyboard.escapeKey.isPressed && keyboard.anyKey.isPressed))
         {
+            fmodAudio.Play();
             gameManager.gameStart = true;
             StartCoroutine(gameManager.FadeIn());
         }
