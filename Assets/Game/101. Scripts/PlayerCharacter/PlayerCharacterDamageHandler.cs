@@ -4,6 +4,7 @@ using UnityEngine;
 class PlayerCharacterDamageHandler : DamageHandler
 {
     [SerializeField] PlayerCharacterBehaviour behaviour;
+    [SerializeField] PcvfxManager effectManager;
     [SerializeField] AudioSource hurtSound;
 
     private void Awake()
@@ -11,6 +12,10 @@ class PlayerCharacterDamageHandler : DamageHandler
         if (behaviour == null)
         {
             behaviour = GetComponent<PlayerCharacterBehaviour>();
+        }
+        if (effectManager == null)
+        {
+            effectManager = GetComponent<PcvfxManager>();
         }
     }
 
@@ -22,6 +27,7 @@ class PlayerCharacterDamageHandler : DamageHandler
             behaviour.Status.Hp -= damageData.Damage;
             behaviour.DoImpact();
             behaviour.CharacterAudio.hitAudio.Play();
+            effectManager.PlayEffect(6);
             //hurtSound.Play();
         }
         else

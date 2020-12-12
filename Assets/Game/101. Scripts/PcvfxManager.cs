@@ -30,7 +30,7 @@ public class PcvfxManager : MonoBehaviour
         }
     }
 
-    public void Effect_Start(int index)
+    public void PlayEffect(int index)
     {
         Pceffects[index].particleGameObject.SetActive(true);
         Pceffects[index].particleObject.Play();
@@ -38,6 +38,12 @@ public class PcvfxManager : MonoBehaviour
         //effects[index].particleGameObject.transform.rotation = Quaternion.identity;
         StartCoroutine(DestroyParticle(Pceffects[index].particleGameObject, Pceffects[index].particleObject.duration));
         Debug.Log("Effect Index : " + index);
+    }
+
+    // 애니메이션 이벤트용 함수
+    void Effect_Start(int index)
+    {
+        PlayEffect(index);
     }
 
     IEnumerator DestroyParticle(GameObject gb, float particleDuration)
