@@ -583,7 +583,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 5379260195234246086}
+  - {fileID: 4512140698586664066}
   MinDistance: 1
   MaxDistance: 20
   Length: 6034
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/Build/Desktop/Master.bank
   Name: Master
-  lastModified: 637434168000000000
+  lastModified: 637434196089584257
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -805,7 +805,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 8995282879618567937}
+  - {fileID: -217760266288840360}
   MinDistance: 1
   MaxDistance: 20
   Length: 2532
@@ -1315,6 +1315,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-3685604592196094893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Boss_DownAttack/Status
+  m_EditorClassIdentifier: 
+  Name: Status
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-3667067090591781905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1981,6 +2001,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-1335425620875724647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Boss_SkillAttack/Status
+  m_EditorClassIdentifier: 
+  Name: Status
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-1321111585475299077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,6 +2161,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-530328073635172372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Boss_Swing_Ver2/Status
+  m_EditorClassIdentifier: 
+  Name: Status
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-332058061640549029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2181,6 +2241,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-217760266288840360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Boss_Rush/Status
+  m_EditorClassIdentifier: 
+  Name: Status
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-180326650408439942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2262,7 +2342,7 @@ MonoBehaviour:
   - {fileID: -5508565384189116634}
   StringsBanks:
   - {fileID: 7118227679254695776}
-  stringsBankWriteTime: 637434168000000000
+  stringsBankWriteTime: 637434196089604252
   cacheVersion: 5
 --- !u!114 &211322564987901176
 MonoBehaviour:
@@ -3013,6 +3093,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &3581403153048788628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Boss_BackJump/Status
+  m_EditorClassIdentifier: 
+  Name: Status
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &3826151680084868684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3133,6 +3233,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &4512140698586664066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Boss_Swing_Ver1/Status
+  m_EditorClassIdentifier: 
+  Name: Status
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &4582014790663889252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3742,6 +3862,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &6304394274907022590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Boss_Groggy/Status
+  m_EditorClassIdentifier: 
+  Name: Status
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &6304811755881919966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3882,7 +4022,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 1823375239632042207}
+  - {fileID: 6304394274907022590}
   MinDistance: 1
   MaxDistance: 20
   Length: 11737
@@ -3980,11 +4120,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637434168000000000
+  lastModified: 637434196089604252
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 1676
+  Exists: 1
+--- !u!114 &7184873482865522172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Boss_Howl/Status
+  m_EditorClassIdentifier: 
+  Name: Status
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
   Exists: 1
 --- !u!114 &7222925578453146919
 MonoBehaviour:
@@ -4026,7 +4186,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 769188458202998252}
+  - {fileID: 7184873482865522172}
   MinDistance: 1
   MaxDistance: 20
   Length: 4713
@@ -4110,7 +4270,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -5179644755037450706}
+  - {fileID: -3685604592196094893}
   MinDistance: 1
   MaxDistance: 20
   Length: 1782
@@ -4134,7 +4294,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -1768518592223375512}
+  - {fileID: 3581403153048788628}
   MinDistance: 1
   MaxDistance: 20
   Length: 2572
@@ -4381,7 +4541,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 8323595533864878208}
+  - {fileID: -1335425620875724647}
   MinDistance: 1
   MaxDistance: 20
   Length: 2108
@@ -4488,7 +4648,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 4613621792236011113}
+  - {fileID: -530328073635172372}
   MinDistance: 1
   MaxDistance: 20
   Length: 3825

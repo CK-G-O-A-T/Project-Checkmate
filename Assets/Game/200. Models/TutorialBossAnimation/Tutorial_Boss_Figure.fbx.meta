@@ -6,6 +6,9 @@ ModelImporter:
   - first:
       74: -8119857374944502634
     second: "BOSS_\uD718\uB450\uB974\uAE301"
+  - first:
+      74: 5642843872364317873
+    second: Boss_01
   externalObjects: {}
   materials:
     materialImportMode: 1
