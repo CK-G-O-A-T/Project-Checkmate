@@ -574,7 +574,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     void UpdateAnimationSpeed()
     {
         Animator.SetFloat("attackSpeed", characterEquipment.WeaponData.AttackSpeed);
-        //Animator.SetFloat("evadeSpeed", characterEquipment.WeaponData.eva);
+        Animator.SetFloat("evadeSpeed", characterEquipment.WeaponData.EvadeSpeed);
         //Animator.SetFloat("moveSpeed", status.)
     }
 

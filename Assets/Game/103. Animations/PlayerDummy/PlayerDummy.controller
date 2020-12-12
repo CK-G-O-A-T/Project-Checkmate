@@ -2102,7 +2102,23 @@ AnimatorController:
     m_Name: WeaponType2 Override
     m_StateMachine: {fileID: -735456215955520085}
     m_Mask: {fileID: 0}
-    m_Motions: []
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: 7078419328956345173}
+      m_Motion: {fileID: 1827226128182048838, guid: 66079d1372f7c85489ea6ebb70c7a3f7,
+        type: 3}
+    - serializedVersion: 2
+      m_State: {fileID: 3872876405907327163}
+      m_Motion: {fileID: 1827226128182048838, guid: 9d0c269ae90807e4483357d8f2e1f04a,
+        type: 3}
+    - serializedVersion: 2
+      m_State: {fileID: 1619280515065548970}
+      m_Motion: {fileID: 4715135112993374694, guid: 00ddcc4d63bad5a4fad1085b58712510,
+        type: 3}
+    - serializedVersion: 2
+      m_State: {fileID: -9114074484624373882}
+      m_Motion: {fileID: -1151924433276511771, guid: 7909a4c479c1edc48b6c0681eca5d6fb,
+        type: 3}
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: 3
@@ -2428,7 +2444,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: a6bc1e1c50b43e647b85e871929620bd,
+    m_Motion: {fileID: 1827226128182048838, guid: f7318b18d658009458ae21008f9303cc,
       type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
@@ -2437,7 +2453,7 @@ BlendTree:
     m_DirectBlendParameter: xSpeed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 1827226128182048838, guid: f7318b18d658009458ae21008f9303cc,
+    m_Motion: {fileID: 1827226128182048838, guid: a6bc1e1c50b43e647b85e871929620bd,
       type: 3}
     m_Threshold: 0.09259259
     m_Position: {x: 0, y: 0.5}
