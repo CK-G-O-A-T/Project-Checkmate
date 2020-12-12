@@ -28,6 +28,7 @@ public class WeaponDamageTrigger : DamageTrigger
 
         PlayerCharacterBehaviour.Status.SwitchPoint += WeaponData.SwitchingPointIncreaseByHit;
         TimeManager.Instance.ToReferenceNull()?.SetActionTimeScale(0.1f);
+        PlayerCameraManager.Instance.ToReferenceNull()?.CameraShake(0.1f, 0.1f, 0.1f, 0.25f);
 
         base.DealingDamage(damageHandler);
     }

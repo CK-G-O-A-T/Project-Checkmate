@@ -29,7 +29,7 @@ class PlayerCharacterDamageHandler : DamageHandler
             behaviour.DoImpact();
             behaviour.CharacterAudio.hitAudio.Play();
             effectManager.PlayEffect(6);
-            cameraManager.CameraShake(0.1f, 10f, 0.5f);
+            cameraManager.CameraShake(0.2f, 0.1f, 10f, 0.5f);
             //hurtSound.Play();
         }
         else
