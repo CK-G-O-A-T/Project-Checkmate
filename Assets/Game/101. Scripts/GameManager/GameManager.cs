@@ -27,14 +27,16 @@ public class GameManager : MonoBehaviour
     }
 
     public Image fadeImage;
-    public UnityEvent fadeIn;
-    public UnityEvent fadeOut;
     public bool gameStart = false;
     public CinemachineBrain playerCamera;
     public PlayerInput player;
+    public BossDamageHandler boss;
+    public UIManager uiManager;
 
     private delegate void DeligateFunc();
     private DeligateFunc delimanjoo;
+
+    public string targetScene;
 
     private void Awake()
     {
@@ -48,12 +50,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    public void LoadScene(string sceneName)
-    {
-        delimanjoo = new DeligateFunc(LoadMainGameData);
-        StartCoroutine(SceneLoad(sceneName));
+        if (uiManager == null)
+        {
+            uiManager = GetComponent<UIManager>();
+        }
     }
 
     private IEnumerator SceneLoad(string sceneName)
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
     {
         playerCamera = Camera.main.GetComponent<CinemachineBrain>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        boss = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossDamageHandler>();
     }
 
     private void InitMainGameData()
@@ -77,9 +79,10 @@ public class GameManager : MonoBehaviour
         playerCamera = null;
         player = null;
         gameStart = false;
+        boss = null;
     }
 
-    public IEnumerator FadeIn()
+    public IEnumerator LoadScene(string sceneName)
     {
         Color imgColor = fadeImage.color;
         for (float i = 0f; i <= 1.1f; i += Time.deltaTime * 0.8f)
@@ -89,7 +92,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         Debug.Log("Fade In Complete");
-        fadeIn.Invoke();
+        StartCoroutine(SceneLoad(sceneName));
     }
     public IEnumerator FadeOut()
     {
@@ -101,30 +104,22 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         Debug.Log("Fade Out Complete");
-        fadeOut.Invoke();
     }
 
     public void ReturnToMainTitle()
     {
         delimanjoo = new DeligateFunc(InitMainGameData);
-        StartCoroutine(SceneLoad("TitleScene"));
+        uiManager.isPopup = false;
         TimeManager.Instance.IsPause = false;
+        StartCoroutine(LoadScene("TitleScene"));
+    }
+
+    public void MainMenuToGameScene()
+    {
+        delimanjoo = new DeligateFunc(LoadMainGameData);
+        StartCoroutine(LoadScene(targetScene));
     }
 
     #region Input Action
-
-    public void OnAnyKey(InputValue value)
-    {
-        if (!gameStart && value.isPressed)
-        {
-            StartCoroutine(FadeIn());
-            gameStart = true;
-        }
-    }
-
-    public void OnEscape(InputValue value)
-    {
-        Debug.Log("ESC");
-    }
     #endregion
 }
