@@ -20,6 +20,9 @@ public class PlayerCharacterData : ScriptableObject
     [Tooltip("최대 상태 포인트")]
     public double MaxStatePoint = 100;
 
+    [Tooltip("스위칭 포인트 사용시 스태미나 증가 비례율")]
+    public float StatminaIncreaseRateByUseSwitchPoint = 0.5f;
+
     [Tooltip("피격시 무적 시간")]
     public float NoDamageTimeByBeaten = 1;
 

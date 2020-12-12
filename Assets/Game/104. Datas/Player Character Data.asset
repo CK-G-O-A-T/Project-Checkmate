@@ -16,12 +16,13 @@ MonoBehaviour:
   MaxStamina: 100
   MaxSwitchingPoint: 100
   MaxStatePoint: 100
+  StatminaIncreaseRateByUseSwitchPoint: 1
   NoDamageTimeByBeaten: 1
   SwitchingPointsMinRequirements: 30
   SwitchingCoolTime: 5
   StaminaRecoveryDelay: 1
-  StaminaRecoveryPerSecond: 20
-  SprintStaminaConsumption: 10
-  EvationStamianConsumption: 25
-  ParryingSwitchingPointProduction: 30
-  ParryingGroggyPointProduction: 20
+  StaminaRecoveryPerSeconds: 20
+  StaminaConsumptionBySprint: 10
+  StamianDecreaseByEvasion: 25
+  SwitchingPointProductionByParrying: 30
+  GroggyPointProductionByParrying: 20
