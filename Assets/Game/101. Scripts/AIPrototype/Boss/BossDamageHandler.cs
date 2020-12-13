@@ -8,6 +8,7 @@ public class BossDamageHandler : DamageHandler
     [SerializeField]
     private AIMaster aiMaster;
     public UnityEvent damageEvent;
+    public UnityEvent dieEvent;
 
     public double damagePerSecond = 0f;
     public bool isCheck = false;
@@ -73,5 +74,6 @@ public class BossDamageHandler : DamageHandler
     {
         aiMaster.anim.SetTrigger("isDead");
         aiMaster.isDead = true;
+        dieEvent.Invoke();
     }
 }

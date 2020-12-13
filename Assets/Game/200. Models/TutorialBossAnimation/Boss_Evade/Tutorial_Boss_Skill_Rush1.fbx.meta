@@ -67,8 +67,8 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.28881583
-        functionName: WideAreaTrigger_EndTrigger
-        data: 
+        functionName: FMOD_Play
+        data: BackJump
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0

@@ -5,6 +5,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 using UnityEngine.AI;
+using FMODUnity;
 
 public class AIMaster : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class AIMaster : MonoBehaviour
     [SerializeField]
     private BossDamageTriggerManager bossDamageTriggerManager;
     public int changePhase2HealthPoint;
+    public StudioEventEmitter hitSound;
 
     [Header("Groggy")]
     public BossGroggyComponent groggyComponent;
@@ -309,6 +311,11 @@ public class AIMaster : MonoBehaviour
                 anim.SetTrigger("timerTrigger");
             }
         }
+    }
+
+    public void PlayHitSound()
+    {
+        hitSound.Play();
     }
 
     #region Evade Function

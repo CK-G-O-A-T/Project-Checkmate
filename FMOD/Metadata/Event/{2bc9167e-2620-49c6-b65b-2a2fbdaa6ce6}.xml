@@ -107,6 +107,12 @@
 		<property name="timelockedOffset">
 			<value>0.09375</value>
 		</property>
+		<property name="volume">
+			<value>-1</value>
+		</property>
+		<property name="pitch">
+			<value>-0.600000024</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{f4a59f5d-a12e-488e-a8e7-dde35bda2e6d}</destination>
 			<destination>{281fb8b2-bfb8-4316-8fc5-59e677443e6e}</destination>
@@ -120,13 +126,13 @@
 	</object>
 	<object class="SingleSound" id="{e51ff94d-ba9e-4277-9cf0-f37669f2b5a0}">
 		<property name="start">
-			<value>0.71875</value>
+			<value>0.75</value>
 		</property>
 		<property name="length">
 			<value>0.95065759637188207</value>
 		</property>
 		<property name="volume">
-			<value>-18</value>
+			<value>-20.5</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{baafa8e6-6d3a-45b4-b966-ed908867da38}</destination>
@@ -138,7 +144,7 @@
 	</object>
 	<object class="SingleSound" id="{bd370c3f-14f0-4116-a38b-8a78a8fb8ed1}">
 		<property name="start">
-			<value>0.71875</value>
+			<value>0.75</value>
 		</property>
 		<property name="length">
 			<value>1.7826530612244897</value>
@@ -156,7 +162,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{bff40c8e-ccac-4f2f-9f02-36e41eb7c205}">
 		<property name="volume">
-			<value>-3</value>
+			<value>-3.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -175,6 +181,8 @@
 		<relationship name="effects">
 			<destination>{1511006a-a4c1-460d-802e-682f7d7a70cc}</destination>
 			<destination>{44498b3a-c12f-4a3f-a793-a69fa06f051f}</destination>
+			<destination>{86b41416-197d-450d-aeb8-b208e4c5be8a}</destination>
+			<destination>{f0ac86df-72f9-4cfc-9db2-8d05cf5ce75f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d90f0202-f2e6-487c-9c68-d60e0c982a03}" />
@@ -243,6 +251,12 @@
 	<object class="MixerBusPanner" id="{f24cf0cd-fe33-4d43-8f55-49fb737d71d1}" />
 	<object class="MixerBusFader" id="{1511006a-a4c1-460d-802e-682f7d7a70cc}" />
 	<object class="SpatialiserEffect" id="{44498b3a-c12f-4a3f-a793-a69fa06f051f}" />
+	<object class="ThreeEQEffect" id="{86b41416-197d-450d-aeb8-b208e4c5be8a}" />
+	<object class="SFXReverbEffect" id="{f0ac86df-72f9-4cfc-9db2-8d05cf5ce75f}">
+		<property name="decayTime">
+			<value>2100</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{b6c9ce93-1466-4ba4-8867-b68713a80f01}">
 		<property name="position">
 			<value>0.625</value>

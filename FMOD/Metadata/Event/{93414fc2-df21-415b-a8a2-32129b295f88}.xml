@@ -107,6 +107,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{b1183db1-727d-46ee-898a-086408333cfc}" />
 	<object class="SingleSound" id="{2d3d8d9d-cd27-4d53-bda1-1ebb5c30c4bf}">
+		<property name="start">
+			<value>0.040000000000000001</value>
+		</property>
 		<property name="length">
 			<value>1.0384353741496599</value>
 		</property>
@@ -123,7 +126,7 @@
 	</object>
 	<object class="SingleSound" id="{679477bc-fafb-4273-8c3d-d922ab1db561}">
 		<property name="start">
-			<value>0.65625</value>
+			<value>0.69625000000000004</value>
 		</property>
 		<property name="length">
 			<value>0.80514739229024945</value>
@@ -144,7 +147,7 @@
 	</object>
 	<object class="SingleSound" id="{9a8320d1-86b7-47e6-af9e-77b1842a48ad}">
 		<property name="start">
-			<value>1.09375</value>
+			<value>1.13375</value>
 		</property>
 		<property name="length">
 			<value>0.9747165532879819</value>
@@ -165,7 +168,7 @@
 	</object>
 	<object class="MultiSound" id="{4e6b422a-29af-43b9-b976-e719aa153784}">
 		<property name="start">
-			<value>1.125</value>
+			<value>1.165</value>
 		</property>
 		<property name="length">
 			<value>0.75653061224489793</value>
@@ -195,7 +198,7 @@
 	</object>
 	<object class="MultiSound" id="{8585f1a8-bb58-43e8-8587-b0d78a1ebb7b}">
 		<property name="start">
-			<value>0.71875</value>
+			<value>0.75875000000000004</value>
 		</property>
 		<property name="length">
 			<value>0.75653061224489793</value>
@@ -225,7 +228,7 @@
 	</object>
 	<object class="MultiSound" id="{8498894c-f626-4d4a-a083-8b48363fd431}">
 		<property name="start">
-			<value>0.080300458612701686</value>
+			<value>0.12030045861270169</value>
 		</property>
 		<property name="length">
 			<value>0.75653061224489793</value>
@@ -251,6 +254,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{fac8c443-f916-44f5-8e23-406ca294097b}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -496,7 +502,7 @@
 	<object class="SpatialiserEffect" id="{c914b488-585a-4e83-9c56-5ab2962691e9}" />
 	<object class="AutomationPoint" id="{994bcfc0-d8c9-48f3-a2a5-8582d6435282}">
 		<property name="position">
-			<value>0.65625</value>
+			<value>0.69625000000000004</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -507,7 +513,7 @@
 	</object>
 	<object class="AutomationPoint" id="{acfaf526-da91-4dde-ad0a-680dd156130f}">
 		<property name="position">
-			<value>0.75</value>
+			<value>0.79000000000000004</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -515,7 +521,7 @@
 	</object>
 	<object class="AutomationPoint" id="{f64e6df4-b937-43ff-a683-324f5fdd2385}">
 		<property name="position">
-			<value>1.09375</value>
+			<value>1.13375</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -526,7 +532,7 @@
 	</object>
 	<object class="AutomationPoint" id="{a11c7fb6-bf31-48d6-a367-32c0abd79078}">
 		<property name="position">
-			<value>1.15625</value>
+			<value>1.19625</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -534,7 +540,7 @@
 	</object>
 	<object class="AutomationPoint" id="{6392f80a-ea4b-4ccd-8c4d-f2ba513dbf23}">
 		<property name="position">
-			<value>1.125</value>
+			<value>1.165</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -545,7 +551,7 @@
 	</object>
 	<object class="AutomationPoint" id="{6ae42062-123d-4b7f-9939-835900ff5fdc}">
 		<property name="position">
-			<value>1.1801473922902495</value>
+			<value>1.2201473922902495</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -553,7 +559,7 @@
 	</object>
 	<object class="AutomationPoint" id="{b5547207-0284-49b2-a637-5e7ac4c888ef}">
 		<property name="position">
-			<value>1.7011836806065352</value>
+			<value>1.7411836806065353</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -564,7 +570,7 @@
 	</object>
 	<object class="AutomationPoint" id="{8bf6a414-b326-45b7-9ab2-3afceee8b87e}">
 		<property name="position">
-			<value>1.881530612244898</value>
+			<value>1.9215306122448981</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -572,7 +578,7 @@
 	</object>
 	<object class="AutomationPoint" id="{d454ce6c-65e0-4606-805e-7df928655b69}">
 		<property name="position">
-			<value>0.71875</value>
+			<value>0.75875000000000004</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -583,7 +589,7 @@
 	</object>
 	<object class="AutomationPoint" id="{b948468c-ec21-466b-a48b-3c613de67556}">
 		<property name="position">
-			<value>0.75</value>
+			<value>0.79000000000000004</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -591,7 +597,7 @@
 	</object>
 	<object class="AutomationPoint" id="{bc98541e-c631-487a-8420-e7b57474be62}">
 		<property name="position">
-			<value>1.03125</value>
+			<value>1.07125</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -602,7 +608,7 @@
 	</object>
 	<object class="AutomationPoint" id="{0d523aed-603d-4fb3-a7f2-16664daee21b}">
 		<property name="position">
-			<value>1.475280612244898</value>
+			<value>1.5152806122448981</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -610,7 +616,7 @@
 	</object>
 	<object class="AutomationPoint" id="{b1371c85-730c-4a4c-baa8-d2ca38069f05}">
 		<property name="position">
-			<value>0.34375</value>
+			<value>0.38375000000000004</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -621,7 +627,7 @@
 	</object>
 	<object class="AutomationPoint" id="{5d03ee10-d77e-4afe-8de1-d44282ab5681}">
 		<property name="position">
-			<value>0.83683107085759967</value>
+			<value>0.8768310708575997</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -630,6 +636,9 @@
 	<object class="MixerBusFader" id="{b3e688af-12ce-4e60-bca8-f2f98c1e25df}" />
 	<object class="ThreeEQEffect" id="{507f8fd8-2c65-4a23-a4f7-d5b050837e95}" />
 	<object class="SFXReverbEffect" id="{906d0304-9cea-4eed-94cf-0feaef702075}">
+		<property name="decayTime">
+			<value>2500</value>
+		</property>
 		<property name="wetLevel">
 			<value>-7.5</value>
 		</property>

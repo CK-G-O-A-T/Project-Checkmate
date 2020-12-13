@@ -5,7 +5,7 @@
 			<value>Game_Start</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{c4b6ebc2-38ab-4e9d-a4cb-d2717bc6a690}</destination>
@@ -103,6 +103,9 @@
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{d5038373-aea0-4d2d-bae5-2f76076d03bd}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{c745ba13-75e3-44b5-9175-aebc6489ab01}</destination>
 		</relationship>
@@ -119,12 +122,22 @@
 			<destination>{5a2be10a-cc72-401e-aab1-69b73d5fd806}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{55dfd3da-3d47-48ee-9ad5-6f0ea5d32eaa}">
-		<property name="overridingOutputFormat">
-			<value>1</value>
+	<object class="MixerBusPanner" id="{55dfd3da-3d47-48ee-9ad5-6f0ea5d32eaa}" />
+	<object class="MixerBusFader" id="{42ea29e5-3f9d-4210-b72c-79150d93d3be}" />
+	<object class="ADSRModulator" id="{d5038373-aea0-4d2d-bae5-2f76076d03bd}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>0</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
 		</property>
 	</object>
-	<object class="MixerBusFader" id="{42ea29e5-3f9d-4210-b72c-79150d93d3be}" />
 	<object class="MixerBusEffectChain" id="{c745ba13-75e3-44b5-9175-aebc6489ab01}">
 		<relationship name="effects">
 			<destination>{3128052b-ff0d-45e4-beb7-8889f69bc99a}</destination>
@@ -134,11 +147,7 @@
 	</object>
 	<object class="MixerBusPanner" id="{0ef49eea-c7e5-4256-8ccf-f2f2a3d981c4}" />
 	<object class="MixerBusFader" id="{9e1e116a-432b-4bf8-9344-366b852b2e6f}" />
-	<object class="SpatialiserEffect" id="{5a2be10a-cc72-401e-aab1-69b73d5fd806}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
-	</object>
+	<object class="SpatialiserEffect" id="{5a2be10a-cc72-401e-aab1-69b73d5fd806}" />
 	<object class="MixerBusFader" id="{3128052b-ff0d-45e4-beb7-8889f69bc99a}" />
 	<object class="ThreeEQEffect" id="{804bbf8e-2103-4517-bc7d-eacd1e5efdb2}">
 		<property name="highGain">
