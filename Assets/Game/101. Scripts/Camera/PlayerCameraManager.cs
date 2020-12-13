@@ -9,6 +9,9 @@ public class PlayerCameraManager : MonoBehaviour
     [SerializeField] Transform targetTransform;
     [Range(0, 1)]
     [SerializeField] float lockonCameraHeight = 0.35f;
+    [SerializeField] CinemachineImpulseSource cameraImpulseSource;
+
+    public static PlayerCameraManager Instance { get; private set; }
 
     //Transform freeLookCameraTransform;
     float playerAngleOrigin;
@@ -39,8 +42,28 @@ public class PlayerCameraManager : MonoBehaviour
         }
     }
 
+    public void CameraShake(float time, float frequency, float amplitude)
+    {
+        CameraShake(0, time, frequency, amplitude);
+    }
+
+    public void CameraShake(float sustainTime, float releaseTime, float frequency, float amplitude)
+    {
+        var impulseDefine = cameraImpulseSource.m_ImpulseDefinition;
+        impulseDefine.m_TimeEnvelope.m_SustainTime = sustainTime;
+        impulseDefine.m_TimeEnvelope.m_DecayTime = releaseTime;
+        impulseDefine.m_AmplitudeGain = amplitude;
+        impulseDefine.m_FrequencyGain = frequency;
+        cameraImpulseSource.GenerateImpulse(transform.position);
+    }
+
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
         xspeedBackup = freeLookCamera.m_XAxis.m_MaxSpeed;
         yspeedBackup = freeLookCamera.m_YAxis.m_MaxSpeed;
         //freeLookCameraTransform = freeLookCamera.transform;

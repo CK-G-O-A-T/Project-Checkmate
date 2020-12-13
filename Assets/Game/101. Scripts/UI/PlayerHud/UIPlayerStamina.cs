@@ -13,8 +13,8 @@ public class UIPlayerStamina : UIGaugebar
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterStatus>();
         }
-        maxValue = player.Stamina;
-        currentValue = maxValue;
+        maxValue = player.Data.MaxStamina;
+        currentValue = player.Stamina;
     }
 
     protected override void SetCurrentGaugeSetting()

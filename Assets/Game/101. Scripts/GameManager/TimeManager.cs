@@ -9,6 +9,12 @@ public class TimeManager : MonoBehaviour
     [SerializeField] float actionTimeScale = 1;
     [SerializeField] float debugTimeScale = 1;
     [SerializeField] bool isPause;
+    [SerializeField] SimpleADSR actionTimeADSR;
+
+    //float actionTimeScaleSmooth;
+    //float actionTimeLerpDuration = 0;
+    float currentActionTimeLerpTime = 0;
+    //float lastSetActionTimeScale;
 
     public static TimeManager Instance { get; private set; }
 
@@ -81,6 +87,43 @@ public class TimeManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+    }
+
+    public void SetActionTimeScale(float value, float sustainDuration, float releaseDuration)
+    {
+        SetActionTimeScale(value, 0, 0, sustainDuration, releaseDuration);
+    }
+    public void SetActionTimeScale(float value, float attackDuration, float sustainDuration, float releaseDuration)
+    {
+        SetActionTimeScale(value, attackDuration, 0, sustainDuration, releaseDuration);
+    }
+    public void SetActionTimeScale(float value, float attackDuration, float decayDuration, float sustainDuration, float releaseDuration)
+    {
+        currentActionTimeLerpTime = 0;
+
+        value = 1 - value;
+        var actionTimeADSR = this.actionTimeADSR;
+
+        actionTimeADSR.attack.duration = attackDuration;
+        actionTimeADSR.attack.targetValue = value;
+
+        actionTimeADSR.decay.duration = decayDuration;
+        actionTimeADSR.decay.targetValue = value;
+
+        actionTimeADSR.sustain.duration = sustainDuration;
+
+        actionTimeADSR.release.duration = releaseDuration;
+    }
+
+    private void Update()
+    {
+        currentActionTimeLerpTime += (Time.unscaledDeltaTime * GlobalTimeScale * DebugTimeScale);
+        actionTimeScale = 1 - actionTimeADSR.Evaluate(currentActionTimeLerpTime);
+        DebugManager.Instance.PushDebugText($"actionTimeScale: {(actionTimeScale)}");
+        DebugManager.Instance.PushDebugText($"timeScale: {Time.timeScale}");
+
+        //actionTimeScale = Mathf.SmoothDamp(actionTimeScale, 1f, ref actionTimeScaleSmooth, actionTimeSmoothTime, float.PositiveInfinity, Time.unscaledDeltaTime * GlobalTimeScale * DebugTimeScale);
+        UpdateTimeScale();
     }
 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD

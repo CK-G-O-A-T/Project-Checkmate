@@ -643,7 +643,9 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     /// </summary>
     void WeaponChange()
     {
+        var usedSwitchPoint = status.SwitchPoint;
         status.SwitchPoint = 0;
+        status.Stamina += usedSwitchPoint * Status.Data.StatminaIncreaseRateByUseSwitchPoint;
         status.CurrentWeaponSlotIndex = reservedWeaponIndex;
 
         var weapon = status.GetWeaponSlot(status.CurrentWeaponSlotIndex);
