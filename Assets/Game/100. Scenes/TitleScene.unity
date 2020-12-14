@@ -215,6 +215,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 0}
   keyActive: 1
   exitTimer: 0
+  exitPanel: {fileID: 363481662}
   fmodAudio: {fileID: 12896009}
 --- !u!1001 &329031809
 PrefabInstance:
