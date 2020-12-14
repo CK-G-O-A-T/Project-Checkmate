@@ -132,7 +132,7 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        if (!gameManager.gameStart && (!keyboard.escapeKey.isPressed && keyboard.anyKey.isPressed))
+        if (!gameManager.gameStart && gameManager.playReady && (!keyboard.escapeKey.isPressed && keyboard.anyKey.isPressed))
         {
             fmodAudio.Play();
             gameManager.gameStart = true;

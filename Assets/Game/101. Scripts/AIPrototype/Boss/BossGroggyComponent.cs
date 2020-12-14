@@ -52,8 +52,8 @@ public class BossGroggyComponent : MonoBehaviour
 
         if (groggy >= setMaxGroggy)
         {
-            groggy = 0;
             aiMaster.anim.SetTrigger("isGroggy");
+            groggy = 0;
         }
     }
 }

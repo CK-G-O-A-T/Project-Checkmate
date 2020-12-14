@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public string targetScene;
 
     public bool gameEnd = false;
+    public bool playReady = false;
 
     private void Awake()
     {
@@ -57,6 +58,8 @@ public class GameManager : MonoBehaviour
         {
             uiManager = GetComponent<UIManager>();
         }
+
+        StartCoroutine(WaitForAnykey(1.5f));
     }
 
     private IEnumerator SceneLoad(string sceneName)
@@ -122,6 +125,8 @@ public class GameManager : MonoBehaviour
         gameEnd = false;
 
         gameStart = false;
+        playReady = false;
+        StartCoroutine(WaitForAnykey(2f));
         StartCoroutine(LoadScene("TitleScene"));
     }
 
@@ -129,6 +134,12 @@ public class GameManager : MonoBehaviour
     {
         delimanjoo = new DeligateFunc(LoadMainGameData);
         StartCoroutine(LoadScene(targetScene));
+    }
+
+    IEnumerator WaitForAnykey(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        playReady = true;
     }
 
     #region Input Action
