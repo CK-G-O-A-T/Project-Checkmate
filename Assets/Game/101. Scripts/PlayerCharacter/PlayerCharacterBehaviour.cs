@@ -130,8 +130,11 @@ public class PlayerCharacterBehaviour : MonoBehaviour
 
     public void DoImpact()
     {
-        Animator.SetTrigger("doImpact");
-        Animator.SetTrigger("doBaseCancel");
+        if (!IsDied)
+        {
+            Animator.SetTrigger("doImpact");
+            Animator.SetTrigger("doBaseCancel");
+        }
 
         //SendMessage("DamageTrigger_EndTrigger");
     }
@@ -265,6 +268,34 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         }
     }
 
+    bool isDied;
+    public bool IsDied
+    {
+        get
+        {
+            return isDied;
+        }
+        set
+        {
+            isDied = value;
+            Animator.SetBool("isDied", value);
+            if (value == true)
+            {
+                Animator.SetTrigger("doDie");
+                // TODO: 임시처리임! 죽었을때 보스에서 공격을 중단하는 스크립트 필요.
+                var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach(var enemy in enemies)
+                {
+                    var enemyAnimator = enemy.GetComponent<Animator>();
+                    if (enemyAnimator != null)
+                    {
+                        enemyAnimator.enabled = false;
+                    }
+                }
+            }
+        }
+    }
+
     void Awake()
     {
         thisTransform = transform;
@@ -311,11 +342,15 @@ public class PlayerCharacterBehaviour : MonoBehaviour
 
     private void Update()
     {
-        MoveUpdate();
-        AttackUpdate();
-        EvadeUpdate();
-        WeaponSwitchUpdate();
-        LockonUpdate();
+        if (!IsDied)
+        {
+            MoveUpdate();
+            AttackUpdate();
+            EvadeUpdate();
+            WeaponSwitchUpdate();
+            LockonUpdate();
+        }
+        DieUpdate();
 
         AttackCancelUpdate();
 
@@ -478,6 +513,10 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         Animator.SetBool("canEvade", CanEvade);
         Animator.SetBool("isEvade", IsEvade);
         Animator.SetBool("isImpact", IsImpact);
+    }
+
+    void DieUpdate()
+    {
     }
 
     // 무기 변환 예약

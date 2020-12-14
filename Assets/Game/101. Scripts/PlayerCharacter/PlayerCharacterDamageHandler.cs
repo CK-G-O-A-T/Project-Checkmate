@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using UnityEngine.Events;
 
 class PlayerCharacterDamageHandler : DamageHandler
 {
@@ -7,6 +8,7 @@ class PlayerCharacterDamageHandler : DamageHandler
     [SerializeField] PcvfxManager effectManager;
     [SerializeField] AudioSource hurtSound;
     [SerializeField] PlayerCameraManager cameraManager;
+    [SerializeField] UnityEvent OnDie = new UnityEvent();
 
     private void Awake()
     {
@@ -31,6 +33,13 @@ class PlayerCharacterDamageHandler : DamageHandler
             effectManager.PlayEffect(6);
             cameraManager.CameraShake(0.2f, 0.1f, 10f, 0.5f);
             //hurtSound.Play();
+
+
+            if (behaviour.Status.Hp <= 0 && !behaviour.IsDied)
+            {
+                behaviour.IsDied = true;
+                OnDie.Invoke();
+            }
         }
         else
         {
