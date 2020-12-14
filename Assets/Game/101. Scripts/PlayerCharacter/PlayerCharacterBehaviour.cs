@@ -374,6 +374,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         {
             Status.Stamina = 100;
             Status.Hp = 100;
+            Status.SwitchPoint = 100;
         }
     }
 
