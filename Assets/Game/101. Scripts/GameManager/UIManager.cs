@@ -98,7 +98,7 @@ public class UIManager : MonoBehaviour
             return;
         }
         
-        if (!gameManager.gameStart && keyboard.escapeKey.isPressed)
+        if (!gameManager.gameStart && keyboard.escapeKey.isPressed && exitPanel != null)
         {
             exitTimer += Time.deltaTime;
             exitPanel.SetActive(true);
@@ -117,7 +117,7 @@ public class UIManager : MonoBehaviour
 #endif
         }
 
-        else if (!gameManager.gameStart)
+        else if (!gameManager.gameStart && exitPanel != null)
         {
             exitTimer = 0f;
             exitPanel.SetActive(false);
