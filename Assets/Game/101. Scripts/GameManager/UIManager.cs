@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
 
     public bool keyActive = true;
 
+    public float exitTimer = 0f;
+
+    public GameObject exitPanel;
     [SerializeField] FMODUnity.StudioEventEmitter fmodAudio;
 
     // Start is called before the first frame update
@@ -27,6 +30,7 @@ public class UIManager : MonoBehaviour
     {
         PauseMenu();
         GameStart();
+        ExitGame();
     }
 
     private void PauseMenu()
@@ -84,6 +88,40 @@ public class UIManager : MonoBehaviour
         keyActive = false;
 
         StartCoroutine(CloseMenu());
+    }
+
+    public void ExitGame()
+    {
+        var keyboard = Keyboard.current;
+        if (keyboard == null)
+        {
+            return;
+        }
+        
+        if (!gameManager.gameStart && keyboard.escapeKey.isPressed)
+        {
+            exitTimer += Time.deltaTime;
+            exitPanel.SetActive(true);
+#if UNITY_EDITOR
+            if (exitTimer >= 1.5f)
+            {
+                UnityEditor.EditorApplication.isPlaying = false;
+            }
+#endif
+
+#if UNITY_STANDALONE
+            if (exitTimer >= 1.5f)
+            {
+                Application.Quit();
+            }
+#endif
+        }
+
+        else if (!gameManager.gameStart)
+        {
+            exitTimer = 0f;
+            exitPanel.SetActive(false);
+        }
     }
 
     private void GameStart()
