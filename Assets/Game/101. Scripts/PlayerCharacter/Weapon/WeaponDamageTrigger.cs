@@ -22,8 +22,8 @@ public class WeaponDamageTrigger : DamageTrigger
 
     protected override void DealingDamage(DamageHandler damageHandler)
     {
-        if (hitAudio != null)
-            hitAudio.Play();
+        //if (hitAudio != null)
+        //    hitAudio.Play();
         Debug.Log($"무기 '{weaponData.WeaponName}' 공격");
 
         PlayerCharacterBehaviour.Status.SwitchPoint += WeaponData.SwitchingPointIncreaseByHit;

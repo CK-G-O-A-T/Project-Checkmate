@@ -340,6 +340,8 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         GroundUpdate();
     }
 
+    bool rKeyPressed;
+    int recoveryCount;
     private void Update()
     {
         if (!IsDied)
@@ -349,8 +351,20 @@ public class PlayerCharacterBehaviour : MonoBehaviour
             EvadeUpdate();
             WeaponSwitchUpdate();
             LockonUpdate();
+
+            if (Keyboard.current.rKey.IsCurrentState(ref rKeyPressed) == ButtonInputState.Pressed)
+            {
+                if (recoveryCount < 2)
+                {
+                    if (Status.Hp < Status.Data.MaxHp)
+                    {
+                        Debug.Log("회복!");
+                        Status.Hp += 50;
+                        recoveryCount++;
+                    }
+                }
+            }
         }
-        DieUpdate();
 
         AttackCancelUpdate();
 
@@ -515,10 +529,6 @@ public class PlayerCharacterBehaviour : MonoBehaviour
         Animator.SetBool("isImpact", IsImpact);
     }
 
-    void DieUpdate()
-    {
-    }
-
     // 무기 변환 예약
     int reservedWeaponSwitchSlot;
     void WeaponSwitchUpdate()
@@ -653,7 +663,7 @@ public class PlayerCharacterBehaviour : MonoBehaviour
     public void EvadeInputHandle()
     {
         //SendMessage("DamageTrigger_EndTrigger");
-        if (Status.Stamina > 0)
+        if (Status.Stamina > 0 && !IsDied)
         {
             if (IsLockon)
             {
