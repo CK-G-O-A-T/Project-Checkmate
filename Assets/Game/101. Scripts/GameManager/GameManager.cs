@@ -115,6 +115,10 @@ public class GameManager : MonoBehaviour
         TimeManager.Instance.IsPause = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+
+        uiManager.exitPanel = null;
+
+        gameStart = false;
         StartCoroutine(LoadScene("TitleScene"));
     }
 
