@@ -6,6 +6,7 @@ public class WeaponDamageTrigger : DamageTrigger
 {
     [SerializeField] WeaponData weaponData;
     [SerializeField] AudioSource hitAudio;
+    [SerializeField] ParticleSystem particle;
 
     PlayerCharacterBehaviour playerCharacterBehaviour;
     public WeaponData WeaponData
@@ -27,6 +28,7 @@ public class WeaponDamageTrigger : DamageTrigger
         Debug.Log($"무기 '{weaponData.WeaponName}' 공격");
 
         PlayerCharacterBehaviour.Status.SwitchPoint += WeaponData.SwitchingPointIncreaseByHit;
+        particle.Play();
         TimeManager.Instance.ToReferenceNull()?.SetActionTimeScale(0.2f, 0.1f, 0.1f);
         PlayerCameraManager.Instance.ToReferenceNull()?.CameraShake(0.1f, 0.1f, 0.1f, 0.25f);
 
