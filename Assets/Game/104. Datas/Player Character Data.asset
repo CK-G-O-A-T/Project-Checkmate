@@ -19,8 +19,8 @@ MonoBehaviour:
   StatminaIncreaseRateByUseSwitchPoint: 1
   NoDamageTimeByBeaten: 1
   SwitchingPointsMinRequirements: 30
-  SwitchingCoolTime: 5
-  StaminaRecoveryDelay: 1
+  SwitchingCoolTime: 0
+  StaminaRecoveryDelay: 0.7
   StaminaRecoveryPerSeconds: 20
   StaminaConsumptionBySprint: 10
   StamianDecreaseByEvasion: 25
