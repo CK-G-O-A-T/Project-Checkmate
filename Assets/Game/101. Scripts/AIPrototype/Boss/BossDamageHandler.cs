@@ -72,7 +72,7 @@ public class BossDamageHandler : DamageHandler
 
     private void SetDeadTrigger()
     {
-        aiMaster.anim.SetTrigger("isDead");
+        aiMaster.anim.SetBool("isDead", true);
         aiMaster.isDead = true;
         dieEvent.Invoke();
     }
