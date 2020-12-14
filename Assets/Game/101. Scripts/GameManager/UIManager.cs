@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        if (keyActive && gameManager.gameStart && !isPopup && keyboard.escapeKey.isPressed)
+        if (!gameManager.gameEnd && keyActive && gameManager.gameStart && !isPopup && keyboard.escapeKey.isPressed)
         {
             Debug.Log("PauseMenuOpen");
             PauseMenuOpen();

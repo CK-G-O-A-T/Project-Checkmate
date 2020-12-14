@@ -13,6 +13,7 @@ public class CanvasActivater : MonoBehaviour
     public void OpenCanvas()
     {
         gameObject.SetActive(true);
+        GameManager.Instance.gameEnd = true;
         StartCoroutine(ReturnToMainMenu());
     }
 

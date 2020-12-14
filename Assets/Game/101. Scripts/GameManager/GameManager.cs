@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     public string targetScene;
 
+    public bool gameEnd = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -117,6 +119,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
 
         uiManager.exitPanel = null;
+        gameEnd = false;
 
         gameStart = false;
         StartCoroutine(LoadScene("TitleScene"));
