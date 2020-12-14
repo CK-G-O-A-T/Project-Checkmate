@@ -72,6 +72,8 @@ public class GameManager : MonoBehaviour
         playerCamera = Camera.main.GetComponent<CinemachineBrain>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         boss = GameObject.FindGameObjectWithTag("Enemy").GetComponent<BossDamageHandler>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void InitMainGameData()
@@ -111,6 +113,8 @@ public class GameManager : MonoBehaviour
         delimanjoo = new DeligateFunc(InitMainGameData);
         uiManager.isPopup = false;
         TimeManager.Instance.IsPause = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         StartCoroutine(LoadScene("TitleScene"));
     }
 
