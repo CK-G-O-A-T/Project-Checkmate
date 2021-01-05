@@ -16,20 +16,12 @@ public class AIMaster : MonoBehaviour
     public bool isFirstStrike = false;
     public Transform rayCastTransform;
     public float guidanceDistance = 1f;
-    [SerializeField]
-    private BossDamageTriggerManager bossDamageTriggerManager;
+    [SerializeField] private BossDamageTriggerManager bossDamageTriggerManager;
     public int changePhase2HealthPoint;
     public StudioEventEmitter hitSound;
 
     [Header("Groggy")]
     public BossGroggyComponent groggyComponent;
-
-    [Header("Infect")]
-    public float infect;
-    public float setMaxInfect;
-    public float infectContinuingTime;
-    public float infectRecoverySpeed;
-    public float infectRecoveryInterval;
 
     [Header("Distance Setting")]
     public float closeRangeAttackDistance;
@@ -37,20 +29,18 @@ public class AIMaster : MonoBehaviour
     public float trackingDistance;
 
     [Header("Debug")]
-    [SerializeField]
-    private bool DebugOn = true;
-    [SerializeField]
-    private Vector3 AgentNextPostiion;
+    [SerializeField] private bool DebugOn = true;
+    [SerializeField] private Vector3 AgentNextPostiion;
 
     private NavMeshAgent agent;
-    public Animator anim;
     private GameObject player;
     private float speedSave;
+    [HideInInspector] public Animator anim;
 
-    public bool isEvade = false;
-    public bool isMove = true;
-    public bool isGroggy = false;
-    public bool isDead = false;
+    [HideInInspector] public bool isEvade = false;
+    [HideInInspector] public bool isMove = true;
+    [HideInInspector] public bool isGroggy = false;
+    [HideInInspector] public bool isDead = false;
 
     public Vector3 setAgentDestination
     {
@@ -85,9 +75,7 @@ public class AIMaster : MonoBehaviour
     void Update()
     {
         AttackDistance();
-        //CustomLookAt(player.transform.position);
         AgentNextPostiion = agent.nextPosition;
-        //Debug.Log(GetTargetAngle(player.transform.position) * Mathf.Rad2Deg);
     }
 
     private void FixedUpdate()
@@ -103,7 +91,6 @@ public class AIMaster : MonoBehaviour
                 NavMeshAgentGuidance();
             }
         }
-        //Debug.Log(agent.nextPosition);
     }
 
     private void AttackDistance()
@@ -112,27 +99,31 @@ public class AIMaster : MonoBehaviour
 
         anim.SetFloat("playerDistance", playerDistance);
 
+        // 근접공격
         if (playerDistance <= closeRangeAttackDistance)
         {
-            //DebugString("Close Range Attack");
             anim.SetBool("closeRangeAttack", true);
             anim.SetBool("longRangeAttack", false);
             anim.SetBool("trackingDistance", false);
         }
+
+        // 원거리 공격
         else if (playerDistance > closeRangeAttackDistance && playerDistance <= longRangeAttackDistance)
         {
-            //DebugString("Long Range Attack");
             anim.SetBool("closeRangeAttack", false);
             anim.SetBool("longRangeAttack", true);
             anim.SetBool("trackingDistance", false);
         }
+
+        // 추적
         else if (playerDistance > longRangeAttackDistance && playerDistance <= trackingDistance)
         {
-            //DebugString("Tracking");
             anim.SetBool("closeRangeAttack", false);
             anim.SetBool("longRangeAttack", false);
             anim.SetBool("trackingDistance", true);
         }
+
+        // 모두 안함 (공격, 추적 거리를 넘어섬)
         else
         {
             anim.SetBool("closeRangeAttack", false);
@@ -172,19 +163,9 @@ public class AIMaster : MonoBehaviour
         {
             evadeDirection = (agent.path.corners[0] - transform.position).normalized;
         }
-        //agent.nextPosition = transform.position + (evadeDirection * guidanceDistance);
-        agent.nextPosition = transform.position + (evadeDirection * guidanceDistance);
 
-        //if (Vector3.Distance(transform.position, agent.nextPosition) >= guidanceDistance)
-        //{
-        //    speed = 0f;
-        //}
-        //else
-        //{
-        //    speed = speedSave;
-        //}
+        agent.nextPosition = transform.position + (evadeDirection * guidanceDistance);
         agent.speed = Mathf.Lerp(agent.speed, 0, Time.deltaTime * 3f);
-        //agent.speed = speed;
     }
 
     public void AttackSequence()
@@ -199,10 +180,6 @@ public class AIMaster : MonoBehaviour
 
     public void TrackingPlayer()
     {
-        // 플레이어 사이의 장애물이 있으면 버그가 발생함
-        //Vector3 evadeDirection = (player.transform.position - transform.position).normalized;
-        //agent.nextPosition = transform.position + evadeDirection;
-
         SwitchingRootMotion();
         agent.destination = player.transform.position;
     }
@@ -245,42 +222,6 @@ public class AIMaster : MonoBehaviour
     {
         anim.SetBool(name, true);
     }
-
-    //private bool isDecreaseGroggy = false;
-    //private float groggyTimer = 0f;
-    //public void CalculateGroggyStatus()
-    //{
-    //    groggyTimer = 0f;
-    //    if (groggy >= setMaxGroggy)
-    //    {
-    //        isGroggy = true;
-    //    }
-    //    if (isDecreaseGroggy == false)
-    //    {
-    //        StartCoroutine(DecreaseGroggy());
-    //    }
-    //}
-
-    //IEnumerator DecreaseGroggy()
-    //{
-    //    isDecreaseGroggy = true;
-    //    bool check = false;
-
-    //    while (groggyTimer <= 3f)
-    //    {
-    //        groggyTimer += Time.deltaTime;
-    //        yield return null;
-    //    }
-
-    //    check = true;
-
-    //    if (groggy >= 0)
-    //    {
-    //        groggy -= groggy * 1 / groggyRecoveryInterval;
-    //    }
-
-    //    isDecreaseGroggy = false;
-    //}
 
     public Vector3 jumpTarget;
     public float speed = 50f;
@@ -373,9 +314,9 @@ public class AIMaster : MonoBehaviour
     private float GetTargetAngle(Vector3 target)
     {
         Vector3 targetDirection = target - transform.position;
-        float angle = Mathf.Acos(Vector3.Dot(targetDirection.normalized, transform.forward));
+        float result = Mathf.Acos(Vector3.Dot(targetDirection.normalized, transform.forward));
 
-        return angle;
+        return result;
     }
 
     [Range(1, 360)]
