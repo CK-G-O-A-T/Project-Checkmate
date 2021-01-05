@@ -13096,6 +13096,7 @@ GameObject:
   - component: {fileID: 8320291334544536064}
   - component: {fileID: 8320291334544536065}
   - component: {fileID: 8320291334544536066}
+  - component: {fileID: 2281632422236264067}
   - component: {fileID: 8320291334544536067}
   m_Layer: 11
   m_Name: Boss_Version_3
@@ -13137,7 +13138,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: c5d12bfb4199f43499e57b932b1020d8, type: 3}
   m_Controller: {fileID: 9100000, guid: 95f6f1408cfaa2d42bc8f607a99d1a41, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -13218,11 +13219,7 @@ MonoBehaviour:
   changePhase2HealthPoint: 720
   hitSound: {fileID: 3295045567726327589}
   groggyComponent: {fileID: 8320291334544536065}
-  infect: 0
-  setMaxInfect: 0
-  infectContinuingTime: 5
-  infectRecoverySpeed: 1
-  infectRecoveryInterval: 1
+  jumpAttackComponent: {fileID: 2281632422236264067}
   closeRangeAttackDistance: 10
   longRangeAttackDistance: 20
   trackingDistance: 30
@@ -13233,9 +13230,6 @@ MonoBehaviour:
   isMove: 1
   isGroggy: 0
   isDead: 0
-  jumpTarget: {x: 0, y: 0, z: 0}
-  speed: 50
-  checkArrive: 0
   angle: 360
 --- !u!114 &8320291334544536078
 MonoBehaviour:
@@ -13318,6 +13312,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   damagePerSecond: 0
   isCheck: 0
   timer: 0
@@ -13377,6 +13393,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiMaster: {fileID: 8320291334544536077}
+--- !u!114 &2281632422236264067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320291334544536068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4368770fde7ef7478ad6f312f2f8b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpTarget: {x: 0, y: 0, z: 0}
+  speed: 50
+  checkArrive: 0
 --- !u!114 &8320291334544536067
 MonoBehaviour:
   m_ObjectHideFlags: 0
