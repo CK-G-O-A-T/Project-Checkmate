@@ -67,15 +67,23 @@ public class AIMaster : MonoBehaviour
         {
             bossDamageTriggerManager = GetComponent<BossDamageTriggerManager>();
         }
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+        if (anim == null)
+        {
+            anim = GetComponent<Animator>();
+        }
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player");
-
         agent.updatePosition = false;
         agent.updateRotation = false;
 
