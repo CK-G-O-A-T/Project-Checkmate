@@ -12,6 +12,7 @@ public class AttackEnter : StateMachineBehaviour
     {
         aiMaster = animator.GetComponent<AIMaster>();
         aiMaster.AttackSequence();
+        aiMaster.animationHash = stateInfo.fullPathHash;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

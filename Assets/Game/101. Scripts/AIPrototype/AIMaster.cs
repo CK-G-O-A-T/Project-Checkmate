@@ -45,6 +45,8 @@ public class AIMaster : MonoBehaviour
     [HideInInspector] public bool isGroggy = false;
     [HideInInspector] public bool isDead = false;
 
+    public int animationHash;
+
     public Vector3 setAgentDestination
     {
         set
@@ -167,8 +169,6 @@ public class AIMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// 함수의 기능이 SetEvadeDirection()과 비슷함
-    /// 추후에 SetEvadeDirection과 함께 반드시 수정이 필요함
     /// 2021.1.5 함수의 기능이 비슷해 보이지만 역할과 로직이 다르다고 판단하여 수정하지 않아도 될 것 같음
     /// </summary>
     private void NavMeshAgentGuidance()
