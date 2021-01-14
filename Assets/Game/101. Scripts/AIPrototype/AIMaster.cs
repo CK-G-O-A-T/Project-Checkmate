@@ -12,6 +12,7 @@ public class AIMaster : MonoBehaviour
     [Header("Basic Setting")]
     public string bossName;
     public float healthPoint;
+    public int souls;
     public float setRotationSpeed;
     public bool isFirstStrike = false;
     public Transform rayCastTransform;
@@ -44,6 +45,7 @@ public class AIMaster : MonoBehaviour
     [HideInInspector] public bool isMove = true;
     [HideInInspector] public bool isGroggy = false;
     [HideInInspector] public bool isDead = false;
+    [HideInInspector] public float maxHealthPoint;
 
     public int animationHash;
 
@@ -81,6 +83,7 @@ public class AIMaster : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+        maxHealthPoint = healthPoint;
     }
 
     // Start is called before the first frame update
