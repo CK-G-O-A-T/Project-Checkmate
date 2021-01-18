@@ -27,6 +27,9 @@ public class AIMaster : MonoBehaviour
     [Header("Jump Attack")]
     public BossJumpAttackComponent jumpAttackComponent;
 
+    [Header("Special Pattern")]
+    public BossSpecialPattern specialPatter;
+
     [Header("Distance Setting")]
     public float closeRangeAttackDistance;
     public float longRangeAttackDistance;

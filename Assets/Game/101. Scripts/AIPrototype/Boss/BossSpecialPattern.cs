@@ -11,21 +11,25 @@ public class pattern
     public float time;
     [Tooltip("HP가 일정 퍼센트일 때 작동합니다.")]
     public float activeHealthPoint;
-    public bool isReady = false;
+    public bool isUse = false;
+    public bool isReady = true;
     public float activeHealthPointToFloat;
 }
 
-public class BossDeadlyPattern : MonoBehaviour
+public class BossSpecialPattern : MonoBehaviour
 {
     public List<pattern> patterns;
     private AIMaster aiMaster;
 
-    public pattern test;
+    public pattern temp = null;
+
+    private int index;
 
     private void Awake()
     {
         //patterns = patterns.OrderBy(x => x.activeHealthPoint).ToList();
         aiMaster = GetComponent<AIMaster>();
+        temp = null;
     }
 
     private void Start()
@@ -35,6 +39,7 @@ public class BossDeadlyPattern : MonoBehaviour
         {
             patterns[i].activeHealthPointToFloat = aiMaster.healthPoint * (patterns[i].activeHealthPoint / 100);
         }
+        index = patterns.Count - 1;
     }
 
     private void Update()
@@ -44,16 +49,15 @@ public class BossDeadlyPattern : MonoBehaviour
 
     public void CheckDeadlyPattern()
     {
-        float priorityPattern = patterns[patterns.Count - 1].activeHealthPoint;
-
-        for (int i = patterns.Count - 1; i >= 0; i--)
+        if (patterns[index].activeHealthPointToFloat >= aiMaster.healthPoint)
         {
-            // ㅅㅂ
-            float percentage = patterns[i].activeHealthPoint / 100;
-            if (aiMaster.maxHealthPoint * percentage >= aiMaster.healthPoint)
+            if (index - 1 >= 0 && (patterns[index - 1].activeHealthPointToFloat >= aiMaster.healthPoint))
             {
-                test = patterns[i];
+                patterns[index].isReady = false;
+                index--;
+                patterns[index].isReady = true;
             }
+            temp = patterns[index];
         }
     }
 
