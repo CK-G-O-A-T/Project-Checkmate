@@ -10,10 +10,10 @@ public class pattern
     [Tooltip("초로 계산됩니다.")]
     public float time;
     [Tooltip("HP가 일정 퍼센트일 때 작동합니다.")]
-    public float activeHealthPoint;
+    public float activeHealthPercent;
     public bool isUse = false;
-    public bool isReady = true;
-    public float activeHealthPointToFloat;
+    public bool isActive = true;
+    public float activeHealthPercentConvertToHealthPoint;
 }
 
 public class BossSpecialPattern : MonoBehaviour
@@ -21,7 +21,7 @@ public class BossSpecialPattern : MonoBehaviour
     public List<pattern> patterns;
     private AIMaster aiMaster;
 
-    public pattern temp = null;
+    public pattern currentActivePattern = null;
 
     private int index;
 
@@ -29,7 +29,12 @@ public class BossSpecialPattern : MonoBehaviour
     {
         //patterns = patterns.OrderBy(x => x.activeHealthPoint).ToList();
         aiMaster = GetComponent<AIMaster>();
-        temp = null;
+        currentActivePattern = null;
+
+        for (int i = 0; i < patterns.Count; i++)
+        {
+            patterns[i].isActive = false;
+        }
     }
 
     private void Start()
@@ -37,27 +42,29 @@ public class BossSpecialPattern : MonoBehaviour
         StartCoroutine(DeadlyPatternCooldown(1.5f));
         for (int i = 0; i < patterns.Count; i++)
         {
-            patterns[i].activeHealthPointToFloat = aiMaster.healthPoint * (patterns[i].activeHealthPoint / 100);
+            patterns[i].activeHealthPercentConvertToHealthPoint = aiMaster.healthPoint * (patterns[i].activeHealthPercent / 100);
         }
         index = patterns.Count - 1;
     }
 
     private void Update()
     {
+        // 이거 업데이트 돌리면 안됨!
+        // 나중에 데미지 받을 때만 호출 하도록 수정할 것
         CheckDeadlyPattern();
     }
 
     public void CheckDeadlyPattern()
     {
-        if (patterns[index].activeHealthPointToFloat >= aiMaster.healthPoint)
+        if (patterns[index].activeHealthPercentConvertToHealthPoint >= aiMaster.healthPoint)
         {
-            if (index - 1 >= 0 && (patterns[index - 1].activeHealthPointToFloat >= aiMaster.healthPoint))
+            if (index - 1 >= 0 && (patterns[index - 1].activeHealthPercentConvertToHealthPoint >= aiMaster.healthPoint))
             {
-                patterns[index].isReady = false;
+                patterns[index].isActive = false;
                 index--;
-                patterns[index].isReady = true;
             }
-            temp = patterns[index];
+            patterns[index].isActive = true;
+            currentActivePattern = patterns[index];
         }
     }
 

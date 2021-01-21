@@ -13462,26 +13462,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patterns:
   - time: 180
-    activeHealthPoint: 70
+    activeHealthPercent: 70
     isUse: 0
     isReady: 0
-    activeHealthPointToFloat: 0
+    activeHealthPercentConvertToHealthPoint: 0
   - time: 120
-    activeHealthPoint: 80
+    activeHealthPercent: 80
     isUse: 0
     isReady: 0
-    activeHealthPointToFloat: 0
+    activeHealthPercentConvertToHealthPoint: 0
   - time: 120
-    activeHealthPoint: 90
+    activeHealthPercent: 90
     isUse: 0
-    isReady: 1
-    activeHealthPointToFloat: 0
+    isReady: 0
+    activeHealthPercentConvertToHealthPoint: 0
   temp:
     time: 0
-    activeHealthPoint: 0
+    activeHealthPercent: 0
     isUse: 0
     isReady: 1
-    activeHealthPointToFloat: 0
+    activeHealthPercentConvertToHealthPoint: 0
 --- !u!1 &8341685871297856141
 GameObject:
   m_ObjectHideFlags: 0
