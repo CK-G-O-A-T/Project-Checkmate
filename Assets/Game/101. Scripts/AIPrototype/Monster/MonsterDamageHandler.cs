@@ -20,7 +20,7 @@ public class MonsterDamageHandler : DamageHandler
     public override void DamageHandle(DamageData damageData)
     {
         Debug.Log($"Boss Damage Handle : {damageData}");
-        aiMaster.healthPoint -= (float)damageData.Damage;
+        aiMaster.currentHealthPoint -= (float)damageData.Damage;
         damageEvent.Invoke();
     }
 

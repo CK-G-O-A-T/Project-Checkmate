@@ -13094,11 +13094,9 @@ GameObject:
   - component: {fileID: 8320291334544536078}
   - component: {fileID: 8320291334544536079}
   - component: {fileID: 8320291334544536064}
-  - component: {fileID: 8320291334544536065}
   - component: {fileID: 8320291334544536066}
   - component: {fileID: 2281632422236264067}
   - component: {fileID: 8320291334544536067}
-  - component: {fileID: 844813478}
   m_Layer: 11
   m_Name: Boss_Version_3
   m_TagString: Enemy
@@ -13211,7 +13209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossName: TempBoss
-  healthPoint: 550
+  currentHealthPoint: 550
   souls: 1
   setRotationSpeed: 20
   isFirstStrike: 0
@@ -13220,9 +13218,9 @@ MonoBehaviour:
   bossDamageTriggerManager: {fileID: 0}
   changePhase2HealthPoint: 720
   hitSound: {fileID: 3295045567726327589}
-  groggyComponent: {fileID: 8320291334544536065}
+  groggyComponent: {fileID: 0}
   jumpAttackComponent: {fileID: 2281632422236264067}
-  specialPatter: {fileID: 844813478}
+  specialPatter: {fileID: 0}
   closeRangeAttackDistance: 10
   longRangeAttackDistance: 20
   trackingDistance: 30
@@ -13292,7 +13290,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8320291334544536065}
+      - m_Target: {fileID: 0}
         m_MethodName: CalculateGroggyStatus
         m_Mode: 1
         m_Arguments:
@@ -13367,24 +13365,6 @@ MonoBehaviour:
     particleGameObject: {fileID: 0}
   effectPosition: {fileID: 0}
   effectDuration: 1
---- !u!114 &8320291334544536065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8320291334544536068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ad5e096b077df4584a284b33fd3b2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aiMaster: {fileID: 8320291334544536077}
-  groggy: 0
-  setMaxGroggy: 100
-  groggyRecoverySpeed: 2
-  groggyRecoveryInterval: 15
-  maxStandByTime: 2
 --- !u!114 &8320291334544536066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13448,40 +13428,6 @@ MonoBehaviour:
     fmodEvent: {fileID: 3295045567533064117}
   - keyName: Swing_2
     fmodEvent: {fileID: 3295045566421373547}
---- !u!114 &844813478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8320291334544536068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad3da64a8a6bb9459e15bc748500579, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patterns:
-  - time: 180
-    activeHealthPercent: 70
-    isUse: 0
-    isReady: 0
-    activeHealthPercentConvertToHealthPoint: 0
-  - time: 120
-    activeHealthPercent: 80
-    isUse: 0
-    isReady: 0
-    activeHealthPercentConvertToHealthPoint: 0
-  - time: 120
-    activeHealthPercent: 90
-    isUse: 0
-    isReady: 0
-    activeHealthPercentConvertToHealthPoint: 0
-  temp:
-    time: 0
-    activeHealthPercent: 0
-    isUse: 0
-    isReady: 1
-    activeHealthPercentConvertToHealthPoint: 0
 --- !u!1 &8341685871297856141
 GameObject:
   m_ObjectHideFlags: 0
@@ -14132,15 +14078,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e9d6b4e0f18bed45930604865fed616, type: 3}
---- !u!198 &1236592259707299166 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1236592260567867085, guid: 4e9d6b4e0f18bed45930604865fed616,
-    type: 3}
-  m_PrefabInstance: {fileID: 888994707}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1236592259707299165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1236592260567867086, guid: 4e9d6b4e0f18bed45930604865fed616,
+    type: 3}
+  m_PrefabInstance: {fileID: 888994707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1236592259707299166 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1236592260567867085, guid: 4e9d6b4e0f18bed45930604865fed616,
     type: 3}
   m_PrefabInstance: {fileID: 888994707}
   m_PrefabAsset: {fileID: 0}
@@ -14571,15 +14517,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aea19a3b61625fd4ba31d3b8cb6b6baf, type: 3}
---- !u!198 &9070512745418037261 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5790139509308591653, guid: aea19a3b61625fd4ba31d3b8cb6b6baf,
-    type: 3}
-  m_PrefabInstance: {fileID: 3295045566081308200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9070512745418037262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5790139509308591654, guid: aea19a3b61625fd4ba31d3b8cb6b6baf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3295045566081308200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9070512745418037261 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5790139509308591653, guid: aea19a3b61625fd4ba31d3b8cb6b6baf,
     type: 3}
   m_PrefabInstance: {fileID: 3295045566081308200}
   m_PrefabAsset: {fileID: 0}

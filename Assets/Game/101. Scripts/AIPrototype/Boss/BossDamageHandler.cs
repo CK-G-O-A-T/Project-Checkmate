@@ -26,12 +26,16 @@ public class BossDamageHandler : DamageHandler
     public override void DamageHandle(DamageData damageData)
     {
         Debug.Log($"Boss Damage Handle : {damageData}");
-        aiMaster.healthPoint -= (float)damageData.Damage;
-        aiMaster.groggyComponent.groggy += (float)damageData.GroggyPoint;
+        aiMaster.currentHealthPoint -= (float)damageData.Damage;
+        // aiMaster.groggyComponent.groggy += (float)damageData.GroggyPoint;
         DPSFunction(damageData.Damage);
-        if (!aiMaster.isDead && aiMaster.healthPoint <= 0)
+        if (!aiMaster.isDead && aiMaster.currentHealthPoint <= 0)
         {
-            SetDeadTrigger();
+            if (aiMaster.souls > 0)
+            {
+                --aiMaster.souls;
+                aiMaster.currentHealthPoint = aiMaster.maxHealthPoint;
+            }
         }
         damageEvent.Invoke();
     }

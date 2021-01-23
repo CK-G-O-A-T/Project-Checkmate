@@ -42,7 +42,7 @@ public class BossSpecialPattern : MonoBehaviour
         StartCoroutine(DeadlyPatternCooldown(1.5f));
         for (int i = 0; i < patterns.Count; i++)
         {
-            patterns[i].activeHealthPercentConvertToHealthPoint = aiMaster.healthPoint * (patterns[i].activeHealthPercent / 100);
+            patterns[i].activeHealthPercentConvertToHealthPoint = aiMaster.currentHealthPoint * (patterns[i].activeHealthPercent / 100);
         }
         index = patterns.Count - 1;
     }
@@ -56,9 +56,9 @@ public class BossSpecialPattern : MonoBehaviour
 
     public void CheckDeadlyPattern()
     {
-        if (patterns[index].activeHealthPercentConvertToHealthPoint >= aiMaster.healthPoint)
+        if (patterns[index].activeHealthPercentConvertToHealthPoint >= aiMaster.currentHealthPoint)
         {
-            if (index - 1 >= 0 && (patterns[index - 1].activeHealthPercentConvertToHealthPoint >= aiMaster.healthPoint))
+            if (index - 1 >= 0 && (patterns[index - 1].activeHealthPercentConvertToHealthPoint >= aiMaster.currentHealthPoint))
             {
                 patterns[index].isActive = false;
                 index--;

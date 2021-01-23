@@ -11,7 +11,7 @@ public class AIMaster : MonoBehaviour
 {
     [Header("Basic Setting")]
     public string bossName;
-    public float healthPoint;
+    public float currentHealthPoint;
     public int souls;
     public float setRotationSpeed;
     public bool isFirstStrike = false;
@@ -86,7 +86,7 @@ public class AIMaster : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        maxHealthPoint = healthPoint;
+        maxHealthPoint = currentHealthPoint;
     }
 
     // Start is called before the first frame update
@@ -103,6 +103,7 @@ public class AIMaster : MonoBehaviour
     {
         AttackDistance();
         AgentNextPostiion = agent.nextPosition;
+        UpdateHealthData();
     }
 
     private void FixedUpdate()
@@ -238,7 +239,7 @@ public class AIMaster : MonoBehaviour
     /// <param name="phase"></param>
     public void ChangePhase(int phase)
     {
-        if (healthPoint <= changePhase2HealthPoint)
+        if (currentHealthPoint <= changePhase2HealthPoint)
         {
             anim.SetInteger("Phase", phase);
         }
@@ -252,6 +253,12 @@ public class AIMaster : MonoBehaviour
     public void PlayHitSound()
     {
         hitSound.Play();
+    }
+
+    private void UpdateHealthData()
+    {
+        anim.SetFloat("healthPoint", currentHealthPoint);
+        anim.SetInteger("souls", souls);
     }
 
     #region Evade Function
