@@ -9,7 +9,7 @@ public class UIBossHP : UIGaugebar
 
     protected override void Start()
     {
-        maxValue = aiMaster.healthPoint;
+        maxValue = aiMaster.currentHealthPoint;
         currentValue = maxValue;
 
         damageEvent = aiMaster.GetComponent<BossDamageHandler>();
@@ -20,7 +20,7 @@ public class UIBossHP : UIGaugebar
 
     protected override void SetCurrentGaugeSetting()
     {
-        currentValue = aiMaster.healthPoint;
+        currentValue = aiMaster.currentHealthPoint;
     }
 
     IEnumerator LerpMainGauge()

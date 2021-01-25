@@ -31,10 +31,22 @@ public class BossDamageHandler : DamageHandler
         DPSFunction(damageData.Damage);
         if (!aiMaster.isDead && aiMaster.currentHealthPoint <= 0)
         {
-            if (aiMaster.souls > 0)
+            if (aiMaster.anim.GetBool("deadReady"))
+            {
+                aiMaster.isDead = true;
+                aiMaster.anim.SetBool("isDead", true);
+            }
+
+            if (aiMaster.souls >= 0)
             {
                 --aiMaster.souls;
+                aiMaster.anim.SetTrigger("isGroggy");
                 aiMaster.currentHealthPoint = aiMaster.maxHealthPoint;
+            }
+            else
+            {
+                aiMaster.anim.SetTrigger("isGroggy");
+                aiMaster.anim.SetBool("deadReady", true);
             }
         }
         damageEvent.Invoke();

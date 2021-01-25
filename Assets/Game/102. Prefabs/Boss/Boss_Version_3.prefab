@@ -13097,6 +13097,7 @@ GameObject:
   - component: {fileID: 8320291334544536066}
   - component: {fileID: 2281632422236264067}
   - component: {fileID: 8320291334544536067}
+  - component: {fileID: 844813478}
   m_Layer: 11
   m_Name: Boss_Version_3
   m_TagString: Enemy
@@ -13135,7 +13136,7 @@ Animator:
   m_GameObject: {fileID: 8320291334544536068}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c5d12bfb4199f43499e57b932b1020d8, type: 3}
-  m_Controller: {fileID: 9100000, guid: 95f6f1408cfaa2d42bc8f607a99d1a41, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8118ff7a3bfaf1f44bfe72bc77ec05b0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -13428,6 +13429,35 @@ MonoBehaviour:
     fmodEvent: {fileID: 3295045567533064117}
   - keyName: Swing_2
     fmodEvent: {fileID: 3295045566421373547}
+--- !u!114 &844813478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320291334544536068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad3da64a8a6bb9459e15bc748500579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patterns:
+  - time: 180
+    activeHealthPercent: 0
+    isUse: 0
+    isActive: 1
+    activeHealthPercentConvertToHealthPoint: 0
+  - time: 120
+    activeHealthPercent: 0
+    isUse: 0
+    isActive: 1
+    activeHealthPercentConvertToHealthPoint: 0
+  currentActivePattern:
+    time: 0
+    activeHealthPercent: 0
+    isUse: 0
+    isActive: 1
+    activeHealthPercentConvertToHealthPoint: 0
 --- !u!1 &8341685871297856141
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,6 @@ public class TempBossUI : MonoBehaviour
 
     public void UpdateValue()
     {
-        bossHp.text = "Boss : " + aiMaster.healthPoint.ToString();
+        bossHp.text = "Boss : " + aiMaster.currentHealthPoint.ToString();
     }
 }
