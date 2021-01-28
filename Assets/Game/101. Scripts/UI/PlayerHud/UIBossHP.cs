@@ -12,10 +12,15 @@ public class UIBossHP : UIGaugebar
         maxValue = aiMaster.currentHealthPoint;
         currentValue = maxValue;
 
-        damageEvent = aiMaster.GetComponent<BossDamageHandler>();
-        damageEvent.damageEvent.AddListener(UpdateGauge);
+        //damageEvent = aiMaster.GetComponent<BossDamageHandler>();
+        //damageEvent.damageEvent.AddListener(UpdateGauge);
 
         StartCoroutine(LerpMainGauge());
+    }
+
+    private void Update()
+    {
+        UpdateGauge();
     }
 
     protected override void SetCurrentGaugeSetting()
