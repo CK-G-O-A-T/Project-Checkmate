@@ -3970,24 +3970,24 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: 2940157592735046271}
+    second:
+    - {fileID: 6151870850964035836}
   - first: {fileID: -7585889896674167141}
     second:
     - {fileID: -8530008141864130130}
   - first: {fileID: -475606016110499450}
     second:
     - {fileID: 8314622972139776273}
-  - first: {fileID: -51865909088134137}
-    second:
-    - {fileID: -5922073239938060006}
-  - first: {fileID: 2940157592735046271}
-    second:
-    - {fileID: 6151870850964035836}
-  - first: {fileID: 3236907634756577963}
-    second:
-    - {fileID: -5517333130519764388}
   - first: {fileID: 9158808955390811664}
     second:
     - {fileID: -4382872281632212741}
+  - first: {fileID: -51865909088134137}
+    second:
+    - {fileID: -5922073239938060006}
+  - first: {fileID: 3236907634756577963}
+    second:
+    - {fileID: -5517333130519764388}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -70, y: -120, z: 0}
   m_EntryPosition: {x: 320, y: -150, z: 0}
@@ -6982,133 +6982,133 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 1
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: souls
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: healthPoint
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: playerDistance
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: velX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: velY
     m_Type: 1
     m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isMove
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isEvade_
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attackCode
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: closeRangeAttack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: longRangeAttack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: trackingDistance
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: timerTrigger
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isDead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: deadReady
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isGroggy
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isEvade
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isParrying
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: gameStart
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: specialPattern1
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: specialPattern2
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: specialPattern3
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -9384,24 +9384,24 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -5908471732646830870}
-    second:
-    - {fileID: 8417296379119655203}
-  - first: {fileID: -2557201814090471008}
-    second:
-    - {fileID: 6228382426342853730}
   - first: {fileID: -1327310374527050511}
     second:
     - {fileID: -347405505184907001}
-  - first: {fileID: 3251904604110854905}
+  - first: {fileID: -2557201814090471008}
     second:
-    - {fileID: -4044553466404086552}
+    - {fileID: 6228382426342853730}
   - first: {fileID: 4651909831537908423}
     second:
     - {fileID: 1945658131754425961}
+  - first: {fileID: 3251904604110854905}
+    second:
+    - {fileID: -4044553466404086552}
   - first: {fileID: 7699821559370417356}
     second:
     - {fileID: -2735641496749975789}
+  - first: {fileID: -5908471732646830870}
+    second:
+    - {fileID: 8417296379119655203}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -13712,24 +13712,24 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: -480473713341393999}
+    second:
+    - {fileID: -640455416209552325}
   - first: {fileID: -6890958267254564579}
     second:
     - {fileID: -2493833056587421463}
   - first: {fileID: -6743682647819643938}
     second:
     - {fileID: 8020570086156257253}
-  - first: {fileID: -3744888109220849378}
-    second:
-    - {fileID: 6772686914668760718}
-  - first: {fileID: -480473713341393999}
-    second:
-    - {fileID: -640455416209552325}
   - first: {fileID: 55404738292445802}
     second:
     - {fileID: 7281809770830195758}
   - first: {fileID: 2191348327998046060}
     second:
     - {fileID: -2488158561155395629}
+  - first: {fileID: -3744888109220849378}
+    second:
+    - {fileID: 6772686914668760718}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -13926,24 +13926,24 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: -3449768753590703605}
+    second:
+    - {fileID: 2597979972136205207}
   - first: {fileID: -4728850018176080985}
     second: []
   - first: {fileID: -3712878869878628177}
     second:
     - {fileID: 2047347391110022803}
-  - first: {fileID: -3449768753590703605}
+  - first: {fileID: 8203116856330761921}
     second:
-    - {fileID: 2597979972136205207}
-  - first: {fileID: 2775813379831879780}
-    second:
-    - {fileID: 8592681046167304466}
+    - {fileID: 1551389849323976992}
   - first: {fileID: 3660711169614984399}
     second:
     - {fileID: -2089465421853869255}
     - {fileID: -6269514529502649152}
-  - first: {fileID: 8203116856330761921}
+  - first: {fileID: 2775813379831879780}
     second:
-    - {fileID: 1551389849323976992}
+    - {fileID: 8592681046167304466}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 310, y: -200, z: 0}
   m_EntryPosition: {x: 670, y: -330, z: 0}
