@@ -28,10 +28,6 @@ public class BossRecoveryHealthPoint : MonoBehaviour
         bossDamageHandler.damageEvent.AddListener(InitStandbyTime);
     }
 
-    private void Start()
-    {
-    }
-
     private void Update()
     {
         if (isActive)

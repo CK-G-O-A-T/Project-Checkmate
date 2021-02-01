@@ -27,6 +27,12 @@ public class BossDamageHandler : DamageHandler
     {
         Debug.Log($"Boss Damage Handle : {damageData}");
         aiMaster.currentHealthPoint -= (float)damageData.Damage;
+
+        if (aiMaster.currentHealthPoint <= 0)
+        {
+            aiMaster.currentHealthPoint = 0f;
+        }
+
         // aiMaster.groggyComponent.groggy += (float)damageData.GroggyPoint;
         DPSFunction(damageData.Damage);
         if (!aiMaster.isDead && aiMaster.currentHealthPoint <= 0)
@@ -34,19 +40,22 @@ public class BossDamageHandler : DamageHandler
             if (aiMaster.anim.GetBool("deadReady"))
             {
                 aiMaster.isDead = true;
-                aiMaster.anim.SetBool("isDead", true);
+                aiMaster.anim.SetBool("isDead", aiMaster.isDead);
             }
 
-            if (aiMaster.souls >= 0)
+            // 나중에 기술 생기면 함수 실행 순서를 바꿔줘야 함
+            if (aiMaster.isGroggy)
             {
-                --aiMaster.souls;
-                aiMaster.anim.SetTrigger("isGroggy");
                 aiMaster.currentHealthPoint = aiMaster.maxHealthPoint;
+                aiMaster.anim.SetTrigger("isCritical");
+                aiMaster.isGroggy = false;
+                return;
             }
-            else
+
+            if (aiMaster.souls >= 0 && !aiMaster.isGroggy)
             {
+                aiMaster.isGroggy = true;
                 aiMaster.anim.SetTrigger("isGroggy");
-                aiMaster.anim.SetBool("deadReady", true);
             }
         }
         damageEvent.Invoke();

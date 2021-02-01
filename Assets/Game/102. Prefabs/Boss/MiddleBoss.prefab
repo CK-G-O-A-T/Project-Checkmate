@@ -13211,7 +13211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossName: TempBoss
-  currentHealthPoint: 550
+  currentHealthPoint: 100
   souls: 1
   setRotationSpeed: 20
   isFirstStrike: 0
@@ -13220,22 +13220,23 @@ MonoBehaviour:
   bossDamageTriggerManager: {fileID: 0}
   changePhase2HealthPoint: 720
   hitSound: {fileID: 3295045567726327589}
-  groggyComponent: {fileID: 0}
-  jumpAttackComponent: {fileID: 2281632422236264067}
-  specialPatter: {fileID: 0}
   closeRangeAttackDistance: 10
   longRangeAttackDistance: 20
   trackingDistance: 30
+  angle: 360
   DebugOn: 1
   AgentNextPostiion: {x: 0, y: 0, z: 0}
+  animationHash: 0
   anim: {fileID: 3376680038660584132}
   isEvade: 0
   isMove: 1
   isGroggy: 0
   isDead: 0
   maxHealthPoint: 0
-  animationHash: 0
-  angle: 360
+  groggyComponent: {fileID: 0}
+  jumpAttackComponent: {fileID: 2281632422236264067}
+  specialPatternComponent: {fileID: 0}
+  bossRecoveryHPComponent: {fileID: 1419557386}
 --- !u!114 &8320291334544536078
 MonoBehaviour:
   m_ObjectHideFlags: 0
