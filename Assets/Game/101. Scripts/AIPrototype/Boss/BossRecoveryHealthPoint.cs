@@ -15,6 +15,7 @@ public class BossRecoveryHealthPoint : MonoBehaviour
 
     private float backupStandbyTime;
     private float oneSecond = 1f;
+    private bool isActive = true;
 
     private void Awake()
     {
@@ -33,17 +34,20 @@ public class BossRecoveryHealthPoint : MonoBehaviour
 
     private void Update()
     {
-        if (backupStandbyTime > 0)
+        if (isActive)
         {
-            backupStandbyTime -= Time.deltaTime;
-        }
-        else
-        {
-            oneSecond -= Time.deltaTime;
-            if (oneSecond <= 0 && aiMaster.currentHealthPoint < aiMaster.maxHealthPoint)
+            if (backupStandbyTime > 0)
             {
-                aiMaster.currentHealthPoint += recoveryHealthPoint;
-                oneSecond = 1f;
+                backupStandbyTime -= Time.deltaTime;
+            }
+            else
+            {
+                oneSecond -= Time.deltaTime;
+                if (oneSecond <= 0 && aiMaster.currentHealthPoint < aiMaster.maxHealthPoint)
+                {
+                    aiMaster.currentHealthPoint += recoveryHealthPoint;
+                    oneSecond = 1f;
+                }
             }
         }
     }
@@ -52,5 +56,16 @@ public class BossRecoveryHealthPoint : MonoBehaviour
     {
         backupStandbyTime = standbyTime;
         oneSecond = 1f;
+    }
+
+    public void StopRecovery()
+    {
+        isActive = false;
+        InitStandbyTime();
+    }
+
+    public void StartRecovery()
+    {
+        isActive = true;
     }
 }

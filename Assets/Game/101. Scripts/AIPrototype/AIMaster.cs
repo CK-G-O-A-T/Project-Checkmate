@@ -21,23 +21,17 @@ public class AIMaster : MonoBehaviour
     public int changePhase2HealthPoint;
     public StudioEventEmitter hitSound;
 
-    [Header("Groggy")]
-    public BossGroggyComponent groggyComponent;
-
-    [Header("Jump Attack")]
-    public BossJumpAttackComponent jumpAttackComponent;
-
-    [Header("Special Pattern")]
-    public BossSpecialPattern specialPatter;
-
     [Header("Distance Setting")]
     public float closeRangeAttackDistance;
     public float longRangeAttackDistance;
     public float trackingDistance;
+    [Range(1, 360)]
+    public float angle;
 
     [Header("Debug")]
     [SerializeField] private bool DebugOn = true;
     [SerializeField] private Vector3 AgentNextPostiion;
+    public int animationHash;
 
     private NavMeshAgent agent;
     private GameObject player;
@@ -50,7 +44,11 @@ public class AIMaster : MonoBehaviour
     [HideInInspector] public bool isDead = false;
     [HideInInspector] public float maxHealthPoint;
 
-    public int animationHash;
+    [Header("옵션")]
+    public BossGroggyComponent groggyComponent;
+    public BossJumpAttackComponent jumpAttackComponent;
+    public BossSpecialPattern specialPatternComponent;
+    public BossRecoveryHealthPoint bossRecoveryHPComponent;
 
     public Vector3 setAgentDestination
     {
@@ -320,9 +318,6 @@ public class AIMaster : MonoBehaviour
 
         return result;
     }
-
-    [Range(1, 360)]
-    public float angle;
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
